@@ -1,0 +1,55 @@
+import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:obourkom_driver/core/api/failure.dart';
+import 'package:obourkom_driver/features/register/data/repositories/register_repo.dart';
+part 'register_state.dart';
+
+class RegisterCubit extends Cubit<RegisterState> {
+  RegisterCubit({required this.registerRepository}) : super(RegisterState());
+  final RegisterRepository registerRepository;
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+
+  void register() async {
+    emit(state.copyWith(registerStatus: RegisterStatus.loading));
+    final data = {
+      'name': nameController.text,
+      'phone': '+966${phoneController.text}',
+      'type': 'driver',
+    };
+    try {
+      await registerRepository.register(data);
+      emit(state.copyWith(registerStatus: RegisterStatus.success));
+    } on ApiException catch (e) {
+      emit(
+        state.copyWith(
+          registerStatus: RegisterStatus.failure,
+          errorMessage: e.failure.message,
+        ),
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(
+          registerStatus: RegisterStatus.failure,
+          errorMessage: e.toString(),
+        ),
+      );
+    }
+  }
+
+
+
+  dispose() {
+    nameController.dispose();
+    phoneController.dispose();
+  }
+
+
+  @override
+  Future<void> close() {
+    dispose();
+    return super.close();
+  }
+}
