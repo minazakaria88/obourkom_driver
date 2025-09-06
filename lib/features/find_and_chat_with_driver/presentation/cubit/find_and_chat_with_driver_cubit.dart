@@ -21,7 +21,6 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
 
   final FindAndChatWithDriverRepository findAndChatWithDriverRepository;
 
-
   TextEditingController messageController = TextEditingController();
 
   StreamSubscription? messageStream;
@@ -89,25 +88,16 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
     );
   }
 
-  void pickImage({
-    required String orderId,
-    required String collection,
-    required String status,
-  }) async {
+  void pickImage() async {
     final ImagePicker picker = ImagePicker();
     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
     if (photo != null) {
-      uploadPickImage(
-        image: photo.path,
-        orderId: orderId,
-        collection: collection,
-        status: status,
-      );
+      logger.f(photo.path);
+      emit(state.copyWith(image: photo.path));
     }
   }
 
   void uploadPickImage({
-    required String image,
     required String orderId,
     required String collection,
     required String status,
@@ -117,7 +107,7 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
         state.copyWith(uploadPickImageStatus: UploadPickImageStatus.loading),
       );
       final imageModel = await findAndChatWithDriverRepository.uploadImage(
-        image: image,
+        image: state.image ?? '',
         collection: collection,
       );
       await changeOrderStatus(
@@ -126,7 +116,10 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
         imageUrl: imageModel.token,
       );
       emit(
-        state.copyWith(uploadPickImageStatus: UploadPickImageStatus.success),
+        state.copyWith(
+          uploadPickImageStatus: UploadPickImageStatus.success,
+          image: '',
+        ),
       );
     } on ApiException catch (e) {
       emit(

@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/core/utils/app_colors.dart';
 import 'package:obourkom_driver/core/widgets/my_button.dart';
-import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/offer_model.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/presentation/widgets/order_details_widget/change_supplier_widget.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/presentation/widgets/order_details_widget/send_image_widget.dart';
 import '../../../../core/helpers/cache_helper.dart';
@@ -93,7 +92,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   SliverToBoxAdapter(child: 10.height),
                    SliverToBoxAdapter(
                     child: SendImageWidget(
-                      onTap: (){},
+                      orderId: orderModel.id.toString(),
                     ),
                   ),
                   SliverToBoxAdapter(child: 10.height),

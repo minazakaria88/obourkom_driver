@@ -9,6 +9,7 @@ class FindAndChatWithDriverState extends Equatable {
   List<MessageModel>? messages;
   String? errorMessage;
   String ? orderStatus;
+  String ? image;
 
   UploadPickImageStatus ?uploadPickImageStatus = UploadPickImageStatus.initial;
 
@@ -18,7 +19,8 @@ class FindAndChatWithDriverState extends Equatable {
     this.messages,
     this.errorMessage,
     this.orderStatus,
-    this.uploadPickImageStatus
+    this.uploadPickImageStatus,
+    this.image
   });
 
   FindAndChatWithDriverState copyWith({
@@ -27,6 +29,7 @@ class FindAndChatWithDriverState extends Equatable {
     List<MessageModel>? messages,
     String? errorMessage,
     String? orderStatus,
+    String ?image,
     UploadPickImageStatus? uploadPickImageStatus
   }) {
     return FindAndChatWithDriverState(
@@ -35,7 +38,8 @@ class FindAndChatWithDriverState extends Equatable {
       messages: messages ?? this.messages,
       errorMessage: errorMessage ?? this.errorMessage,
       orderStatus: orderStatus ?? this.orderStatus,
-      uploadPickImageStatus: uploadPickImageStatus ?? this.uploadPickImageStatus
+      uploadPickImageStatus: uploadPickImageStatus ?? this.uploadPickImageStatus,
+      image: image ?? this.image,
     );
   }
 
@@ -46,6 +50,7 @@ class FindAndChatWithDriverState extends Equatable {
     messages,
     errorMessage,
     orderStatus,
-    uploadPickImageStatus
+    uploadPickImageStatus,
+    image
   ];
 }
