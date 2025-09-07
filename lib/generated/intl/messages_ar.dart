@@ -162,6 +162,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "notes": MessageLookupByLibrary.simpleMessage("ملاحظات"),
     "notifications": MessageLookupByLibrary.simpleMessage("الاشعارات"),
+    "offerSubmittedAndWaitingForReply": MessageLookupByLibrary.simpleMessage(
+      "تم ارسال العرض للعميل وفي انتظار الرد",
+    ),
     "onYourWay": MessageLookupByLibrary.simpleMessage("بالطريق لاستلام طلبك"),
     "openGps": MessageLookupByLibrary.simpleMessage(
       "لتقديم افضل خدمة وسهولة في الوصول يرجي تفعيل الموقع",
@@ -275,6 +278,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "userApp": MessageLookupByLibrary.simpleMessage(
       "اذا كنت عميل وتحتاج خدمة يرجي تحميل تطبيق المستخدم",
     ),
+    "waitingForReply": MessageLookupByLibrary.simpleMessage("في انتظار الرد"),
     "weCannotDetermineYourLocation": MessageLookupByLibrary.simpleMessage(
       "لا يمكننا التعرف علي موقعك",
     ),

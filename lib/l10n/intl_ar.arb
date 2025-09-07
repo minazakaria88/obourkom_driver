@@ -167,7 +167,9 @@
     "pleaseSubmitTheOrderAndPressTheButton":"قم بتسليم الطلب ومرر الزر",
     "delivered": "تم التسليم",
     "pleaseReceiveTheOrderAndPressTheButton":"قم باستلام الطلب وقم بتصويره ثم مرر الزر",
-    "received": "تم الإستلام"
+    "received": "تم الإستلام",
+    "waitingForReply": "في انتظار الرد",
+    "offerSubmittedAndWaitingForReply" : "تم ارسال العرض للعميل وفي انتظار الرد"
 
 
 

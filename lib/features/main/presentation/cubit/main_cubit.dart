@@ -46,7 +46,7 @@ class MainCubit extends Cubit<MainState> {
 
   void assignOrder(String order) {
     priceController.clear();
-    emit(state.copyWith(order: order,sendOfferState: SendOfferState.init));
+    emit(state.copyWith(order: order, sendOfferState: SendOfferState.init));
   }
 
   void sendOffer() async {
@@ -66,8 +66,7 @@ class MainCubit extends Cubit<MainState> {
           sendOfferState: SendOfferState.failure,
         ),
       );
-    }
-    catch (e) {
+    } catch (e) {
       logger.e(e);
       emit(
         state.copyWith(
@@ -89,6 +88,10 @@ class MainCubit extends Cubit<MainState> {
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString()));
     }
+  }
+
+  void cancelListenForOrderAccept() {
+    driverIdStream?.cancel();
   }
 
   void toggleSwitch(bool value) {

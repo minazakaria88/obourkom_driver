@@ -15,6 +15,7 @@ class SubmitOrderModel {
   String? updatedAt;
   String? createdAt;
   int? id;
+  String ? status;
 
   SubmitOrderModel(
       {this.fromLat,
@@ -31,6 +32,7 @@ class SubmitOrderModel {
         this.truckSizeId,
         this.typeService,
         this.updatedAt,
+        this.status,
         this.createdAt,
         this.id});
 
@@ -51,6 +53,7 @@ class SubmitOrderModel {
     updatedAt = json['updated_at'];
     createdAt = json['created_at'];
     id = json['id'];
+    status=json['status'];
   }
 
   Map<String, dynamic> toJson() {
@@ -71,6 +74,7 @@ class SubmitOrderModel {
     data['updated_at'] = updatedAt;
     data['created_at'] = createdAt;
     data['id'] = id;
+    data['status']=status;
     return data;
   }
 }

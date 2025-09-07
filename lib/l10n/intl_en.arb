@@ -164,7 +164,9 @@
   "pleaseSubmitTheOrderAndPressTheButton": "Submit the order and slide the button",
   "delivered": "Delivered",
   "pleaseReceiveTheOrderAndPressTheButton": "Receive the order, take a photo, then slide the button",
-  "received": "Received"
+  "received": "Received",
+  "waitingForReply": "Waiting For Reply",
+  "offerSubmittedAndWaitingForReply" : "Offer Submitted And Waiting For Reply"
 
 
 

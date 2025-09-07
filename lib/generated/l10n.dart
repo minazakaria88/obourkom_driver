@@ -1343,6 +1343,26 @@ class S {
   String get received {
     return Intl.message('Received', name: 'received', desc: '', args: []);
   }
+
+  /// `Waiting For Reply`
+  String get waitingForReply {
+    return Intl.message(
+      'Waiting For Reply',
+      name: 'waitingForReply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offer Submitted And Waiting For Reply`
+  String get offerSubmittedAndWaitingForReply {
+    return Intl.message(
+      'Offer Submitted And Waiting For Reply',
+      name: 'offerSubmittedAndWaitingForReply',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

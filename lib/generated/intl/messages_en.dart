@@ -167,6 +167,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "notes": MessageLookupByLibrary.simpleMessage("Notes"),
     "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+    "offerSubmittedAndWaitingForReply": MessageLookupByLibrary.simpleMessage(
+      "Offer Submitted And Waiting For Reply",
+    ),
     "onYourWay": MessageLookupByLibrary.simpleMessage("On Your Way"),
     "openGps": MessageLookupByLibrary.simpleMessage(
       "To provide the best service and ease of access, please enable your location",
@@ -291,6 +294,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "uploadPhotos": MessageLookupByLibrary.simpleMessage("Upload Photos"),
     "userApp": MessageLookupByLibrary.simpleMessage(
       "if you are a user and need our services download now user App",
+    ),
+    "waitingForReply": MessageLookupByLibrary.simpleMessage(
+      "Waiting For Reply",
     ),
     "weCannotDetermineYourLocation": MessageLookupByLibrary.simpleMessage(
       "We cannot determine your location",

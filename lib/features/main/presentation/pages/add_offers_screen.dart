@@ -1,4 +1,3 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:obourkom_driver/core/functions/show_snack_bar.dart';
@@ -54,9 +53,9 @@ class AddOffersScreen extends StatelessWidget {
               },
               builder: (context, state) {
                 return state.isSendOfferSuccess
-                    ? const MainWidget(
-                        text1: 'في انتظار الرد',
-                        text2: 'تم ارسال العرض للعميل وفي انتظار الرد',
+                    ?  MainWidget(
+                        text1: S.of(context).waitingForReply,
+                        text2: S.of(context).offerSubmittedAndWaitingForReply,
                         image: Assets.imagesWaiting,
                       )
                     : const SizedBox.shrink();

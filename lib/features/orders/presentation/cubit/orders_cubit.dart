@@ -28,7 +28,6 @@ class OrdersCubit extends Cubit<OrdersState> {
         }
 
           recentOrder.add(element);
-
       }
       emit(
         state.copyWith(

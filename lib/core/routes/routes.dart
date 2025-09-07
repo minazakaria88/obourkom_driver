@@ -13,7 +13,6 @@ class Routes {
   static const String aboutUs = '/aboutUs';
   static const String termsAndConditions = '/termsAndConditions';
   static const String privacyPolicy = '/privacyPolicy';
-  static const String findDriver = '/findDriver';
   static const String orderDetails = '/orderDetails';
   static const String completedOrderDetails = '/completedOrderDetails';
   static const String noInternet = '/noInternet';
