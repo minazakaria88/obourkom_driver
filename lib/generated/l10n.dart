@@ -1408,6 +1408,16 @@ class S {
   String get editOffer {
     return Intl.message('Edit Offer', name: 'editOffer', desc: '', args: []);
   }
+
+  /// `Order Completed Successfully`
+  String get orderCompletedSuccessfully {
+    return Intl.message(
+      'Order Completed Successfully',
+      name: 'orderCompletedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

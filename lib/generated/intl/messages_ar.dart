@@ -107,7 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "لم تستلم رمز التحقق؟",
     ),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
-    "editOffer": MessageLookupByLibrary.simpleMessage(""),
+    "editOffer": MessageLookupByLibrary.simpleMessage("تعديل العرض"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني *"),
     "enter": MessageLookupByLibrary.simpleMessage("دخول"),
     "enterDiscountCode": MessageLookupByLibrary.simpleMessage("ادخل كود الخصم"),
@@ -169,6 +169,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "onYourWay": MessageLookupByLibrary.simpleMessage("بالطريق لاستلام طلبك"),
     "openGps": MessageLookupByLibrary.simpleMessage(
       "لتقديم افضل خدمة وسهولة في الوصول يرجي تفعيل الموقع",
+    ),
+    "orderCompletedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم اكمال الطلب بنجاح",
     ),
     "orderDate": MessageLookupByLibrary.simpleMessage("تاريخ الطلب"),
     "orderDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الطلب"),

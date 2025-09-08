@@ -16,13 +16,11 @@ class OrderDetailsItemWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
-            child: Text(
-              '$title :',
-              style: AppTextStyles.bold14Grey,
-            ),
+          Text(
+            '$title :',
+            style: AppTextStyles.bold14Grey,
           ),
-          Expanded(
+          Flexible(
             child: Text(
               value,
               maxLines: 1,

@@ -171,7 +171,8 @@
   "youCanNotReceiveAnyOrders": "You Can Not Receive Any Orders",
   "searchInProgress": "Search In Progress",
   "searchForOrdersNearYourLocation": "Search For Orders Near Your Location",
-  "editOffer": "Edit Offer"
+  "editOffer": "Edit Offer",
+  "orderCompletedSuccessfully": "Order Completed Successfully"
 
 
 

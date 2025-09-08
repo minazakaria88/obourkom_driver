@@ -31,6 +31,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           : null,
       title: Text(title),
       actions: actions,
+      centerTitle: !canPop,
       bottom: const BottomAppBarWidget(),
     );
   }

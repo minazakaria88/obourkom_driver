@@ -88,7 +88,8 @@ class EditOfferWidget extends StatelessWidget {
           BlocConsumer<FindAndChatWithDriverCubit, FindAndChatWithDriverState>(
             listener: (context, state) {},
             builder: (context, state) {
-              return statusToNumber[state.orderStatus]! >= 1
+              logger.d(state.orderStatus);
+              return statusToNumber[state.orderStatus]==null || statusToNumber[state.orderStatus]! >= 1
                   ? const SizedBox.shrink()
                   : MyButton(title: S.of(context).editOffer, onTap: () {});
             },

@@ -174,7 +174,8 @@
     "youCanNotReceiveAnyOrders": "لن يمكنك تلقي اي طلبات",
     "searchInProgress": "جاري البحث...",
     "searchForOrdersNearYourLocation":"يتم الان البحث عن طلبات بالقرب من موقعك",
-    "editOffer": ""
+    "editOffer": "تعديل العرض",
+    "orderCompletedSuccessfully": "تم اكمال الطلب بنجاح"
 
 
 

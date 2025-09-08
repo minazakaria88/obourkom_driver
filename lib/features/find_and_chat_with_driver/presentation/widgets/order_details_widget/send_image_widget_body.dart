@@ -22,7 +22,7 @@ class SendImageWidgetBody extends StatelessWidget {
   final String title2;
   final Function onSubmit;
   final Function uploadImage;
-  final String image;
+  final String ?image;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class SendImageWidgetBody extends StatelessWidget {
           20.height,
           if (!image.isNullOrEmpty())
             Image.file(
-              File(image),
+              File(image!),
               height: 100,
               fit: BoxFit.fill,
               width: double.infinity,

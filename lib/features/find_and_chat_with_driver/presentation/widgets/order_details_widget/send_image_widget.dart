@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/core/utils/constant.dart';
 import 'package:obourkom_driver/core/widgets/loading_widget.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/presentation/widgets/order_details_widget/send_image_widget_body.dart';
@@ -34,11 +35,12 @@ class SendImageWidget extends StatelessWidget {
                 },
                 image: state.image ?? '',
                 onSubmit: () {
+                  if(!state.image.isNullOrEmpty()){
                   cubit.uploadPickImage(
                     orderId: orderId,
                     collection: 'finished_images',
                     status: delivered,
-                  );
+                  );}
                 },
                 title1: S.of(context).pleaseSubmitTheOrderAndPressTheButton,
                 title2: S.of(context).delivered,
@@ -52,13 +54,16 @@ class SendImageWidget extends StatelessWidget {
             children: [
               SendImageWidgetBody(
                 onSubmit: () {
-                  cubit.uploadPickImage(
-                    orderId: orderId,
-                    collection: 'processed_images',
-                    status: onTheWayToDelivery,
-                  );
+                  if(!state.image.isNullOrEmpty()){
+                    cubit.uploadPickImage(
+                      orderId: orderId,
+                      collection: 'processed_images',
+                      status: onTheWayToDelivery,
+                    );
+                  }
+
                 },
-                image: state.image ?? '',
+                image: state.image,
                 uploadImage: () {
                   cubit.pickImage();
                 },

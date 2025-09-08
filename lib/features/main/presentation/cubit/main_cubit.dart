@@ -107,6 +107,7 @@ class MainCubit extends Cubit<MainState> {
   @override
   Future<void> close() {
     driverIdStream?.cancel();
+    ordersStream?.cancel();
     priceController.dispose();
     return super.close();
   }

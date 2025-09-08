@@ -68,6 +68,7 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
       orderStatusStream = findAndChatWithDriverRepository
           .getOrderStatus(orderId: orderId)
           .listen((status) {
+            logger.i(status);
             emit(state.copyWith(orderStatus: status));
           });
       logger.d(state.orderStatus);
@@ -110,6 +111,7 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
         image: state.image ?? '',
         collection: collection,
       );
+      logger.i('✅ Upload finished, got token: ${imageModel.token}');
       await changeOrderStatus(
         orderId: orderId,
         status: status,

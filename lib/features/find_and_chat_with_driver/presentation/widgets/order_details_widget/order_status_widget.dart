@@ -18,7 +18,7 @@ class OrderStatusWidget extends StatelessWidget {
       listenWhen: (previous, current) => previous.orderStatus!=current.orderStatus,
       listener: (context, state) {
         if (state.orderStatus == delivered) {
-          context.pushNamedAndRemoveUntil(Routes.home, (r) => false);
+          context.pushNamedAndRemoveUntil(Routes.finishOrderScreen, (r) => false);
         }
       },
       buildWhen: (previous, current) =>

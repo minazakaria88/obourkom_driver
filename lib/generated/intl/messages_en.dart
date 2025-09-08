@@ -175,6 +175,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "openGps": MessageLookupByLibrary.simpleMessage(
       "To provide the best service and ease of access, please enable your location",
     ),
+    "orderCompletedSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Order Completed Successfully",
+    ),
     "orderDate": MessageLookupByLibrary.simpleMessage("Order Date"),
     "orderDetails": MessageLookupByLibrary.simpleMessage("Order Details"),
     "orderNumber": MessageLookupByLibrary.simpleMessage("Order Number"),
