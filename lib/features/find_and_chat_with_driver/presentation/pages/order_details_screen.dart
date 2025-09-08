@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
-import 'package:obourkom_driver/core/utils/app_colors.dart';
+import 'package:obourkom_driver/core/utils/constant.dart';
 import 'package:obourkom_driver/core/widgets/my_button.dart';
-import 'package:obourkom_driver/features/find_and_chat_with_driver/presentation/widgets/order_details_widget/change_supplier_widget.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/presentation/widgets/order_details_widget/send_image_widget.dart';
 import '../../../../core/helpers/cache_helper.dart';
 import '../../../../core/widgets/my_app_bar.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../orders/data/models/submit_order_model.dart';
-import '../../../profile/presentation/widgets/profile_screen_widgets/background_profile_widget.dart';
 import '../cubit/find_and_chat_with_driver_cubit.dart';
 import '../widgets/finding_driver_widgets/order_details_widget.dart';
 import '../widgets/order_details_widget/chat_listview.dart';
@@ -20,10 +18,7 @@ import '../widgets/order_details_widget/order_status_widget.dart';
 import '../widgets/order_details_widget/send_message_widget.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
-  const OrderDetailsScreen({
-    super.key,
-    required this.orderModel,
-  });
+  const OrderDetailsScreen({super.key, required this.orderModel});
   final SubmitOrderModel orderModel;
   @override
   Widget build(BuildContext context) {
@@ -55,45 +50,10 @@ class OrderDetailsScreen extends StatelessWidget {
                     child: OrderDetailsWidget(model: orderModel),
                   ),
                   SliverToBoxAdapter(child: 10.height),
-                  SliverToBoxAdapter(
-                    child: BackgroundProfileWidget(
-                      child: SizedBox(
-                        height: 65,
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: MyButton(
-                                title: S.of(context).payNow,
-                                onTap: () {},
-                              ),
-                            ),
-                            Expanded(
-                              child: MyButton(
-                                title: S.of(context).changeSupplier,
-                                onTap: () {
-                                  showDialog(
-                                    context: context,
-                                    builder: (_) => ChangeSupplierWidget(
-                                      onTap: () {
-
-                                      },
-                                    ),
-                                  );
-                                },
-                                textColor: Colors.black,
-                                color: AppColors.greyColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  const EditOfferWidget(),
                   SliverToBoxAdapter(child: 10.height),
-                   SliverToBoxAdapter(
-                    child: SendImageWidget(
-                      orderId: orderModel.id.toString(),
-                    ),
+                  SliverToBoxAdapter(
+                    child: SendImageWidget(orderId: orderModel.id.toString()),
                   ),
                   SliverToBoxAdapter(child: 10.height),
                   SliverToBoxAdapter(child: 20.height),
@@ -107,11 +67,32 @@ class OrderDetailsScreen extends StatelessWidget {
             SendMessageWidget(
               cubit: cubit,
               orderId: orderModel.id.toString(),
-              driverId: CacheHelper.getData(key: CacheHelperKeys.customerId).toString(),
+              driverId: CacheHelper.getData(
+                key: CacheHelperKeys.customerId,
+              ).toString(),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class EditOfferWidget extends StatelessWidget {
+  const EditOfferWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(
+      child:
+          BlocConsumer<FindAndChatWithDriverCubit, FindAndChatWithDriverState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              return statusToNumber[state.orderStatus]! >= 1
+                  ? const SizedBox.shrink()
+                  : MyButton(title: S.of(context).editOffer, onTap: () {});
+            },
+          ),
     );
   }
 }

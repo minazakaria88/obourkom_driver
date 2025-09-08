@@ -1403,6 +1403,11 @@ class S {
       args: [],
     );
   }
+
+  /// `Edit Offer`
+  String get editOffer {
+    return Intl.message('Edit Offer', name: 'editOffer', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

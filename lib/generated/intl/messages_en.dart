@@ -111,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Don\'t receive the code?",
     ),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+    "editOffer": MessageLookupByLibrary.simpleMessage("Edit Offer"),
     "email": MessageLookupByLibrary.simpleMessage("Email *"),
     "enter": MessageLookupByLibrary.simpleMessage("Enter"),
     "enterDiscountCode": MessageLookupByLibrary.simpleMessage(

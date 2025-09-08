@@ -170,7 +170,8 @@
   "youAreNotConnected": "You Are Not Connected",
   "youCanNotReceiveAnyOrders": "You Can Not Receive Any Orders",
   "searchInProgress": "Search In Progress",
-  "searchForOrdersNearYourLocation": "Search For Orders Near Your Location"
+  "searchForOrdersNearYourLocation": "Search For Orders Near Your Location",
+  "editOffer": "Edit Offer"
 
 
 

@@ -173,7 +173,8 @@
     "youAreNotConnected": "انت الان غير متصل",
     "youCanNotReceiveAnyOrders": "لن يمكنك تلقي اي طلبات",
     "searchInProgress": "جاري البحث...",
-    "searchForOrdersNearYourLocation":"يتم الان البحث عن طلبات بالقرب من موقعك"
+    "searchForOrdersNearYourLocation":"يتم الان البحث عن طلبات بالقرب من موقعك",
+    "editOffer": ""
 
 
 

@@ -107,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "لم تستلم رمز التحقق؟",
     ),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
+    "editOffer": MessageLookupByLibrary.simpleMessage(""),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني *"),
     "enter": MessageLookupByLibrary.simpleMessage("دخول"),
     "enterDiscountCode": MessageLookupByLibrary.simpleMessage("ادخل كود الخصم"),
