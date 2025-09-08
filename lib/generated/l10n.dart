@@ -1363,6 +1363,46 @@ class S {
       args: [],
     );
   }
+
+  /// `You Are Not Connected`
+  String get youAreNotConnected {
+    return Intl.message(
+      'You Are Not Connected',
+      name: 'youAreNotConnected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You Can Not Receive Any Orders`
+  String get youCanNotReceiveAnyOrders {
+    return Intl.message(
+      'You Can Not Receive Any Orders',
+      name: 'youCanNotReceiveAnyOrders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search In Progress`
+  String get searchInProgress {
+    return Intl.message(
+      'Search In Progress',
+      name: 'searchInProgress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search For Orders Near Your Location`
+  String get searchForOrdersNearYourLocation {
+    return Intl.message(
+      'Search For Orders Near Your Location',
+      name: 'searchForOrdersNearYourLocation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -257,6 +257,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "request": MessageLookupByLibrary.simpleMessage("Request"),
     "resend": MessageLookupByLibrary.simpleMessage("Resend"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
+    "searchForOrdersNearYourLocation": MessageLookupByLibrary.simpleMessage(
+      "Search For Orders Near Your Location",
+    ),
+    "searchInProgress": MessageLookupByLibrary.simpleMessage(
+      "Search In Progress",
+    ),
     "searchOnMap": MessageLookupByLibrary.simpleMessage("Search on Map"),
     "serviceType": MessageLookupByLibrary.simpleMessage("Service Type"),
     "setAsPrimary": MessageLookupByLibrary.simpleMessage("Set As Primary"),
@@ -315,5 +321,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Write your notes here",
     ),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
+    "youAreNotConnected": MessageLookupByLibrary.simpleMessage(
+      "You Are Not Connected",
+    ),
+    "youCanNotReceiveAnyOrders": MessageLookupByLibrary.simpleMessage(
+      "You Can Not Receive Any Orders",
+    ),
   };
 }

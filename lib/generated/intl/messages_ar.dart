@@ -250,6 +250,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "request": MessageLookupByLibrary.simpleMessage("طلب"),
     "resend": MessageLookupByLibrary.simpleMessage("اعادة الارسال"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
+    "searchForOrdersNearYourLocation": MessageLookupByLibrary.simpleMessage(
+      "يتم الان البحث عن طلبات بالقرب من موقعك",
+    ),
+    "searchInProgress": MessageLookupByLibrary.simpleMessage("جاري البحث..."),
     "searchOnMap": MessageLookupByLibrary.simpleMessage("ابحث في الخريطة"),
     "serviceType": MessageLookupByLibrary.simpleMessage("نوع الخدمة"),
     "setAsPrimary": MessageLookupByLibrary.simpleMessage("تعيين كرئيسي"),
@@ -292,5 +296,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "اكتب ملاحظاتك هنا",
     ),
     "yes": MessageLookupByLibrary.simpleMessage("نعم"),
+    "youAreNotConnected": MessageLookupByLibrary.simpleMessage(
+      "انت الان غير متصل",
+    ),
+    "youCanNotReceiveAnyOrders": MessageLookupByLibrary.simpleMessage(
+      "لن يمكنك تلقي اي طلبات",
+    ),
   };
 }

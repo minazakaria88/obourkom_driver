@@ -57,19 +57,19 @@ class MainScreen extends StatelessWidget {
           25.height,
           BlocBuilder<MainCubit, MainState>(
             builder: (context, state) => !state.available!
-                ? const Expanded(
+                ?  Expanded(
                     child: MainWidget(
-                      text1: 'انت الان غير متصل',
-                      text2: 'لن يمكنك تلقي اي طلبات',
+                      text1: S.of(context).youAreNotConnected,
+                      text2: S.of(context).youCanNotReceiveAnyOrders,
                       image: Assets.imagesStop,
                     ),
                   )
                 : state.ordersIds == null || state.ordersIds!.isEmpty
-                ? const Expanded(
+                ?  Expanded(
                     child: MainWidget(
                       image: Assets.imagesOfflineBolt,
-                      text1: 'جاري البحث...',
-                      text2: 'يتم الان البحث عن طلبات بالقرب من موقعك',
+                      text1: S.of(context).searchInProgress,
+                      text2: S.of(context).searchForOrdersNearYourLocation,
                     ),
                   )
                 : Expanded(

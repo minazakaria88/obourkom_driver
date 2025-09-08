@@ -25,9 +25,18 @@ class SwitchStatusWidget extends StatelessWidget {
         showBottomSheet(
           context: context,
           builder: (context) => Container(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(15),
+            margin: const EdgeInsets.all(5),
+
             decoration: const BoxDecoration(
               color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  offset:Offset(0, 0) ,
+                  color: Colors.grey,
+                  blurRadius: 24
+                )
+              ],
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(16),
                 topLeft: Radius.circular(16),

@@ -22,7 +22,7 @@ class MyButton extends StatelessWidget {
         onTap();
       },
       child: Container(
-        padding: const EdgeInsets.all(8),
+        //padding: const EdgeInsets.all(8),
         margin: const EdgeInsets.all(8),
         width: double.infinity,
         height: 56,

@@ -169,7 +169,11 @@
     "pleaseReceiveTheOrderAndPressTheButton":"قم باستلام الطلب وقم بتصويره ثم مرر الزر",
     "received": "تم الإستلام",
     "waitingForReply": "في انتظار الرد",
-    "offerSubmittedAndWaitingForReply" : "تم ارسال العرض للعميل وفي انتظار الرد"
+    "offerSubmittedAndWaitingForReply" : "تم ارسال العرض للعميل وفي انتظار الرد",
+    "youAreNotConnected": "انت الان غير متصل",
+    "youCanNotReceiveAnyOrders": "لن يمكنك تلقي اي طلبات",
+    "searchInProgress": "جاري البحث...",
+    "searchForOrdersNearYourLocation":"يتم الان البحث عن طلبات بالقرب من موقعك"
 
 
 

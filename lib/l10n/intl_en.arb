@@ -166,7 +166,12 @@
   "pleaseReceiveTheOrderAndPressTheButton": "Receive the order, take a photo, then slide the button",
   "received": "Received",
   "waitingForReply": "Waiting For Reply",
-  "offerSubmittedAndWaitingForReply" : "Offer Submitted And Waiting For Reply"
+  "offerSubmittedAndWaitingForReply" : "Offer Submitted And Waiting For Reply",
+  "youAreNotConnected": "You Are Not Connected",
+  "youCanNotReceiveAnyOrders": "You Can Not Receive Any Orders",
+  "searchInProgress": "Search In Progress",
+  "searchForOrdersNearYourLocation": "Search For Orders Near Your Location"
+
 
 
 
