@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:obourkom_driver/core/helpers/cache_helper.dart';
 import 'package:obourkom_driver/core/routes/routes.dart';
+import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 import 'package:obourkom_driver/features/main/presentation/cubit/main_cubit.dart';
 import 'package:obourkom_driver/features/main/presentation/pages/add_offers_screen.dart';
 import '../../features/find_and_chat_with_driver/presentation/cubit/find_and_chat_with_driver_cubit.dart';
@@ -126,11 +127,13 @@ class AppRoues {
           builder: (context) => CustomErrorWidget(error: arguments),
         );
       case Routes.addOfferScreen:
-        final arguments = setting.arguments as MainCubit;
+        final arguments = setting.arguments as Map<String,dynamic>;
+        final cubit= arguments['cubit'] as MainCubit;
+        final orderModel=arguments['model'] as FirebaseOrderModel;
         return MaterialPageRoute(
           builder: (context) => BlocProvider.value(
-            value: arguments,
-            child: const AddOffersScreen(),
+            value: cubit,
+            child:  AddOffersScreen(model: orderModel,),
           ),
         );
       case Routes.finishOrderScreen:

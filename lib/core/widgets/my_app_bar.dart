@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
-
 import '../utils/app_colors.dart';
 import 'bottom_app_bar_widget.dart';
 

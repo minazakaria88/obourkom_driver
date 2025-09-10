@@ -10,6 +10,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   final RegisterRepository registerRepository;
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+
   final formKey = GlobalKey<FormState>();
 
   void register() async {
@@ -17,6 +19,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     final data = {
       'name': nameController.text,
       'phone': '+966${phoneController.text}',
+      'email': emailController.text,
       'type': 'driver',
     };
     try {
@@ -44,6 +47,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   dispose() {
     nameController.dispose();
     phoneController.dispose();
+    emailController.dispose();
   }
 
 

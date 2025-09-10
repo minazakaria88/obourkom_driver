@@ -19,6 +19,7 @@ class OrderMainWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         SvgPicture.asset(
           image,
@@ -30,7 +31,15 @@ class OrderMainWidget extends StatelessWidget {
         10.width,
         Text(title, style: AppTextStyles.regular12Grey.copyWith(fontSize: 14)),
         const Spacer(),
-        Text(value, style: AppTextStyles.bold14MainColor),
+        Flexible(
+          child: Text(
+            value,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: AppTextStyles.bold14MainColor,
+            textAlign: TextAlign.end,
+          ),
+        ),
       ],
     );
   }

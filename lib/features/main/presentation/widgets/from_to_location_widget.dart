@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
+import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
@@ -7,15 +8,18 @@ import '../../../../generated/l10n.dart';
 
 class FromToLocationWidget extends StatelessWidget {
   const FromToLocationWidget({
-    super.key,
+    super.key, required this.model,
   });
+  final FirebaseOrderModel model;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 S.of(context).from,
@@ -23,19 +27,19 @@ class FromToLocationWidget extends StatelessWidget {
                     .copyWith(fontSize: 14),
               ),
               const Spacer(),
-              const Text(
-                'علي بعد 1.0 كم',
-                style: TextStyle(
+               Text(
+                'علي بعد ${model.distanceBetweenDriverAndPickup} كم',
+                style: const TextStyle(
                   color: AppColors.greenColor,
                 ),
               ),
             ],
           ),
           10.height,
-          const Text(
-            '6660 رباح مولي ابن حججي، BCAB3985، 3985، العقيق 65915، المملكة العربية السعودية',
+           Text(
+            model.fromAddress,
             maxLines: 1,
-            style: TextStyle(color: Color(0xff616A6B)),
+            style: const TextStyle(color: Color(0xff616A6B)),
             overflow: TextOverflow.ellipsis,
           ),
           30.height,
@@ -48,19 +52,19 @@ class FromToLocationWidget extends StatelessWidget {
                     .copyWith(fontSize: 14),
               ),
               const Spacer(),
-              const Text(
-                'علي بعد 1.0 كم',
-                style: TextStyle(
+               Text(
+                'علي بعد ${model.distanceBetweenDriverAndDropOff} كم',
+                style: const TextStyle(
                   color: AppColors.greenColor,
                 ),
               ),
             ],
           ),
           10.height,
-          const Text(
-            '6660 رباح مولي ابن حججي، BCAB3985، 3985، العقيق 65915، المملكة العربية السعودية',
+           Text(
+            model.toAddress,
             maxLines: 1,
-            style: TextStyle(color: Color(0xff616A6B)),
+            style: const TextStyle(color: Color(0xff616A6B)),
             overflow: TextOverflow.ellipsis,
           ),
         ],

@@ -118,6 +118,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   ),
                                 ),
                               ),
+                              15.height,
+                              Text(
+                                S.of(context).email,
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              10.height,
+                              MyTextFormField(
+                                controller: cubit.emailController,
+                                validator: (String? value) {
+                                  return ValidationClass.validateEmail(
+                                    value,
+                                    context,
+                                  );
+                                },
+                                textInputType: TextInputType.emailAddress,
+                                hint: 'name@example.com',
+                              ),
+                              15.height,
 
 
                               15.height,

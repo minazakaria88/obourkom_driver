@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 import 'package:obourkom_driver/features/main/data/repositories/main_repo.dart';
 import '../../../../core/api/failure.dart';
 import '../../../../core/utils/constant.dart';
@@ -104,11 +105,20 @@ class MainCubit extends Cubit<MainState> {
     }
   }
 
+  void reset() {
+    emit(state.copyWith(available: false));
+    cancelOrderStream();
+    driverIdStream?.cancel();
+    priceController.clear();
+  }
+
+
+
   @override
   Future<void> close() {
     driverIdStream?.cancel();
-    ordersStream?.cancel();
     priceController.dispose();
+    cancelOrderStream();
     return super.close();
   }
 }

@@ -15,6 +15,8 @@ class SendImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<FindAndChatWithDriverCubit, FindAndChatWithDriverState>(
+      listenWhen: (previous, current) =>
+          previous.uploadPickImageStatus != current.uploadPickImageStatus,
       listener: (context, state) {
         if (state.uploadPickImageStatus == UploadPickImageStatus.failure) {
           showToastification(

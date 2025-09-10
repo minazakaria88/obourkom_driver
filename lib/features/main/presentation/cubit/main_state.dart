@@ -16,7 +16,7 @@ class MainState extends Equatable {
   bool? available;
   GetOrdersState? getOrdersState;
   SendOfferState? sendOfferState;
-  List<String>? ordersIds;
+  List<FirebaseOrderModel>? ordersIds;
   String ? order;
   String ? driverId;
 
@@ -34,7 +34,7 @@ class MainState extends Equatable {
     GetOrdersState? getOrdersState,
     String? errorMessage,
     bool? available,
-    List<String>? ordersIds,
+    List<FirebaseOrderModel>? ordersIds,
     SendOfferState? sendOfferState,
     String ? order,
     String ?driverId

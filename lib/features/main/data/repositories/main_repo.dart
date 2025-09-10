@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:obourkom_driver/core/api/api_helper.dart';
+import 'package:obourkom_driver/core/functions/determine_position.dart';
+import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 
 import '../../../../core/api/end_point.dart';
 import '../../../../core/api/failure.dart';
@@ -11,12 +13,23 @@ class MainRepository {
 
   final firestore = FirebaseFirestore.instance.collection('orders');
 
-  Stream<List<String>> listenForOrders() {
-    return firestore
-        .orderBy('created_at',descending: true)
+  Stream<List<FirebaseOrderModel>> listenForOrders() async* {
+    final position = await determinePosition();
+    yield* firestore
+        .orderBy('created_at', descending: true)
         .where('status', isEqualTo: 'available')
         .snapshots()
-        .map((e) => e.docs.map((e) => e['id'].toString()).toList());
+        .map(
+          (e) => e.docs
+              .map(
+                (e) => FirebaseOrderModel.fromJson(
+                  e.data(),
+                  position.latitude,
+                  position.longitude,
+                ),
+              )
+              .toList(),
+        );
   }
 
   Future<void> sendOffer({
@@ -37,6 +50,6 @@ class MainRepository {
   }
 
   Stream<String> listenForDriverId(String orderId) {
-    return firestore.doc(orderId).snapshots().map((e) => e['driver_id']);
+    return firestore.doc(orderId).snapshots().map((e) => e['driver_id'].toString());
   }
 }
