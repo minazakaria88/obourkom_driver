@@ -19,18 +19,21 @@ class OrderMainWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SvgPicture.asset(
-          image,
-          colorFilter: const ColorFilter.mode(
-            AppColors.mainColor,
-            BlendMode.srcIn,
-          ),
+        Row(
+          children: [
+            SvgPicture.asset(
+              image,
+              colorFilter: const ColorFilter.mode(
+                AppColors.mainColor,
+                BlendMode.srcIn,
+              ),
+            ),
+            10.width,
+            Text(title, style: AppTextStyles.regular12Grey.copyWith(fontSize: 14)),
+          ],
         ),
-        10.width,
-        Text(title, style: AppTextStyles.regular12Grey.copyWith(fontSize: 14)),
-        const Spacer(),
         Flexible(
           child: Text(
             value,

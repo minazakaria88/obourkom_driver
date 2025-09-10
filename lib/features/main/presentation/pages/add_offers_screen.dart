@@ -13,19 +13,19 @@ import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../orders/data/models/submit_order_model.dart';
 import '../widgets/add_offers_widgets/add_offer_button.dart';
+import '../widgets/add_offers_widgets/add_offer_disaplw_widget.dart';
 import '../widgets/add_offers_widgets/selected_order_details.dart';
-
 
 class AddOffersScreen extends StatelessWidget {
   const AddOffersScreen({super.key, required this.model});
-   final FirebaseOrderModel model;
+  final FirebaseOrderModel model;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(title: S.of(context).details),
       body: CustomScrollView(
         slivers: [
-           SliverToBoxAdapter(child: SelectedOrderDetails(model: model,)),
+          SliverToBoxAdapter(child: SelectedOrderDetails(model: model)),
           SliverFillRemaining(
             hasScrollBody: false,
             child: BlocConsumer<MainCubit, MainState>(
@@ -51,7 +51,7 @@ class AddOffersScreen extends StatelessWidget {
                 }
                 if (state.isSendOfferFail) {
                   showToastification(
-                    message: state.errorMessage??'',
+                    message: state.errorMessage ?? '',
                     context: context,
                     type: ToastificationType.error,
                   );
@@ -59,7 +59,7 @@ class AddOffersScreen extends StatelessWidget {
               },
               builder: (context, state) {
                 return state.isSendOfferSuccess
-                    ?  MainWidget(
+                    ? MainWidget(
                         text1: S.of(context).waitingForReply,
                         text2: S.of(context).offerSubmittedAndWaitingForReply,
                         image: Assets.imagesWaiting,
@@ -70,7 +70,13 @@ class AddOffersScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: const AddOfferButton(),
+      bottomNavigationBar: BlocBuilder<MainCubit, MainState>(
+        buildWhen: (previous, current) =>
+            previous.sendOfferState != current.sendOfferState,
+        builder: (context, state) {
+          return state.sendOfferState == SendOfferState.success? const AddOfferDisableWidget(): const AddOfferButton();
+        },
+      ),
     );
   }
 }

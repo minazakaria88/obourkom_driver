@@ -45,6 +45,7 @@ class AddOfferWidget extends StatelessWidget {
                         20.height,
                         Text(
                           S.of(context).confirmAddingOffer,
+                          textAlign: TextAlign.center,
                           style: AppTextStyles.bold18Black,
                         ),
                         20.height,
