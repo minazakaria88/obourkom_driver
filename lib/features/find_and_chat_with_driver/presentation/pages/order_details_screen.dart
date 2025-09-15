@@ -55,7 +55,6 @@ class OrderDetailsScreen extends StatelessWidget {
                     child: SendImageWidget(orderId: orderModel.id.toString()),
                   ),
                   SliverToBoxAdapter(child: 10.height),
-                  SliverToBoxAdapter(child: 20.height),
                  // const SliverToBoxAdapter(child: DriverDetails()),
                   SliverToBoxAdapter(child: 20.height),
                   const ChatListview(),
