@@ -47,7 +47,7 @@ class MainCubit extends Cubit<MainState> {
 
   void assignOrder(String order) {
     priceController.clear();
-    emit(state.copyWith(order: order, sendOfferState: SendOfferState.init));
+    emit(state.copyWith(order: order, sendOfferState: SendOfferState.init,driverId: ''));
   }
 
   void sendOffer() async {

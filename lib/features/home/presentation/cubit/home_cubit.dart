@@ -25,7 +25,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   List<Widget> screens = [
     BlocProvider(
-      create: (context) => getIt<MainCubit>()..listenForOrders(),
+      create: (context) => getIt<MainCubit>(),
       child: const MainScreen(),
     ),
     BlocProvider(

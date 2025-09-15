@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:obourkom_driver/core/helpers/cache_helper.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
+import 'package:obourkom_driver/core/utils/constant.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/offer_model.dart';
 import 'package:obourkom_driver/features/orders/data/models/order_model.dart';
 import '../../../../../core/routes/routes.dart';
@@ -54,7 +55,8 @@ class OrderListviewItemWidget extends StatelessWidget {
               return;
             }
             Offer offer= model.offers!.where((e)=>e.id==model.acceptedOfferId).first;
-            if(offer.driverId==CacheHelper.getData(key: CacheHelperKeys.customerId)) {
+            logger.i(offer.driverId);
+            if(offer.driverId!=CacheHelper.getData(key: CacheHelperKeys.customerId)) {
               return;
             }
             context.pushNamed(

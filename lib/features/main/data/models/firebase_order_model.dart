@@ -1,4 +1,3 @@
-import 'package:obourkom_driver/core/utils/constant.dart';
 
 import '../../../../core/functions/calculate_distance.dart';
 
@@ -78,9 +77,6 @@ class FirebaseOrderModel {
       lat2: (json['to_lat'] as num).toDouble(),
       lon2: (json['to_lng'] as num).toDouble(),
     )/1000;
-    logger.i(tripDistance);
-    logger.i(distanceBetweenDriverAndDropOff);
-    logger.i(distanceBetweenDriverAndPickup);
     return FirebaseOrderModel(
       toLat: (json['to_lat'] as num).toDouble(),
       driverId: json['driver_id'] ?? '',
