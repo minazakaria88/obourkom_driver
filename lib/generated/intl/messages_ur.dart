@@ -174,6 +174,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "offerSubmittedAndWaitingForReply": MessageLookupByLibrary.simpleMessage(
       "پیشکش کلائنٹ کو بھیجی گئی، جواب کا انتظار ہے",
     ),
+    "onTheWayToDelivery": MessageLookupByLibrary.simpleMessage(
+      "آپ کوئی آرڈر پر رہا ہے",
+    ),
+    "onTheWayToPickup": MessageLookupByLibrary.simpleMessage(
+      "آپ کوئی آرڈر پر رہا ہے",
+    ),
     "onYourWay": MessageLookupByLibrary.simpleMessage(
       "آپ کا آرڈر لینے کے لئے راستے میں",
     ),

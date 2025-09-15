@@ -18,6 +18,7 @@ class SelectedOrderDetails extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ExpansionTile(
+          initiallyExpanded: true,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),

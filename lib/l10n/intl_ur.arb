@@ -175,5 +175,7 @@
   "searchInProgress": "تلاش جاری ہے...",
   "searchForOrdersNearYourLocation": "آپ کے قریب آرڈرز تلاش کیے جا رہے ہیں",
   "editOffer": "پیشکش میں ترمیم کریں",
-  "orderCompletedSuccessfully": "آرڈر کامیابی سے مکمل ہو گیا"
+  "orderCompletedSuccessfully": "آرڈر کامیابی سے مکمل ہو گیا",
+  "onTheWayToPickup": "آپ کوئی آرڈر پر رہا ہے",
+  "onTheWayToDelivery": "آپ کوئی آرڈر پر رہا ہے"
 }

@@ -96,7 +96,7 @@ class OrderListviewItemWidget extends StatelessWidget {
                       children: [
                         10.width,
                         SvgPicture.asset(
-                          model.status == 'waiting'
+                          model.status != 'delivered'
                               ? Assets.imagesPending
                               : Assets.imagesProfile,
                         ),
@@ -113,7 +113,7 @@ class OrderListviewItemWidget extends StatelessWidget {
                       title: S.of(context).orderNumber,
                     ),
                     OrderDetailsItemWidget(
-                      value: model.truckSize!.name ?? '',
+                      value: model.typeService ?? '',
                       title: S.of(context).serviceType,
                     ),
                     OrderDetailsItemWidget(

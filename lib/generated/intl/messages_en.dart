@@ -171,6 +171,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "offerSubmittedAndWaitingForReply": MessageLookupByLibrary.simpleMessage(
       "Offer Submitted And Waiting For Reply",
     ),
+    "onTheWayToDelivery": MessageLookupByLibrary.simpleMessage(
+      "On The Way To Delivery",
+    ),
+    "onTheWayToPickup": MessageLookupByLibrary.simpleMessage(
+      "On The Way To Pickup",
+    ),
     "onYourWay": MessageLookupByLibrary.simpleMessage("On Your Way"),
     "openGps": MessageLookupByLibrary.simpleMessage(
       "To provide the best service and ease of access, please enable your location",

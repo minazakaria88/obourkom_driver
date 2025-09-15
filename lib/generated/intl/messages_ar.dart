@@ -166,6 +166,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "offerSubmittedAndWaitingForReply": MessageLookupByLibrary.simpleMessage(
       "تم ارسال العرض للعميل وفي انتظار الرد",
     ),
+    "onTheWayToDelivery": MessageLookupByLibrary.simpleMessage(
+      "بالطريق لتوصيل الطلب",
+    ),
+    "onTheWayToPickup": MessageLookupByLibrary.simpleMessage(
+      "بالطريق لاستلام طلبك",
+    ),
     "onYourWay": MessageLookupByLibrary.simpleMessage("بالطريق لاستلام طلبك"),
     "openGps": MessageLookupByLibrary.simpleMessage(
       "لتقديم افضل خدمة وسهولة في الوصول يرجي تفعيل الموقع",

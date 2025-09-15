@@ -172,7 +172,10 @@
   "searchInProgress": "Search In Progress",
   "searchForOrdersNearYourLocation": "Search For Orders Near Your Location",
   "editOffer": "Edit Offer",
-  "orderCompletedSuccessfully": "Order Completed Successfully"
+  "orderCompletedSuccessfully": "Order Completed Successfully",
+  "onTheWayToPickup": "On The Way To Pickup",
+  "onTheWayToDelivery": "On The Way To Delivery"
+
 
 
 

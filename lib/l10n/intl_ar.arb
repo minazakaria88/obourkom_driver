@@ -175,7 +175,11 @@
     "searchInProgress": "جاري البحث...",
     "searchForOrdersNearYourLocation":"يتم الان البحث عن طلبات بالقرب من موقعك",
     "editOffer": "تعديل العرض",
-    "orderCompletedSuccessfully": "تم اكمال الطلب بنجاح"
+    "orderCompletedSuccessfully": "تم اكمال الطلب بنجاح",
+     "onTheWayToPickup": "بالطريق لاستلام طلبك",
+    "onTheWayToDelivery": "بالطريق لتوصيل الطلب"
+
+
 
 
 
