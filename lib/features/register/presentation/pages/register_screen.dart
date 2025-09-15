@@ -99,10 +99,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               MyTextFormField(
                                 controller: cubit.phoneController,
                                 validator: (String? value) {
-                                  return ValidationClass.validatePhone(
-                                    value,
-                                    context,
-                                  );
+                                  return null;
                                 },
                                 textInputType: TextInputType.phone,
                                 hint: '5xxxxxxxx',

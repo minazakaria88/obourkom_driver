@@ -33,6 +33,17 @@ class ProfileSettingSecondSection extends StatelessWidget {
                 context.pushNamed(Routes.termsAndConditions);
               },
             ),
+            ProfileButtonWidget(
+              title: S.of(context).faq,
+              image: Assets.imagesQuestionCircle,
+              onTap: () {
+                context.pushNamed(
+                  Routes.faq,
+                  arguments: context.read<ProfileCubit>()..getFaq(),
+                );
+              },
+            ),
+            10.height,
             10.height,
             ProfileButtonWidget(
               title: S.of(context).aboutUs,
@@ -40,7 +51,6 @@ class ProfileSettingSecondSection extends StatelessWidget {
               onTap: () {
                 context.pushNamed(
                   Routes.aboutUs,
-                  arguments: context.read<ProfileCubit>()..getFaq(),
                 );
               },
             ),

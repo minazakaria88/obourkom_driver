@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:obourkom_driver/core/utils/constant.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../orders/data/models/submit_order_model.dart';
-import '../../cubit/find_and_chat_with_driver_cubit.dart';
 import 'order_details_item_widget.dart';
 
 class OrderDetailsWidget extends StatelessWidget {
@@ -15,9 +13,6 @@ class OrderDetailsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FindAndChatWithDriverCubit,FindAndChatWithDriverState>(
-      buildWhen: (previous, current) => previous.orderStatus!=current.orderStatus,
-      builder: (context, state) {
         return Card(
           color: Colors.white,
           child: Padding(
@@ -40,11 +35,11 @@ class OrderDetailsWidget extends StatelessWidget {
                   title: S.of(context).serviceType,
                 ),
                 OrderDetailsItemWidget(
-                  value: '${model.truckSizeId}',
+                  value: '${model.truckTypeId}',
                   title: S.of(context).carType,
                 ),
                 OrderDetailsItemWidget(
-                  value: state.orderStatus.toString(),
+                  value: getStatusText(context,model.status ??''),
                   title: S.of(context).orderStatus,
                 ),
                 OrderDetailsItemWidget(
@@ -55,7 +50,5 @@ class OrderDetailsWidget extends StatelessWidget {
             ),
           ),
         );
-      },
-    );
   }
 }

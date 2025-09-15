@@ -13,7 +13,6 @@ import '../../../orders/data/models/submit_order_model.dart';
 import '../cubit/find_and_chat_with_driver_cubit.dart';
 import '../widgets/finding_driver_widgets/order_details_widget.dart';
 import '../widgets/order_details_widget/chat_listview.dart';
-import '../widgets/order_details_widget/driver_location_widget.dart';
 import '../widgets/order_details_widget/order_status_widget.dart';
 import '../widgets/order_details_widget/send_message_widget.dart';
 
@@ -57,7 +56,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   ),
                   SliverToBoxAdapter(child: 10.height),
                   SliverToBoxAdapter(child: 20.height),
-                  const SliverToBoxAdapter(child: DriverDetails()),
+                 // const SliverToBoxAdapter(child: DriverDetails()),
                   SliverToBoxAdapter(child: 20.height),
                   const ChatListview(),
                   SliverToBoxAdapter(child: 20.height),

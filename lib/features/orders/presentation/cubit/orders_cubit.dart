@@ -26,8 +26,9 @@ class OrdersCubit extends Cubit<OrdersState> {
         if (element.status == 'delivered') {
           completedOrder.add(element);
         }
-
+        else {
           recentOrder.add(element);
+        }
       }
       emit(
         state.copyWith(

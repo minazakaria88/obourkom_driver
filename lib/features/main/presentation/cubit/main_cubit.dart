@@ -10,7 +10,7 @@ part 'main_state.dart';
 
 class MainCubit extends Cubit<MainState> {
   MainCubit({required this.mainRepository})
-    : super(MainState(available: false));
+    : super(MainState(available: true));
   final MainRepository mainRepository;
 
   TextEditingController priceController = TextEditingController();

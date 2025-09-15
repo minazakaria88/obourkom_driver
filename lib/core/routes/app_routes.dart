@@ -21,6 +21,7 @@ import '../../features/otp/presentation/pages/otp_screen.dart';
 import '../../features/profile/presentation/cubit/profile_cubit.dart';
 import '../../features/profile/presentation/pages/edit_profile_screen.dart';
 import '../../features/profile/presentation/pages/profile_features_screens/about_us_screen.dart';
+import '../../features/profile/presentation/pages/profile_features_screens/faq_screen.dart';
 import '../../features/profile/presentation/pages/profile_features_screens/privacy_policy_screen.dart';
 import '../../features/profile/presentation/pages/profile_features_screens/support_screen.dart';
 import '../../features/profile/presentation/pages/profile_features_screens/terms_and_conditions_screen.dart';
@@ -81,13 +82,17 @@ class AppRoues {
         );
       case Routes.support:
         return MaterialPageRoute(builder: (context) => const SupportScreen());
-      case Routes.aboutUs:
+      case Routes.faq:
         final arguments = setting.arguments as ProfileCubit;
         return MaterialPageRoute(
           builder: (context) => BlocProvider.value(
             value: arguments..getFaq(),
-            child: const AboutUsScreen(),
+            child: const FaqScreen(),
           ),
+        );
+        case Routes.aboutUs:
+        return MaterialPageRoute(
+          builder: (context) => const AboutUsScreen(),
         );
       case Routes.termsAndConditions:
         return MaterialPageRoute(

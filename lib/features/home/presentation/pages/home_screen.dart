@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen>  with WidgetsBindingObserver{
   }
 
 
+   List<String> titles = [];
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen>  with WidgetsBindingObserver{
                   bottom: const BottomAppBarWidget(),
                   backgroundColor: Colors.white,
                   centerTitle: true,
-                  title: Text(cubit.titles[state.currentIndex]),
+                  title: Text(cubit.titles(context)[state.currentIndex]),
                 ),
           bottomNavigationBar: MyBottomNavigationBar(
             currentIndex: state.currentIndex,
@@ -62,17 +63,11 @@ class _HomeScreenState extends State<HomeScreen>  with WidgetsBindingObserver{
             },
           ),
        //cubit.screens[state.currentIndex],
-          body: IndexedStack(
-          index: state.currentIndex,
-          children: List.generate(cubit.screens.length, (index) {
-            if (state.isVisited[index]) {
-              return cubit.screens[index];
-            } else {
-              return const SizedBox(); // placeholder
-            }
-          }),
-        ),
+          body:
+              cubit.screens[state.currentIndex],
+
         );
+
       },
     );
   }
