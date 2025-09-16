@@ -6,13 +6,12 @@ import '../../../../../core/utils/app_styles.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../profile/presentation/widgets/profile_screen_widgets/background_profile_widget.dart';
 import '../../../../profile/presentation/widgets/profile_screen_widgets/profile_image.dart';
-import '../../../data/models/order_model.dart';
 
 class CompleteOrderDriverWidget extends StatelessWidget {
   const CompleteOrderDriverWidget({
-    super.key, required this.driver,
+    super.key, required this.userName,
   });
-  final Driver driver;
+  final String userName;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class CompleteOrderDriverWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(driver.name?? '', style: AppTextStyles.bold18Black),
+              Text(userName, style: AppTextStyles.bold18Black),
               Row(
                 children: [
                   SvgPicture.asset(Assets.imagesStars),

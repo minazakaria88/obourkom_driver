@@ -23,6 +23,8 @@ class FirebaseOrderModel {
   final String fromAddress;
   final String status;
   final double fromLat;
+  String ? userPhone;
+  String ? userName;
   double tripDistance = 0.0;
   double distanceBetweenDriverAndPickup = 0.0;
   double distanceBetweenDriverAndDropOff = 0.0;
@@ -50,6 +52,8 @@ class FirebaseOrderModel {
     required this.status,
     required this.fromLat,
     required this.tripDistance,
+    this.userPhone,
+    this.userName,
     required this.distanceBetweenDriverAndPickup,
     required this.distanceBetweenDriverAndDropOff,
   });
@@ -99,6 +103,8 @@ class FirebaseOrderModel {
       status: json['status'] ?? '',
       notes: json['notes'] ?? '',
       fromLat: (json['from_lat'] as num).toDouble(),
+      userPhone: json['user_phone'] ?? '',
+      userName: json['user_name'] ?? '',
       tripDistance: tripDistance.floorToDouble(),
       distanceBetweenDriverAndPickup: distanceBetweenDriverAndPickup.floorToDouble(),
       distanceBetweenDriverAndDropOff: distanceBetweenDriverAndDropOff.floorToDouble(),

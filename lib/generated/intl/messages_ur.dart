@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "changeLanguage": MessageLookupByLibrary.simpleMessage("زبان تبدیل کریں"),
     "changeStatus": MessageLookupByLibrary.simpleMessage("حالت تبدیل کریں"),
     "changeSupplier": MessageLookupByLibrary.simpleMessage("سپلائر تبدیل کریں"),
+    "chat": MessageLookupByLibrary.simpleMessage("چٹ"),
     "checkPrivacyPolicy": MessageLookupByLibrary.simpleMessage(
       "شرائط و ضوابط کا جائزہ لیں",
     ),

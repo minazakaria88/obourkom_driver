@@ -20,5 +20,6 @@ class Routes {
   static const String error = '/error';
   static const String addOfferScreen='/addOfferScreen';
   static const String finishOrderScreen='/finishOrderScreen';
+  static const String chatScreen='/chatScreen';
 
 }

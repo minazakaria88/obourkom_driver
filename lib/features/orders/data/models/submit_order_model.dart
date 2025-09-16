@@ -16,6 +16,11 @@ class SubmitOrderModel {
   String? createdAt;
   int? id;
   String ? status;
+  String ? userName;
+  String ? addressFrom;
+  String ? addressTo;
+  String ? userPhone;
+
 
   SubmitOrderModel(
       {this.fromLat,
@@ -33,7 +38,11 @@ class SubmitOrderModel {
         this.typeService,
         this.updatedAt,
         this.status,
+        this.userName,
+        this.addressFrom,
+        this.addressTo,
         this.createdAt,
+        this.userPhone,
         this.id});
 
   SubmitOrderModel.fromJson(Map<String, dynamic> json) {
@@ -52,8 +61,12 @@ class SubmitOrderModel {
     typeService = json['type_service'];
     updatedAt = json['updated_at'];
     createdAt = json['created_at'];
+    userName=json['user_name'];
+    userPhone=json['user_phone'];
     id = json['id'];
     status=json['status'];
+    addressFrom=json['address_from'];
+    addressTo=json['address_to'];
   }
 
   Map<String, dynamic> toJson() {

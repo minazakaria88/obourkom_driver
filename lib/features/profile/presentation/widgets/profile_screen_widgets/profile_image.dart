@@ -13,9 +13,9 @@ class ProfileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      clipBehavior: Clip.antiAliasWithSaveLayer,
       width: width ?? 80,
       height: height ?? 80,
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(width: 2, color: AppColors.mainColor),
@@ -28,7 +28,7 @@ class ProfileImage extends StatelessWidget {
               decoration: const BoxDecoration(shape: BoxShape.circle),
               child: CachedImageWidget(imageUrl: image!),
             )
-          : Image.asset(Assets.imagesLogo),
+          : Center(child: Image.asset(Assets.imagesDriverLogo,)),
     );
   }
 }

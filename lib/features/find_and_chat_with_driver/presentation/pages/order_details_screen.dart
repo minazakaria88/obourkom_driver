@@ -3,15 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/core/utils/constant.dart';
-import 'package:obourkom_driver/core/widgets/my_button.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/presentation/widgets/order_details_widget/send_image_widget.dart';
+import 'package:obourkom_driver/features/profile/presentation/widgets/profile_screen_widgets/background_profile_widget.dart';
 import '../../../../core/helpers/cache_helper.dart';
+import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/my_app_bar.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../orders/data/models/submit_order_model.dart';
 import '../cubit/find_and_chat_with_driver_cubit.dart';
 import '../widgets/finding_driver_widgets/order_details_widget.dart';
+import '../widgets/order_details_widget/call_and_chat_with_user.dart';
 import '../widgets/order_details_widget/chat_listview.dart';
 import '../widgets/order_details_widget/order_status_widget.dart';
 import '../widgets/order_details_widget/send_message_widget.dart';
@@ -35,11 +37,10 @@ class OrderDetailsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Stack(
+          alignment: Alignment.bottomCenter,
           children: [
             Padding(
-              padding: const EdgeInsets.only(
-                bottom: 80,
-              ), // space for input field
+              padding: const EdgeInsets.only(bottom: 80),
               child: CustomScrollView(
                 slivers: [
                   SliverToBoxAdapter(child: 20.height),
@@ -48,50 +49,95 @@ class OrderDetailsScreen extends StatelessWidget {
                   SliverToBoxAdapter(
                     child: OrderDetailsWidget(model: orderModel),
                   ),
-                  SliverToBoxAdapter(child: 10.height),
-                  const EditOfferWidget(),
-                  SliverToBoxAdapter(child: 10.height),
-                  SliverToBoxAdapter(
-                    child: SendImageWidget(orderId: orderModel.id.toString()),
+                  SliverToBoxAdapter(child: 20.height),
+                  // const EditOfferWidget(),
+                  CallAndChatWithUser(
+                    cubit: cubit,
+                    userPhone: orderModel.userPhone ?? '',
+                    orderId: orderModel.id.toString(),
+                    userName: orderModel.userName ?? '',
                   ),
-                  SliverToBoxAdapter(child: 10.height),
-                 // const SliverToBoxAdapter(child: DriverDetails()),
                   SliverToBoxAdapter(child: 20.height),
-                  const ChatListview(),
+                  SliverToBoxAdapter(
+                    child: BackgroundProfileWidget(
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(Assets.imagesLocation),
+                          10.width,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                S.of(context).location,
+                                style: AppTextStyles.regular16Black,
+                              ),
+                              5.height,
+                              BlocBuilder<
+                                FindAndChatWithDriverCubit,
+                                FindAndChatWithDriverState
+                              >(
+                                buildWhen: (previous, current) =>
+                                    previous.orderStatus != current.orderStatus,
+                                builder: (context, state) {
+                                  return Text(
+                                    state.orderStatus == null ||
+                                            statusToNumber[state
+                                                    .orderStatus]! <=
+                                                1
+                                        ? orderModel.addressFrom ?? ''
+                                        : orderModel.addressTo ?? '',
+                                    style: AppTextStyles.regular12Grey.copyWith(
+                                      fontSize: 14,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                   SliverToBoxAdapter(child: 20.height),
+                  BlocBuilder<
+                    FindAndChatWithDriverCubit,
+                    FindAndChatWithDriverState
+                  >(
+                    buildWhen: (previous, current) =>
+                        previous.orderStatus != current.orderStatus,
+                    builder: (context, state) {
+                      return state.orderStatus == null ||
+                              statusToNumber[state.orderStatus] == 0
+                          ? const ChatListview()
+                          : const SliverToBoxAdapter(
+                              child: SizedBox(height: 250),
+                            );
+                    },
+                  ),
                 ],
               ),
             ),
-            SendMessageWidget(
-              cubit: cubit,
-              orderId: orderModel.id.toString(),
-              driverId: CacheHelper.getData(
-                key: CacheHelperKeys.customerId,
-              ).toString(),
+            BlocBuilder<FindAndChatWithDriverCubit, FindAndChatWithDriverState>(
+              buildWhen: (previous, current) =>
+                  previous.orderStatus != current.orderStatus,
+              builder: (context, state) {
+                return state.orderStatus == null ||
+                        statusToNumber[state.orderStatus] == 0
+                    ? SafeArea(
+                        child: SendMessageWidget(
+                          cubit: cubit,
+                          orderId: orderModel.id.toString(),
+                          driverId: CacheHelper.getData(
+                            key: CacheHelperKeys.customerId,
+                          ).toString(),
+                        ),
+                      )
+                    : SendImageWidget(orderId: orderModel.id.toString());
+              },
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class EditOfferWidget extends StatelessWidget {
-  const EditOfferWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child:
-          BlocConsumer<FindAndChatWithDriverCubit, FindAndChatWithDriverState>(
-            listener: (context, state) {},
-            builder: (context, state) {
-              logger.d(state.orderStatus);
-              return statusToNumber[state.orderStatus]==null || statusToNumber[state.orderStatus]! >= 1
-                  ? const SizedBox.shrink()
-                  : MyButton(title: S.of(context).editOffer, onTap: () {});
-            },
-          ),
     );
   }
 }

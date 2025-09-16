@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "changeStatus": MessageLookupByLibrary.simpleMessage("تغيير الحالة"),
     "changeSupplier": MessageLookupByLibrary.simpleMessage("تغيير المزود"),
+    "chat": MessageLookupByLibrary.simpleMessage("الدردشة"),
     "checkPrivacyPolicy": MessageLookupByLibrary.simpleMessage(
       "قم بمراجعة الشروط والأحكام",
     ),

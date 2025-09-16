@@ -20,7 +20,7 @@ class ChatListview extends StatelessWidget {
         ).toString();
         return SliverList(
           delegate: SliverChildBuilderDelegate(
-            (context, index) => id != messages[index].senderId
+                (context, index) => id != messages[index].senderId
                 ? DriverMessageWidget(messageModel: messages[index])
                 : MyMessageWidget(messageModel: messages[index]),
             childCount: messages.length,

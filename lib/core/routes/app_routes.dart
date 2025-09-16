@@ -6,6 +6,7 @@ import 'package:obourkom_driver/features/main/data/models/firebase_order_model.d
 import 'package:obourkom_driver/features/main/presentation/cubit/main_cubit.dart';
 import 'package:obourkom_driver/features/main/presentation/pages/add_offers_screen.dart';
 import '../../features/find_and_chat_with_driver/presentation/cubit/find_and_chat_with_driver_cubit.dart';
+import '../../features/find_and_chat_with_driver/presentation/pages/chat_screen.dart';
 import '../../features/find_and_chat_with_driver/presentation/pages/finish_order_screen.dart';
 import '../../features/home/presentation/cubit/home_cubit.dart';
 import '../../features/home/presentation/pages/home_screen.dart';
@@ -90,10 +91,8 @@ class AppRoues {
             child: const FaqScreen(),
           ),
         );
-        case Routes.aboutUs:
-        return MaterialPageRoute(
-          builder: (context) => const AboutUsScreen(),
-        );
+      case Routes.aboutUs:
+        return MaterialPageRoute(builder: (context) => const AboutUsScreen());
       case Routes.termsAndConditions:
         return MaterialPageRoute(
           builder: (context) => const TermsAndConditionsScreen(),
@@ -105,7 +104,7 @@ class AppRoues {
       case Routes.orderDetails:
         final arguments = setting.arguments as Map<String, dynamic>;
         final order = arguments['order'] as SubmitOrderModel;
-        final driverId=CacheHelper.getData(key: CacheHelperKeys.customerId);
+        final driverId = CacheHelper.getData(key: CacheHelperKeys.customerId);
         logger.i(order.id);
         logger.i(driverId);
         return MaterialPageRoute(
@@ -116,7 +115,7 @@ class AppRoues {
                 orderId: order.id.toString(),
               )
               ..listenForOrderStatus(orderId: order.id.toString()),
-            child: OrderDetailsScreen(orderModel: order,),
+            child: OrderDetailsScreen(orderModel: order),
           ),
         );
       case Routes.completedOrderDetails:
@@ -132,18 +131,28 @@ class AppRoues {
           builder: (context) => CustomErrorWidget(error: arguments),
         );
       case Routes.addOfferScreen:
-        final arguments = setting.arguments as Map<String,dynamic>;
-        final cubit= arguments['cubit'] as MainCubit;
-        final orderModel=arguments['model'] as FirebaseOrderModel;
+        final arguments = setting.arguments as Map<String, dynamic>;
+        final cubit = arguments['cubit'] as MainCubit;
+        final orderModel = arguments['model'] as FirebaseOrderModel;
         return MaterialPageRoute(
           builder: (context) => BlocProvider.value(
             value: cubit,
-            child:  AddOffersScreen(model: orderModel,),
+            child: AddOffersScreen(model: orderModel),
           ),
         );
       case Routes.finishOrderScreen:
         return MaterialPageRoute(
           builder: (context) => const FinishOrderScreen(),
+        );
+      case Routes.chatScreen:
+        final arguments = setting.arguments as Map<String, dynamic>;
+        final cubit = arguments['cubit'] as FindAndChatWithDriverCubit;
+        final orderId = arguments['orderId'] as String;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider.value(
+            value: cubit,
+            child: ChatScreen(orderId: orderId),
+          ), // ChatScreen()),
         );
       default:
         return null;

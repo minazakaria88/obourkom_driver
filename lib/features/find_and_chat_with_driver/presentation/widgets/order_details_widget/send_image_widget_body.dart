@@ -41,6 +41,7 @@ class SendImageWidgetBody extends StatelessWidget {
         ],
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             title1,
