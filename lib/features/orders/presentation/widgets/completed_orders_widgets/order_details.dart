@@ -35,7 +35,7 @@ class CompleteOrderDetailsWidget extends StatelessWidget {
               title: S.of(context).serviceType,
             ),
             OrderDetailsItemWidget(
-              value: '${model.truckSize?.name}',
+              value: model.truckSize?.name ??'',
               title: S.of(context).carType,
             ),
             OrderDetailsItemWidget(

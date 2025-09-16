@@ -15,6 +15,7 @@ import '../cubit/find_and_chat_with_driver_cubit.dart';
 import '../widgets/finding_driver_widgets/order_details_widget.dart';
 import '../widgets/order_details_widget/call_and_chat_with_user.dart';
 import '../widgets/order_details_widget/chat_listview.dart';
+import '../widgets/order_details_widget/order_location_widget.dart';
 import '../widgets/order_details_widget/order_status_widget.dart';
 import '../widgets/order_details_widget/send_message_widget.dart';
 
@@ -58,46 +59,7 @@ class OrderDetailsScreen extends StatelessWidget {
                     userName: orderModel.userName ?? '',
                   ),
                   SliverToBoxAdapter(child: 20.height),
-                  SliverToBoxAdapter(
-                    child: BackgroundProfileWidget(
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(Assets.imagesLocation),
-                          10.width,
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                S.of(context).location,
-                                style: AppTextStyles.regular16Black,
-                              ),
-                              5.height,
-                              BlocBuilder<
-                                FindAndChatWithDriverCubit,
-                                FindAndChatWithDriverState
-                              >(
-                                buildWhen: (previous, current) =>
-                                    previous.orderStatus != current.orderStatus,
-                                builder: (context, state) {
-                                  return Text(
-                                    state.orderStatus == null ||
-                                            statusToNumber[state
-                                                    .orderStatus]! <=
-                                                1
-                                        ? orderModel.addressFrom ?? ''
-                                        : orderModel.addressTo ?? '',
-                                    style: AppTextStyles.regular12Grey.copyWith(
-                                      fontSize: 14,
-                                    ),
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  OrderLocationWidget(orderModel: orderModel),
                   SliverToBoxAdapter(child: 20.height),
                   BlocBuilder<
                     FindAndChatWithDriverCubit,
@@ -141,3 +103,4 @@ class OrderDetailsScreen extends StatelessWidget {
     );
   }
 }
+
