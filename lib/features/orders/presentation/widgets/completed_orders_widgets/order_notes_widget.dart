@@ -29,7 +29,6 @@ class CompleteOrderNotesWidget extends StatelessWidget {
               width: double.infinity,
             ),
             Container(
-              margin: const EdgeInsets.all(15),
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -53,15 +54,33 @@ class ProfileCubit extends Cubit<ProfileState> {
     }
   }
 
-  void updateProfile() async {
+  void updateProfile([bool image = false]) async {
     emit(state.copyWith(editProfileStatus: EditProfileStatus.loading));
     try {
-      final user = CachedUserModel(
-        email: emailController.text,
-        name: nameController.text,
-        phone: phoneController.text,
-      );
-      await profileRepository.updateProfile(user.toJson());
+      // dynamic data;
+      // if(image)
+      //   {
+      //     data=FormData.fromMap({
+      //       'image':await MultipartFile.fromFile(state.image!),
+      //     });
+      //   }
+      // else
+      //   {
+      //     data={
+      //       'name': nameController.text,
+      //       'email': emailController.text,
+      //       'phone': '+966${phoneController.text}',
+      //     };
+      //   }
+      final data = FormData.fromMap({
+        'name': nameController.text,
+        'email': emailController.text,
+        'phone': '+966${phoneController.text}',
+        if(image)
+        'image': await MultipartFile.fromFile(state.image!)
+      });
+      final result = await profileRepository.updateProfile(data);
+      await CacheHelper.saveUser(result);
       emit(state.copyWith(editProfileStatus: EditProfileStatus.success));
     } on ApiException catch (e) {
       emit(
@@ -84,10 +103,8 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(state.copyWith(imageStatus: ImageStatus.loading));
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image != null) {
-      await Future.delayed(const Duration(seconds: 2));
-      emit(state.copyWith(imageStatus: ImageStatus.success));
-    }
-    else {
+      emit(state.copyWith(imageStatus: ImageStatus.success,image: image.path));
+    } else {
       emit(state.copyWith(imageStatus: ImageStatus.failure));
     }
   }
@@ -111,6 +128,13 @@ class ProfileCubit extends Cubit<ProfileState> {
           errorMessage: e.toString(),
         ),
       );
+    }
+  }
+
+  @override
+  void emit(ProfileState state) {
+    if (!isClosed) {
+      super.emit(state);
     }
   }
 }

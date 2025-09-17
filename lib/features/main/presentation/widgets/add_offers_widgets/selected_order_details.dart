@@ -42,7 +42,7 @@ class SelectedOrderDetails extends StatelessWidget {
             OrderMainWidget(
               image: Assets.imagesServicesType,
               title: S.of(context).serviceType,
-              value: model.typeService,
+              value: model.typeService ??'',
             ),
             20.height,
             OrderMainWidget(
@@ -60,7 +60,7 @@ class SelectedOrderDetails extends StatelessWidget {
             Text(S.of(context).notes, style: AppTextStyles.bold14Grey),
             10.height,
             Text(
-              model.notes,
+              model.notes ??'',
             ),
           ],
         ),

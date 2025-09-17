@@ -1,138 +1,154 @@
-
 import '../../../../core/functions/calculate_distance.dart';
 
 class FirebaseOrderModel {
-  final double toLat;
-  final String driverId;
-  final String code;
-  final double priceFrom;
-  final double fromLng;
-  final String acceptedOfferId;
-  final double priceTo;
-  final String truckSizeId;
-  final String createdAt;
-  final String toAddress;
-  final String paymentType;
-  final String updatedAt;
-  final String truckTypeId;
-  final double toLng;
-  final int id;
-  final String notes;
-  final int customerId;
-  final String typeService;
-  final String fromAddress;
-  final String status;
-  final double fromLat;
-  String ? userPhone;
-  String ? userName;
+  String? phoneCustomer;
+  String? nameTruckSize;
+  String? code;
+  String? notes;
+  String? nameDriver;
+  double? fromLng;
+  String? acceptedOfferId;
+  int? idCustomer;
+  String? nameTruckType;
+  String? createdAt;
+  String? updatedAt;
+  double? toLng;
+  int? id;
+  String? phoneDriver;
+  String? fromAddress;
+  String? idDriver;
+  double? fromLat;
+  double? toLat;
+  double? priceFrom;
+  int? idTruckType;
+  double? priceTo;
+  String? toAddress;
+  String? nameCustomer;
+  String? paymentType;
+  int? idTruckSize;
+  String? typeService;
+  String? status;
   double tripDistance = 0.0;
   double distanceBetweenDriverAndPickup = 0.0;
   double distanceBetweenDriverAndDropOff = 0.0;
 
   FirebaseOrderModel({
-    required this.notes,
-    required this.toLat,
-    required this.driverId,
-    required this.code,
-    required this.priceFrom,
-    required this.fromLng,
-    required this.acceptedOfferId,
-    required this.priceTo,
-    required this.truckSizeId,
-    required this.createdAt,
-    required this.toAddress,
-    required this.paymentType,
-    required this.updatedAt,
-    required this.truckTypeId,
-    required this.toLng,
-    required this.id,
-    required this.customerId,
-    required this.typeService,
-    required this.fromAddress,
-    required this.status,
-    required this.fromLat,
-    required this.tripDistance,
-    this.userPhone,
-    this.userName,
-    required this.distanceBetweenDriverAndPickup,
-    required this.distanceBetweenDriverAndDropOff,
+    this.phoneCustomer,
+    this.nameTruckSize,
+    this.code,
+    this.notes,
+    this.nameDriver,
+    this.fromLng,
+    this.acceptedOfferId,
+    this.idCustomer,
+    this.nameTruckType,
+    this.createdAt,
+    this.updatedAt,
+    this.toLng,
+    this.id,
+    this.phoneDriver,
+    this.fromAddress,
+    this.idDriver,
+    this.fromLat,
+    this.toLat,
+    this.priceFrom,
+    this.idTruckType,
+    this.priceTo,
+    this.toAddress,
+    this.nameCustomer,
+    this.paymentType,
+    this.idTruckSize,
+    this.typeService,
+    this.status,
+    this.tripDistance = 0.0,
+    this.distanceBetweenDriverAndPickup = 0.0,
+    this.distanceBetweenDriverAndDropOff = 0.0,
   });
 
-  factory FirebaseOrderModel.fromJson(
+  FirebaseOrderModel.fromJson(
     Map<String, dynamic> json,
     double userLat,
     double userLng,
   ) {
-    final distanceBetweenDriverAndPickup = calculateDistance(
+    final distanceBetweenDriverAndPickupValue = calculateDistance(
       lat1: userLat,
       lon1: userLng,
       lat2: (json['from_lat'] as num).toDouble(),
       lon2: (json['from_lng'] as num).toDouble(),
     )/1000;
-    final distanceBetweenDriverAndDropOff = calculateDistance(
+    final distanceBetweenDriverAndDropOffValue = calculateDistance(
       lat1: userLat,
       lon1: userLng,
       lat2: (json['to_lat'] as num).toDouble(),
       lon2:( json['to_lng'] as num).toDouble(),
     )/1000;
-    final tripDistance = calculateDistance(
+    final tripDistanceValue = calculateDistance(
       lat1: (json['from_lat'] as num).toDouble(),
       lon1: (json['from_lng'] as num).toDouble(),
       lat2: (json['to_lat'] as num).toDouble(),
       lon2: (json['to_lng'] as num).toDouble(),
     )/1000;
-    return FirebaseOrderModel(
-      toLat: (json['to_lat'] as num).toDouble(),
-      driverId: json['driver_id'] ?? '',
-      code: json['code'] ?? '',
-      priceFrom: (json['price_from'] as num).toDouble(),
-      fromLng: (json['from_lng'] as num).toDouble(),
-      acceptedOfferId: json['accepted_offer_id'] ?? '',
-      priceTo: (json['price_to'] as num).toDouble(),
-      truckSizeId: json['truck_size_id'] ?? '',
-      createdAt: json['created_at'] ?? '',
-      toAddress: json['to_address'] ?? '',
-      paymentType: json['payment_type'] ?? '',
-      updatedAt: json['updated_at'] ?? '',
-      truckTypeId: json['truck_type_id'] ?? '',
-      toLng: (json['to_lng'] as num).toDouble(),
-      id: json['id'] ?? 0,
-      customerId: json['customer_id'] ?? 0,
-      typeService: json['type_service'] ?? '',
-      fromAddress: json['from_address'] ?? '',
-      status: json['status'] ?? '',
-      notes: json['notes'] ?? '',
-      fromLat: (json['from_lat'] as num).toDouble(),
-      userPhone: json['user_phone'] ?? '',
-      userName: json['user_name'] ?? '',
-      tripDistance: tripDistance.floorToDouble(),
-      distanceBetweenDriverAndPickup: distanceBetweenDriverAndPickup.floorToDouble(),
-      distanceBetweenDriverAndDropOff: distanceBetweenDriverAndDropOff.floorToDouble(),
-    );
+    phoneCustomer = json['phone_customer'];
+    nameTruckSize = json['name_truckSize'];
+    code = json['code'];
+    notes = json['notes'];
+    nameDriver = json['name_driver'];
+    fromLng = json['from_lng'];
+    acceptedOfferId = json['accepted_offer_id'];
+    idCustomer = json['id_customer'];
+    nameTruckType = json['name_truckType'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+    toLng = json['to_lng'];
+    id = json['id'];
+    phoneDriver = json['phone_driver'];
+    fromAddress = json['from_address'];
+    idDriver = json['id_driver'];
+    fromLat = json['from_lat'];
+    toLat = json['to_lat'];
+    priceFrom = json['price_from'];
+    idTruckType = json['id_truckType'];
+    priceTo = json['price_to'];
+    toAddress = json['to_address'];
+    nameCustomer = json['name_customer'];
+    paymentType = json['payment_type'];
+    idTruckSize = json['id_truckSize'];
+    typeService = json['type_service'];
+    status = json['status'];
+    tripDistance= tripDistanceValue.floorToDouble();
+    distanceBetweenDriverAndPickup= distanceBetweenDriverAndPickupValue.floorToDouble();
+    distanceBetweenDriverAndDropOff= distanceBetweenDriverAndDropOffValue.floorToDouble();
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'to_lat': toLat,
-      'driver_id': driverId,
-      'code': code,
-      'price_from': priceFrom,
-      'from_lng': fromLng,
-      'accepted_offer_id': acceptedOfferId,
-      'price_to': priceTo,
-      'truck_size_id': truckSizeId,
-      'created_at': createdAt,
-      'to_address': toAddress,
-      'payment_type': paymentType,
-      'updated_at': updatedAt,
-      'truck_type_id': truckTypeId,
-      'to_lng': toLng,
-      'id': id,
-      'customer_id': customerId,
-      'type_service': typeService,
-      'from_address': fromAddress,
-      'status': status,
-      'from_lat': fromLat,
-    };
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['phone_customer'] = phoneCustomer;
+    data['name_truckSize'] = nameTruckSize;
+    data['code'] = code;
+    data['notes'] = notes;
+    data['name_driver'] = nameDriver;
+    data['from_lng'] = fromLng;
+    data['accepted_offer_id'] = acceptedOfferId;
+    data['id_customer'] = idCustomer;
+    data['name_truckType'] = nameTruckType;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['to_lng'] = toLng;
+    data['id'] = id;
+    data['phone_driver'] = phoneDriver;
+    data['from_address'] = fromAddress;
+    data['id_driver'] = idDriver;
+    data['from_lat'] = fromLat;
+    data['to_lat'] = toLat;
+    data['price_from'] = priceFrom;
+    data['id_truckType'] = idTruckType;
+    data['price_to'] = priceTo;
+    data['to_address'] = toAddress;
+    data['name_customer'] = nameCustomer;
+    data['payment_type'] = paymentType;
+    data['id_truckSize'] = idTruckSize;
+    data['type_service'] = typeService;
+    data['status'] = status;
+    return data;
   }
 }

@@ -49,4 +49,13 @@ class NotificationCubit extends Cubit<NotificationState> {
       emit(state.copyWith(errorMessage: e.toString()));
     }
   }
+
+
+  @override
+  void emit(NotificationState state) {
+    if(!isClosed) {
+      super.emit(state);
+    }
+  }
+
 }

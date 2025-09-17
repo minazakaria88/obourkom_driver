@@ -37,7 +37,7 @@ class FromToLocationWidget extends StatelessWidget {
           ),
           10.height,
            Text(
-            model.fromAddress,
+            model.fromAddress ??'',
             maxLines: 1,
             style: const TextStyle(color: Color(0xff616A6B)),
             overflow: TextOverflow.ellipsis,
@@ -62,7 +62,7 @@ class FromToLocationWidget extends StatelessWidget {
           ),
           10.height,
            Text(
-            model.toAddress,
+            model.toAddress ??'',
             maxLines: 1,
             style: const TextStyle(color: Color(0xff616A6B)),
             overflow: TextOverflow.ellipsis,

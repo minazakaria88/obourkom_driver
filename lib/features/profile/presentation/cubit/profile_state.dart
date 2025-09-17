@@ -30,6 +30,7 @@ class ProfileState extends Equatable {
   ImageStatus? imageStatus;
   FaqModel ? faqs ;
   GetFaqStatus? getFaqStatus;
+  String ? image;
 
   ProfileState({
     this.userModel,
@@ -38,7 +39,8 @@ class ProfileState extends Equatable {
     this.errorMessage,
     this.imageStatus,
     this.faqs ,
-    this.getFaqStatus=GetFaqStatus.initial
+    this.getFaqStatus=GetFaqStatus.initial,
+    this.image
   });
 
   ProfileState copyWith({
@@ -48,7 +50,8 @@ class ProfileState extends Equatable {
     String? errorMessage,
     ImageStatus? imageStatus,
     FaqModel? faqs,
-    GetFaqStatus? getFaqStatus
+    GetFaqStatus? getFaqStatus,
+    String ? image,
   }) {
     return ProfileState(
       userModel: userModel ?? this.userModel,
@@ -57,7 +60,8 @@ class ProfileState extends Equatable {
       errorMessage: errorMessage ?? this.errorMessage,
       imageStatus: imageStatus ?? this.imageStatus,
       faqs: faqs ?? this.faqs,
-      getFaqStatus: getFaqStatus ?? this.getFaqStatus
+      getFaqStatus: getFaqStatus ?? this.getFaqStatus,
+      image: image ?? this.image
     );
   }
 
@@ -69,6 +73,7 @@ class ProfileState extends Equatable {
     errorMessage,
     imageStatus,
     faqs,
-    getFaqStatus
+    getFaqStatus,
+    image
   ];
 }

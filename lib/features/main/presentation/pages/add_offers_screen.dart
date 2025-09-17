@@ -6,12 +6,12 @@ import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 import 'package:obourkom_driver/features/main/presentation/cubit/main_cubit.dart';
 import 'package:obourkom_driver/features/main/presentation/widgets/main_widget.dart';
+import 'package:obourkom_driver/features/orders/data/models/order_adapter_model.dart';
 import 'package:toastification/toastification.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/widgets/my_app_bar.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
-import '../../../orders/data/models/submit_order_model.dart';
 import '../widgets/add_offers_widgets/add_offer_button.dart';
 import '../widgets/add_offers_widgets/add_offer_disaplw_widget.dart';
 import '../widgets/add_offers_widgets/selected_order_details.dart';
@@ -37,28 +37,7 @@ class AddOffersScreen extends StatelessWidget {
                   context.pushReplacementNamed(
                     Routes.orderDetails,
                     arguments: {
-                      'order': SubmitOrderModel(
-                        id: int.parse(state.order!),
-                        typeService: model.typeService,
-                        status: model.status,
-                        truckSizeId: model.truckSizeId,
-                        truckTypeId: model.truckTypeId,
-                        paymentType: model.paymentType,
-                        notes: model.notes,
-                        addressFrom: model.fromAddress,
-                        addressTo: model.toAddress,
-                        fromLat: model.fromLat,
-                        fromLng: model.fromLng,
-                        toLat: model.toLat,
-                        toLng: model.toLng,
-                        priceFrom: model.priceFrom,
-                        priceTo: model.priceTo,
-                        code: model.code,
-                        userPhone: model.userPhone,
-                        userName: model.userName,
-                        createdAt: model.createdAt,
-                        customerId: model.customerId,
-                      ),
+                      'order': OrderAdapterModel.fromFirebaseOrderModel(model),
                     },
                   );
                 }

@@ -6,6 +6,8 @@ import 'package:obourkom_driver/core/widgets/loader_widget.dart';
 import 'package:obourkom_driver/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:obourkom_driver/features/profile/presentation/widgets/profile_screen_widgets/profile_image.dart';
 import 'package:obourkom_driver/generated/assets.dart';
+import 'package:toastification/toastification.dart';
+import '../../../../core/functions/show_snack_bar.dart';
 import '../../../../core/helpers/validation_inputs_class.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
@@ -25,7 +27,23 @@ class EditProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: MyAppBar(title: S.of(context).personalAccount),
       body: BlocConsumer<ProfileCubit, ProfileState>(
-        listener: (context, state) {},
+        listenWhen: (previous, current) => previous.editProfileStatus != current.editProfileStatus,
+        listener: (context, state) {
+          if (state.isEditProfileSuccess) {
+            showToastification(
+              message: 'S.of(context).editProfileSuccessfully',
+              context: context,
+              type: ToastificationType.success,
+            );
+          }
+          if (state.isEditProfileFailure) {
+            showToastification(
+              message: state.errorMessage ?? '',
+              context: context,
+              type: ToastificationType.error,
+            );
+          }
+        },
         builder: (context, state) {
           final cubit = context.read<ProfileCubit>();
           return Padding(

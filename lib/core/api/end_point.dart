@@ -24,8 +24,9 @@ class EndPoints
   static const uploadImage='api/media/upload';
 
 
-
+  static const updateProfile = 'api/update/profile';
   static const profile = 'api/profile';
+
   static const notification='api/notifications';
   static const seenNotifications='api/notifications/seen';
   static const faq='api/questions';

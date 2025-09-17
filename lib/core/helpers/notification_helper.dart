@@ -2,10 +2,9 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:obourkom_driver/core/utils/constant.dart';
 
 class NotificationService {
+  static final FirebaseMessaging messaging = FirebaseMessaging.instance;
 
-  static FirebaseMessaging messaging = FirebaseMessaging.instance;
-
-  static void init() async {
+  static Future<void> init() async {
     NotificationSettings settings = await messaging.requestPermission(
       alert: true,
       announcement: false,
@@ -15,8 +14,39 @@ class NotificationService {
       provisional: false,
       sound: true,
     );
-    logger.i(settings.authorizationStatus);
+    getToken();
+
+    handleBackgroundMessage();
+
+    handleForegroundMessage();
+
+    logger.i('Authorization status: ${settings.authorizationStatus}');
   }
 
+  static void getToken() async {
+    String? token = await messaging.getToken();
+    logger.i('Token: $token');
+  }
 
+  static handleForegroundMessage() {
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      logger.i('🔔 Title: ${message.notification?.title}');
+      logger.i('📩 Body: ${message.notification?.body}');
+      logger.i('📦 Data: ${message.data}');
+    });
+  }
+
+  static Future<void> handleMessage(RemoteMessage message) async {
+    logger.i('🔔 Title: ${message.notification?.title}');
+    logger.i('📩 Body: ${message.notification?.body}');
+    logger.i('📦 Data: ${message.data}');
+  }
+
+  static Future<void> handleBackgroundMessage() async {
+    FirebaseMessaging.onMessageOpenedApp.listen(handleMessage);
+    final message = await messaging.getInitialMessage();
+    if (message != null) {
+      await handleMessage(message);
+    }
+  }
 }

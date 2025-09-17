@@ -4,6 +4,7 @@ import 'package:obourkom_driver/core/helpers/cache_helper.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/core/utils/constant.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/offer_model.dart';
+import 'package:obourkom_driver/features/orders/data/models/order_adapter_model.dart';
 import 'package:obourkom_driver/features/orders/data/models/order_model.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/utils/app_styles.dart';
@@ -11,7 +12,6 @@ import '../../../../../generated/assets.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../find_and_chat_with_driver/presentation/widgets/finding_driver_widgets/order_details_item_widget.dart';
 import '../../../../profile/presentation/widgets/profile_screen_widgets/background_profile_widget.dart';
-import '../../../data/models/submit_order_model.dart';
 
 class OrderListviewItemWidget extends StatelessWidget {
   const OrderListviewItemWidget({super.key, required this.model});
@@ -31,22 +31,7 @@ class OrderListviewItemWidget extends StatelessWidget {
           {
             context.pushNamed(
               Routes.addOfferScreen,
-              arguments: SubmitOrderModel(
-                id: model.id,
-                fromLat: model.fromLat,
-                fromLng: model.fromLng,
-                toLat: model.toLat,
-                toLng: model.toLng,
-                paymentType: model.paymentType,
-                notes: model.notes,
-                code: model.code,
-                priceTo: double.tryParse(model.priceTo??''),
-                priceFrom: double.tryParse(model.priceFrom??''),
-                status: model.status,
-                truckTypeId: model.truckType?.id.toString(),
-                truckSizeId: model.truckSize?.id.toString(),
-                createdAt: model.createdAt,
-              ),
+              arguments: OrderAdapterModel.fromOrderModel(model),
             );
           }
         else
@@ -62,28 +47,10 @@ class OrderListviewItemWidget extends StatelessWidget {
             context.pushNamed(
               Routes.orderDetails,
               arguments: {
-                'order':SubmitOrderModel(
-                  id: model.id,
-                  fromLat: model.fromLat,
-                  fromLng: model.fromLng,
-                  toLat: model.toLat,
-                  toLng: model.toLng,
-                  paymentType: model.paymentType,
-                  notes: model.notes,
-                  code: model.code,
-                  truckTypeId: model.truckType?.name.toString(),
-                  truckSizeId: model.truckSize?.name.toString(),
-                  priceTo: double.tryParse(model.priceTo??''),
-                  priceFrom: double.tryParse(model.priceFrom??''),
-                  typeService: model.typeService,
-                  userName: model.userName,
-                  status: model.status,
-                  addressFrom: model.addressFrom,
-                  addressTo: model.addressTo,
-                  createdAt: model.createdAt,
-                ),
+                'order':OrderAdapterModel.fromOrderModel(model),
                 'driver': OfferModel(
                   driverId: offer.driverId,
+                  name: model.driver?.name ??'',
                   price: offer.price,
                 ),
               },

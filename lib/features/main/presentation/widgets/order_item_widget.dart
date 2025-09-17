@@ -35,7 +35,7 @@ class OrderItemWidget extends StatelessWidget {
           OrderMainWidget(
             image: Assets.imagesServicesType,
             title: S.of(context).serviceType,
-            value: order.typeService,
+            value: order.typeService ??'',
           ),
           20.height,
           OrderMainWidget(

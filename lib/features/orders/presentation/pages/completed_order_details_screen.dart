@@ -33,7 +33,7 @@ class CompletedOrderDetailsScreen extends StatelessWidget {
                   20.height,
                    CompleteOrderNotesWidget(notes: model.notes??'',),
                   20.height,
-                   CompleteOrderDriverWidget(userName: model.userName ??''),
+                   CompleteOrderDriverWidget(userName: model.customer?.name ??''),
                   20.height,
                    CompleteOrderPaymentSummaryWidget(model: model,),
                 ],

@@ -6,6 +6,7 @@ import 'package:obourkom_driver/features/main/data/models/firebase_order_model.d
 
 import '../../../../core/api/end_point.dart';
 import '../../../../core/api/failure.dart';
+import '../../../../core/utils/constant.dart';
 
 class MainRepository {
   final ApiHelper apiHelper;
@@ -22,11 +23,14 @@ class MainRepository {
         .map(
           (e) => e.docs
               .map(
-                (e) => FirebaseOrderModel.fromJson(
-                  e.data(),
-                  position.latitude,
-                  position.longitude,
-                ),
+                (e) {
+                  logger.d(e.data());
+                  return  FirebaseOrderModel.fromJson(
+                    e.data(),
+                    position.latitude,
+                    position.longitude,
+                  );
+                }
               )
               .toList(),
         );
@@ -50,6 +54,6 @@ class MainRepository {
   }
 
   Stream<String> listenForDriverId(String orderId) {
-    return firestore.doc(orderId).snapshots().map((e) => e['driver_id'].toString());
+    return firestore.doc(orderId).snapshots().map((e) => e['id_driver'].toString());
   }
 }

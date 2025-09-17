@@ -15,7 +15,8 @@ class ProfileImage extends StatelessWidget {
     return Container(
       width: width ?? 80,
       height: height ?? 80,
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(10),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(width: 2, color: AppColors.mainColor),
