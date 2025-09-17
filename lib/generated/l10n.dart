@@ -1443,6 +1443,16 @@ class S {
   String get chat {
     return Intl.message('Chat', name: 'chat', desc: '', args: []);
   }
+
+  /// `Edit Profile Successfully`
+  String get editProfileSuccessfully {
+    return Intl.message(
+      'Edit Profile Successfully',
+      name: 'editProfileSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

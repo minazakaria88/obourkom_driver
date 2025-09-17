@@ -1,8 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
-import 'package:obourkom_driver/core/widgets/loader_widget.dart';
 import 'package:obourkom_driver/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:obourkom_driver/features/profile/presentation/widgets/profile_screen_widgets/profile_image.dart';
 import 'package:obourkom_driver/generated/assets.dart';
@@ -27,11 +28,12 @@ class EditProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: MyAppBar(title: S.of(context).personalAccount),
       body: BlocConsumer<ProfileCubit, ProfileState>(
-        listenWhen: (previous, current) => previous.editProfileStatus != current.editProfileStatus,
+        listenWhen: (previous, current) =>
+        previous.editProfileStatus != current.editProfileStatus,
         listener: (context, state) {
           if (state.isEditProfileSuccess) {
             showToastification(
-              message: 'S.of(context).editProfileSuccessfully',
+              message: S.of(context).editProfileSuccessfully,
               context: context,
               type: ToastificationType.success,
             );
@@ -57,17 +59,31 @@ class EditProfileScreen extends StatelessWidget {
                   Stack(
                     alignment: Alignment.bottomRight,
                     children: [
-                      state.isImageLoading
-                          ? const LoaderWidget()
+                      state.image != null && state.image !=''
+                          ? Container(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        width: 117,
+                        height: 117,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            width: 2,
+                            color: AppColors.mainColor,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                            radius: 60,
+                            backgroundImage: FileImage(File(state.image!))),
+                      )
                           : state.userModel != null
                           ? Hero(
-                              tag: state.userModel!.image!,
-                              child: ProfileImage(
-                                image: state.userModel!.image,
-                                height: 117,
-                                width: 117,
-                              ),
-                            )
+                        tag: state.userModel!.image!,
+                        child: ProfileImage(
+                          image: state.userModel!.image,
+                          height: 117,
+                          width: 117,
+                        ),
+                      )
                           : const ProfileImage(height: 117, width: 117),
                       Positioned(
                         top: 70,
@@ -162,20 +178,20 @@ class EditProfileScreen extends StatelessWidget {
                           hint: 'name@example.com',
                         ),
                         15.height,
-                        state.editProfileStatus == EditProfileStatus.loading
+                        state.isEditProfileLoading
                             ? const Center(
-                                child: CircularProgressIndicator(
-                                  color: AppColors.mainColor,
-                                ),
-                              )
+                          child: CircularProgressIndicator(
+                            color: AppColors.mainColor,
+                          ),
+                        )
                             : MyButton(
-                                title: S.of(context).edit,
-                                onTap: () {
-                                  if (cubit.formKey.currentState!.validate()) {
-                                    cubit.updateProfile();
-                                  }
-                                },
-                              ),
+                          title: S.of(context).edit,
+                          onTap: () {
+                            if (cubit.formKey.currentState!.validate()) {
+                              cubit.updateProfile();
+                            }
+                          },
+                        ),
                         30.height,
                         Text(
                           S.of(context).doYouWantToDeleteYourAccount,
@@ -190,7 +206,7 @@ class EditProfileScreen extends StatelessWidget {
                               showDialog(
                                 context: context,
                                 builder: (context) =>
-                                    const DeleteAccountWidget(),
+                                const DeleteAccountWidget(),
                               );
                             },
                           ),

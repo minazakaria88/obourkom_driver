@@ -113,6 +113,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "editOffer": MessageLookupByLibrary.simpleMessage("Edit Offer"),
+    "editProfileSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Edit Profile Successfully",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("Email *"),
     "enter": MessageLookupByLibrary.simpleMessage("Enter"),
     "enterDiscountCode": MessageLookupByLibrary.simpleMessage(

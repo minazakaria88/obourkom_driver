@@ -15,7 +15,7 @@ class ProfileImage extends StatelessWidget {
     return Container(
       width: width ?? 80,
       height: height ?? 80,
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(2),
       clipBehavior: Clip.antiAliasWithSaveLayer,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
@@ -29,7 +29,14 @@ class ProfileImage extends StatelessWidget {
               decoration: const BoxDecoration(shape: BoxShape.circle),
               child: CachedImageWidget(imageUrl: image!),
             )
-          : Center(child: Image.asset(Assets.imagesDriverLogo,)),
+          : Container(
+              clipBehavior: Clip.antiAliasWithSaveLayer,
+              width: width ?? 80,
+              height: height ?? 80,
+              padding: const EdgeInsets.all(10),
+              decoration: const BoxDecoration(shape: BoxShape.circle),
+              child: Image.asset(Assets.imagesDriverLogo),
+            ),
     );
   }
 }

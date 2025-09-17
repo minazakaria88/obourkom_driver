@@ -54,39 +54,31 @@ class ProfileCubit extends Cubit<ProfileState> {
     }
   }
 
-  void updateProfile([bool image = false]) async {
+  void updateProfile() async {
     emit(state.copyWith(editProfileStatus: EditProfileStatus.loading));
     try {
-      // dynamic data;
-      // if(image)
-      //   {
-      //     data=FormData.fromMap({
-      //       'image':await MultipartFile.fromFile(state.image!),
-      //     });
-      //   }
-      // else
-      //   {
-      //     data={
-      //       'name': nameController.text,
-      //       'email': emailController.text,
-      //       'phone': '+966${phoneController.text}',
-      //     };
-      //   }
       final data = FormData.fromMap({
         'name': nameController.text,
         'email': emailController.text,
         'phone': '+966${phoneController.text}',
-        if(image)
-        'image': await MultipartFile.fromFile(state.image!)
+        'phone_code': '+966',
+        if(state.image !=null)
+          'avatar': await MultipartFile.fromFile(state.image!)
       });
       final result = await profileRepository.updateProfile(data);
       await CacheHelper.saveUser(result);
-      emit(state.copyWith(editProfileStatus: EditProfileStatus.success));
+      emit(
+        state.copyWith(
+          editProfileStatus: EditProfileStatus.success,
+          userModel: CachedUserModel.fromUserModel(result),
+        ),
+      );
     } on ApiException catch (e) {
       emit(
         state.copyWith(
-          editProfileStatus: EditProfileStatus.failure,
-          errorMessage: e.failure.message,
+            editProfileStatus: EditProfileStatus.failure,
+            errorMessage: e.failure.message,
+            image: ''
         ),
       );
     } catch (e) {
