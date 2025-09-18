@@ -1453,6 +1453,11 @@ class S {
       args: [],
     );
   }
+
+  /// `SAR`
+  String get sar {
+    return Intl.message('SAR', name: 'sar', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

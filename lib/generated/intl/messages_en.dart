@@ -270,6 +270,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "request": MessageLookupByLibrary.simpleMessage("Request"),
     "resend": MessageLookupByLibrary.simpleMessage("Resend"),
+    "sar": MessageLookupByLibrary.simpleMessage("SAR"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "searchForOrdersNearYourLocation": MessageLookupByLibrary.simpleMessage(
       "Search For Orders Near Your Location",

@@ -20,6 +20,7 @@ class OrderAdapterModel {
       priceFrom: double.tryParse(model.priceFrom ?? ''),
       typeService: model.typeService,
       userName: model.customer?.name ?? '',
+      userPhone: model.customer?.phone ??'',
       status: model.status,
       addressFrom: model.fromAddress,
       addressTo: model.toAddress,
