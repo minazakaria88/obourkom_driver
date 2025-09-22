@@ -112,7 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "editProfileSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم تعديل الملف الشخصي بنجاح",
     ),
-    "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني *"),
+    "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني "),
     "enter": MessageLookupByLibrary.simpleMessage("دخول"),
     "enterDiscountCode": MessageLookupByLibrary.simpleMessage("ادخل كود الخصم"),
     "evaluation": MessageLookupByLibrary.simpleMessage("تقييم"),
@@ -167,6 +167,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "notes": MessageLookupByLibrary.simpleMessage("ملاحظات"),
     "notifications": MessageLookupByLibrary.simpleMessage("الاشعارات"),
+    "offerAccepted": MessageLookupByLibrary.simpleMessage("تم قبول العرض"),
+    "offerRejected": MessageLookupByLibrary.simpleMessage("تم رفض العرض"),
     "offerSubmittedAndWaitingForReply": MessageLookupByLibrary.simpleMessage(
       "تم ارسال العرض للعميل وفي انتظار الرد",
     ),

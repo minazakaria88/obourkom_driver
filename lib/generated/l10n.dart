@@ -184,9 +184,9 @@ class S {
     );
   }
 
-  /// `Email *`
+  /// `Email `
   String get email {
-    return Intl.message('Email *', name: 'email', desc: '', args: []);
+    return Intl.message('Email ', name: 'email', desc: '', args: []);
   }
 
   /// `Please enter a valid email`
@@ -1457,6 +1457,26 @@ class S {
   /// `SAR`
   String get sar {
     return Intl.message('SAR', name: 'sar', desc: '', args: []);
+  }
+
+  /// `Offer Accepted`
+  String get offerAccepted {
+    return Intl.message(
+      'Offer Accepted',
+      name: 'offerAccepted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offer Rejected`
+  String get offerRejected {
+    return Intl.message(
+      'Offer Rejected',
+      name: 'offerRejected',
+      desc: '',
+      args: [],
+    );
   }
 }
 

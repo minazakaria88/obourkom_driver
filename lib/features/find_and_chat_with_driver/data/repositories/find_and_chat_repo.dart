@@ -51,6 +51,18 @@ class FindAndChatWithDriverRepository {
         .add(message.toJson());
   }
 
+  Future<void> sendMessageToDriver({
+    required String orderId,
+    required String offerId,
+    required MessageModel message,
+  }) async {
+    await apiHelper.postData(
+      url: '${EndPoints.orders}/$orderId/offers/$offerId/chat',
+      data: message.toJson(),
+    );
+  }
+
+
   Stream<String> getOrderStatus({required String orderId}) {
     return firestore.doc(orderId).snapshots().map((event) => event['status']);
   }

@@ -19,6 +19,7 @@ class MainState extends Equatable {
   List<FirebaseOrderModel>? ordersIds;
   String ? order;
   String ? driverId;
+  FirebaseOfferModel ? offer;
 
   MainState({
     this.errorMessage,
@@ -28,6 +29,7 @@ class MainState extends Equatable {
     this.sendOfferState,
     this.order,
     this.driverId,
+    this.offer
   });
 
   MainState copyWith({
@@ -37,7 +39,8 @@ class MainState extends Equatable {
     List<FirebaseOrderModel>? ordersIds,
     SendOfferState? sendOfferState,
     String ? order,
-    String ?driverId
+    String ?driverId,
+    FirebaseOfferModel ? offer
   }) {
     return MainState(
       available: available ?? this.available,
@@ -46,7 +49,9 @@ class MainState extends Equatable {
       ordersIds: ordersIds ?? this.ordersIds,
       sendOfferState: sendOfferState ?? this.sendOfferState,
       order: order ?? this.order,
-      driverId: driverId ?? this.driverId
+      driverId: driverId ?? this.driverId,
+      offer: offer ?? this.offer
+
     );
   }
 
@@ -58,6 +63,6 @@ class MainState extends Equatable {
     ordersIds,
     sendOfferState,
     order,
-    driverId
+    driverId,offer
   ];
 }

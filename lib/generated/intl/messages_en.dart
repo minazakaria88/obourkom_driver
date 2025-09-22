@@ -116,7 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "editProfileSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Edit Profile Successfully",
     ),
-    "email": MessageLookupByLibrary.simpleMessage("Email *"),
+    "email": MessageLookupByLibrary.simpleMessage("Email "),
     "enter": MessageLookupByLibrary.simpleMessage("Enter"),
     "enterDiscountCode": MessageLookupByLibrary.simpleMessage(
       "Enter discount code",
@@ -172,6 +172,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "notes": MessageLookupByLibrary.simpleMessage("Notes"),
     "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+    "offerAccepted": MessageLookupByLibrary.simpleMessage("Offer Accepted"),
+    "offerRejected": MessageLookupByLibrary.simpleMessage("Offer Rejected"),
     "offerSubmittedAndWaitingForReply": MessageLookupByLibrary.simpleMessage(
       "Offer Submitted And Waiting For Reply",
     ),

@@ -15,7 +15,7 @@
     "name": "الاسم *",
     "writeYourNameHere": "اكتب اسمك هنا",
     "pleaseEnterAValidName":"الرجاء ادخال اسم صحيح",
-    "email": "البريد الالكتروني *",
+    "email": "البريد الالكتروني ",
     "pleaseEnterAValidEmail":"الرجاء ادخال بريدالكتروني صحيح",
     "iAgreeToThe": " اوافق على ",
     "TermsAndConditions": "الشروط والاحكام ",
@@ -180,7 +180,10 @@
     "onTheWayToDelivery": "بالطريق لتوصيل الطلب",
     "chat" : "الدردشة",
     "editProfileSuccessfully" : "تم تعديل الملف الشخصي بنجاح",
-    "sar": "ريال"
+    "sar": "ريال",
+    "offerAccepted": "تم قبول العرض",
+    "offerRejected": "تم رفض العرض"
+
 
 
 

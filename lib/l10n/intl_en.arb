@@ -15,7 +15,7 @@
   "name" : "Name *",
   "writeYourNameHere" : "Write your name here",
   "pleaseEnterAValidName": "Please enter a valid name",
-  "email" : "Email *",
+  "email" : "Email ",
   "pleaseEnterAValidEmail" : "Please enter a valid email",
   "iAgreeToThe" : "I agree to the",
   "TermsAndConditions" : " Terms and Conditions ",
@@ -177,7 +177,9 @@
   "onTheWayToDelivery": "On The Way To Delivery",
   "chat": "Chat",
   "editProfileSuccessfully" : "Edit Profile Successfully",
-  "sar": "SAR"
+  "sar": "SAR",
+  "offerAccepted": "Offer Accepted",
+  "offerRejected": "Offer Rejected"
 
 
 

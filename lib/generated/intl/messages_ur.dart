@@ -118,7 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "editProfileSuccessfully": MessageLookupByLibrary.simpleMessage(
       "پروفائل کو میں ترمیم کر دیا گیا ہے",
     ),
-    "email": MessageLookupByLibrary.simpleMessage("ای میل *"),
+    "email": MessageLookupByLibrary.simpleMessage("ای میل "),
     "enter": MessageLookupByLibrary.simpleMessage("داخل ہوں"),
     "enterDiscountCode": MessageLookupByLibrary.simpleMessage(
       "ڈسکاؤنٹ کوڈ درج کریں",
@@ -175,6 +175,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "notes": MessageLookupByLibrary.simpleMessage("نوٹس"),
     "notifications": MessageLookupByLibrary.simpleMessage("اطلاعات"),
+    "offerAccepted": MessageLookupByLibrary.simpleMessage("پیشکش پذیرا گیا"),
+    "offerRejected": MessageLookupByLibrary.simpleMessage("پیشکش رجوع ہو گیا"),
     "offerSubmittedAndWaitingForReply": MessageLookupByLibrary.simpleMessage(
       "پیشکش کلائنٹ کو بھیجی گئی، جواب کا انتظار ہے",
     ),

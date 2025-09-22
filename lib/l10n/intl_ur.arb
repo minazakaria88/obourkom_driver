@@ -15,7 +15,7 @@
   "name": "نام *",
   "writeYourNameHere": "یہاں اپنا نام لکھیں",
   "pleaseEnterAValidName": "براہ کرم درست نام درج کریں",
-  "email": "ای میل *",
+  "email": "ای میل ",
   "pleaseEnterAValidEmail": "براہ کرم درست ای میل درج کریں",
   "iAgreeToThe": "میں متفق ہوں ",
   "TermsAndConditions": "شرائط و ضوابط ",
@@ -180,5 +180,7 @@
   "onTheWayToDelivery": "آپ کوئی آرڈر پر رہا ہے",
   "chat": "چٹ",
   "editProfileSuccessfully": "پروفائل کو میں ترمیم کر دیا گیا ہے",
-  "sar": "ریال"
+  "sar": "ریال",
+  "offerAccepted": "پیشکش پذیرا گیا",
+  "offerRejected": "پیشکش رجوع ہو گیا"
 }

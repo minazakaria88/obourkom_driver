@@ -8,6 +8,7 @@ import 'package:toastification/toastification.dart';
 import 'bloc_observer.dart';
 import 'core/api/api_helper.dart';
 import 'core/helpers/cache_helper.dart';
+import 'core/helpers/notification_helper.dart';
 import 'core/routes/app_routes.dart';
 import 'core/routes/routes.dart';
 import 'core/utils/app_theme.dart';
@@ -26,7 +27,7 @@ void main() async {
   );
   await CacheHelper.init();
   ApiHelper.init();
-  //NotificationService.init();
+  NotificationService.init();
   await checkIfUserLoggedIn();
   setupServicesLocator();
   Bloc.observer = MyBlocObserver();

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:obourkom_driver/core/functions/show_snack_bar.dart';
-import 'package:obourkom_driver/core/helpers/cache_helper.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 import 'package:obourkom_driver/features/main/presentation/cubit/main_cubit.dart';
@@ -16,37 +15,68 @@ import '../widgets/add_offers_widgets/add_offer_button.dart';
 import '../widgets/add_offers_widgets/add_offer_disaplw_widget.dart';
 import '../widgets/add_offers_widgets/selected_order_details.dart';
 
-class AddOffersScreen extends StatelessWidget {
+class AddOffersScreen extends StatefulWidget {
   const AddOffersScreen({super.key, required this.model});
   final FirebaseOrderModel model;
+
+  @override
+  State<AddOffersScreen> createState() => _AddOffersScreenState();
+}
+
+class _AddOffersScreenState extends State<AddOffersScreen> {
+   @override
+  void dispose() {
+     context.read<MainCubit>().reset();
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(title: S.of(context).details),
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SelectedOrderDetails(model: model)),
+          SliverToBoxAdapter(child: SelectedOrderDetails(model: widget.model)),
           SliverFillRemaining(
             hasScrollBody: false,
             child: BlocConsumer<MainCubit, MainState>(
+              listenWhen: (previous, current) =>
+                  previous.sendOfferState != current.sendOfferState ||
+                  previous.offer != current.offer,
               listener: (context, state) {
-                final id = CacheHelper.getData(
-                  key: CacheHelperKeys.customerId,
-                ).toString();
-                if (state.driverId == id) {
-                  context.pushReplacementNamed(
-                    Routes.orderDetails,
-                    arguments: {
-                      'order': OrderAdapterModel.fromFirebaseOrderModel(model),
-                    },
-                  );
-                }
                 if (state.isSendOfferFail) {
                   showToastification(
                     message: state.errorMessage ?? '',
                     context: context,
                     type: ToastificationType.error,
                   );
+                }
+                if (state.offer?.isAccepted == true) {
+                  showToastification(
+                    message: S.of(context).offerAccepted,
+                    context: context,
+                    type: ToastificationType.success,
+                  );
+                  context.pushReplacementNamed(
+                    Routes.orderDetails,
+                    arguments: {
+                      'order': OrderAdapterModel.fromFirebaseOrderModel(widget.model),
+                    },
+                  );
+                }
+                if (state.offer?.status == 'cancelled') {
+                  showToastification(
+                    message: S.of(context).offerRejected,
+                    context: context,
+                    type: ToastificationType.warning,
+                  );
+                  if(context.mounted)
+                  {
+                    if(Navigator.of(context).canPop()) {
+                      context.pop();
+                    }
+                  }
                 }
               },
               builder: (context, state) {
@@ -66,10 +96,11 @@ class AddOffersScreen extends StatelessWidget {
         buildWhen: (previous, current) =>
             previous.sendOfferState != current.sendOfferState,
         builder: (context, state) {
-          return state.sendOfferState == SendOfferState.success? const AddOfferDisableWidget(): const AddOfferButton();
+          return state.sendOfferState == SendOfferState.success
+              ? const AddOfferDisableWidget()
+              : const AddOfferButton();
         },
       ),
     );
   }
 }
-
