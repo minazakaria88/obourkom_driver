@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/core/routes/routes.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
-import 'package:obourkom_driver/features/main/presentation/cubit/main_cubit.dart';
-
 import '../../../../core/widgets/my_button.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
@@ -49,11 +46,9 @@ class OrderItemWidget extends StatelessWidget {
           MyButton(
             title: S.of(context).showDetails,
             onTap: () {
-              context.read<MainCubit>().assignOrder(order.id.toString());
               context.pushNamed(
                 Routes.addOfferScreen,
                 arguments: {
-                  'cubit':context.read<MainCubit>(),
                   'model':order
                 },
               );

@@ -306,7 +306,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "ترسیل مکمل ہوگئی",
     ),
     "to": MessageLookupByLibrary.simpleMessage("تک"),
-    "total": MessageLookupByLibrary.simpleMessage("کل:"),
+    "total": MessageLookupByLibrary.simpleMessage("کل"),
     "transferServices": MessageLookupByLibrary.simpleMessage("منتقلی کی خدمات"),
     "transportOfGoods": MessageLookupByLibrary.simpleMessage("سامان کی ترسیل"),
     "tripDistance": MessageLookupByLibrary.simpleMessage("فاصلہ: "),

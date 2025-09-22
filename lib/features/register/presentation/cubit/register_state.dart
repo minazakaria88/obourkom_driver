@@ -8,10 +8,13 @@ extension RegisterStatusX on RegisterState {
   bool get isSuccess => registerStatus == RegisterStatus.success;
   bool get isFailure => registerStatus == RegisterStatus.failure;
 }
+
+
+@immutable
 class RegisterState  extends Equatable{
-  RegisterStatus ?registerStatus;
-  String? errorMessage;
-  RegisterState({ this.registerStatus, this.errorMessage});
+ final RegisterStatus ?registerStatus;
+ final String? errorMessage;
+  const RegisterState({ this.registerStatus, this.errorMessage});
 
   RegisterState copyWith({
     RegisterStatus? registerStatus,

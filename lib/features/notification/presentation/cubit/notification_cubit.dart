@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:obourkom_driver/core/api/failure.dart';
 import 'package:obourkom_driver/features/notification/data/models/notification_model.dart';
 import 'package:obourkom_driver/features/notification/data/repositories/notification_repo.dart';
@@ -8,7 +9,7 @@ part 'notification_state.dart';
 
 class NotificationCubit extends Cubit<NotificationState> {
   NotificationCubit({required this.notificationRepository})
-    : super(NotificationState());
+    : super(const NotificationState());
 
   final NotificationRepository notificationRepository;
 

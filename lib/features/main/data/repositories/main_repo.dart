@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:obourkom_driver/core/api/api_helper.dart';
 import 'package:obourkom_driver/core/functions/determine_position.dart';
-import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/offer_model.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_offer_model.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 

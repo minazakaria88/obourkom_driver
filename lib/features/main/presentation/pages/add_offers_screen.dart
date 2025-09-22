@@ -15,21 +15,9 @@ import '../widgets/add_offers_widgets/add_offer_button.dart';
 import '../widgets/add_offers_widgets/add_offer_disaplw_widget.dart';
 import '../widgets/add_offers_widgets/selected_order_details.dart';
 
-class AddOffersScreen extends StatefulWidget {
+class AddOffersScreen extends StatelessWidget {
   const AddOffersScreen({super.key, required this.model});
   final FirebaseOrderModel model;
-
-  @override
-  State<AddOffersScreen> createState() => _AddOffersScreenState();
-}
-
-class _AddOffersScreenState extends State<AddOffersScreen> {
-   @override
-  void dispose() {
-     context.read<MainCubit>().reset();
-    super.dispose();
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +25,7 @@ class _AddOffersScreenState extends State<AddOffersScreen> {
       appBar: MyAppBar(title: S.of(context).details),
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SelectedOrderDetails(model: widget.model)),
+          SliverToBoxAdapter(child: SelectedOrderDetails(model: model)),
           SliverFillRemaining(
             hasScrollBody: false,
             child: BlocConsumer<MainCubit, MainState>(
@@ -61,7 +49,7 @@ class _AddOffersScreenState extends State<AddOffersScreen> {
                   context.pushReplacementNamed(
                     Routes.orderDetails,
                     arguments: {
-                      'order': OrderAdapterModel.fromFirebaseOrderModel(widget.model),
+                      'order': OrderAdapterModel.fromFirebaseOrderModel(model),
                     },
                   );
                 }
@@ -98,7 +86,7 @@ class _AddOffersScreenState extends State<AddOffersScreen> {
         builder: (context, state) {
           return state.sendOfferState == SendOfferState.success
               ? const AddOfferDisableWidget()
-              : const AddOfferButton();
+              :  AddOfferButton(offerId: model.id.toString(),);
         },
       ),
     );

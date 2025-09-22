@@ -290,7 +290,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "theShipmentHasArrived": MessageLookupByLibrary.simpleMessage("تم التوصيل"),
     "to": MessageLookupByLibrary.simpleMessage("الى"),
-    "total": MessageLookupByLibrary.simpleMessage("الإجمالي:"),
+    "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
     "transferServices": MessageLookupByLibrary.simpleMessage(" خدمة نقل "),
     "transportOfGoods": MessageLookupByLibrary.simpleMessage("نقل بضائع"),
     "tripDistance": MessageLookupByLibrary.simpleMessage("مسافة الرحلة:"),

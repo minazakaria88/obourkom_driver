@@ -305,7 +305,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "The Shipment Has Arrived",
     ),
     "to": MessageLookupByLibrary.simpleMessage("To"),
-    "total": MessageLookupByLibrary.simpleMessage("Total:"),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
     "transferServices": MessageLookupByLibrary.simpleMessage(
       "Transfer Services",
     ),

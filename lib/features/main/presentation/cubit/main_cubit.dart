@@ -10,7 +10,7 @@ import '../../../../core/utils/constant.dart';
 part 'main_state.dart';
 
 class MainCubit extends Cubit<MainState> {
-  MainCubit({required this.mainRepository}) : super(MainState(available: true));
+  MainCubit({required this.mainRepository}) : super(const MainState(available: true));
   final MainRepository mainRepository;
 
   TextEditingController priceController = TextEditingController();
@@ -45,30 +45,18 @@ class MainCubit extends Cubit<MainState> {
     ordersStream?.cancel();
   }
 
-  void assignOrder(String order) {
-    priceController.clear();
-    emit(
-      state.copyWith(
-        order: order,
-        sendOfferState: SendOfferState.init,
-        driverId: '',
-        offer: FirebaseOfferModel(
 
-        ),
-      ),
-    );
-  }
 
-  void sendOffer() async {
+  void sendOffer(String orderId) async {
     try {
       emit(state.copyWith(sendOfferState: SendOfferState.loading));
     final offerId =  await mainRepository.sendOffer(
         price: priceController.text,
-        orderId: state.order!,
+        orderId: orderId,
       );
       //listenForOfferAccept(state.order!);
       listenForMyOffer(
-        orderId: state.order!,
+        orderId: orderId,
         offerId: offerId.toString(),
       );
       emit(state.copyWith(sendOfferState: SendOfferState.success));
@@ -91,18 +79,7 @@ class MainCubit extends Cubit<MainState> {
     }
   }
 
-  // StreamSubscription? driverIdStream;
-  // void listenForOfferAccept(String orderId) {
-  //   try {
-  //     driverIdStream = mainRepository.listenForDriverId(orderId).listen((
-  //       acceptedId,
-  //     ) {
-  //       emit(state.copyWith(driverId: acceptedId));
-  //     });
-  //   } catch (e) {
-  //     emit(state.copyWith(errorMessage: e.toString()));
-  //   }
-  // }
+
 
   StreamSubscription? offerStream;
   void listenForMyOffer({required String orderId, required String offerId}) {
@@ -133,15 +110,10 @@ class MainCubit extends Cubit<MainState> {
     }
   }
 
-  void reset() {
-    cancelOrderStream();
-    offerStream?.cancel();
-    priceController.clear();
-  }
+
 
   @override
   Future<void> close() {
-   // driverIdStream?.cancel();
     priceController.dispose();
     cancelOrderStream();
     offerStream?.cancel();

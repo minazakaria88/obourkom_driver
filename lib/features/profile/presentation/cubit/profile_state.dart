@@ -22,17 +22,19 @@ extension ProfileStatusX on ProfileState {
   bool get isImageFailure => imageStatus == ImageStatus.failure;
 }
 
-class ProfileState extends Equatable {
-  CachedUserModel? userModel;
-  ProfileStatus? profileStatus;
-  EditProfileStatus? editProfileStatus;
-  String? errorMessage;
-  ImageStatus? imageStatus;
-  FaqModel ? faqs ;
-  GetFaqStatus? getFaqStatus;
-  String ? image;
 
-  ProfileState({
+@immutable
+class ProfileState extends Equatable {
+  final CachedUserModel? userModel;
+  final ProfileStatus? profileStatus;
+  final EditProfileStatus? editProfileStatus;
+  final String? errorMessage;
+  final ImageStatus? imageStatus;
+  final FaqModel ? faqs ;
+  final GetFaqStatus? getFaqStatus;
+  final String ? image;
+
+  const ProfileState({
     this.userModel,
     this.profileStatus = ProfileStatus.initial,
     this.editProfileStatus = EditProfileStatus.initial,

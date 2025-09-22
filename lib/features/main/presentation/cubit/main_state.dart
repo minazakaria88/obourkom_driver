@@ -2,34 +2,30 @@ part of 'main_cubit.dart';
 
 enum GetOrdersState { loading, success, failure }
 
-enum SendOfferState {init, loading, success, failure }
+enum SendOfferState { init, loading, success, failure }
 
 extension MainStateX on MainState {
-  bool get isSendOfferSuccess=> sendOfferState==SendOfferState.success;
-  bool get isSendOfferLoading =>sendOfferState==SendOfferState.loading;
-  bool get isSendOfferFail=>sendOfferState==SendOfferState.failure;
-
+  bool get isSendOfferSuccess => sendOfferState == SendOfferState.success;
+  bool get isSendOfferLoading => sendOfferState == SendOfferState.loading;
+  bool get isSendOfferFail => sendOfferState == SendOfferState.failure;
 }
 
+@immutable
 class MainState extends Equatable {
-  String? errorMessage;
-  bool? available;
-  GetOrdersState? getOrdersState;
-  SendOfferState? sendOfferState;
-  List<FirebaseOrderModel>? ordersIds;
-  String ? order;
-  String ? driverId;
-  FirebaseOfferModel ? offer;
+  final String? errorMessage;
+  final bool? available;
+  final GetOrdersState? getOrdersState;
+  final SendOfferState? sendOfferState;
+  final List<FirebaseOrderModel>? ordersIds;
+  final FirebaseOfferModel? offer;
 
-  MainState({
+  const MainState({
     this.errorMessage,
     this.getOrdersState,
     this.available,
     this.ordersIds,
     this.sendOfferState,
-    this.order,
-    this.driverId,
-    this.offer
+    this.offer,
   });
 
   MainState copyWith({
@@ -38,9 +34,8 @@ class MainState extends Equatable {
     bool? available,
     List<FirebaseOrderModel>? ordersIds,
     SendOfferState? sendOfferState,
-    String ? order,
-    String ?driverId,
-    FirebaseOfferModel ? offer
+    String? driverId,
+    FirebaseOfferModel? offer,
   }) {
     return MainState(
       available: available ?? this.available,
@@ -48,10 +43,7 @@ class MainState extends Equatable {
       getOrdersState: getOrdersState ?? this.getOrdersState,
       ordersIds: ordersIds ?? this.ordersIds,
       sendOfferState: sendOfferState ?? this.sendOfferState,
-      order: order ?? this.order,
-      driverId: driverId ?? this.driverId,
-      offer: offer ?? this.offer
-
+      offer: offer ?? this.offer,
     );
   }
 
@@ -62,7 +54,6 @@ class MainState extends Equatable {
     getOrdersState,
     ordersIds,
     sendOfferState,
-    order,
-    driverId,offer
+    offer,
   ];
 }

@@ -12,13 +12,13 @@ extension LoginStatusX on LoginState {
   bool get isSuccess => loginStatus == LoginStatus.success;
   bool get isFailure => loginStatus == LoginStatus.failure;
 }
-
+@immutable
 class LoginState  extends Equatable{
-  LoginStatus ? loginStatus;
-  String ? errorMessage;
+  final LoginStatus ? loginStatus;
+  final String ? errorMessage;
 
 
-  LoginState({this.loginStatus,this.errorMessage});
+  const LoginState({this.loginStatus,this.errorMessage});
 
 
   LoginState copyWith({

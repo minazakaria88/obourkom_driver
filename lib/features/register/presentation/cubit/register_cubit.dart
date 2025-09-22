@@ -6,7 +6,7 @@ import 'package:obourkom_driver/features/register/data/repositories/register_rep
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  RegisterCubit({required this.registerRepository}) : super(RegisterState());
+  RegisterCubit({required this.registerRepository}) : super(const RegisterState());
   final RegisterRepository registerRepository;
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();

@@ -12,8 +12,8 @@ import '../../../../../generated/assets.dart';
 import '../../../../../generated/l10n.dart';
 
 class AddOfferWidget extends StatelessWidget {
-  const AddOfferWidget({super.key});
-
+  const AddOfferWidget({super.key, required this.offerId});
+  final String offerId;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<MainCubit,MainState>(
@@ -69,7 +69,7 @@ class AddOfferWidget extends StatelessWidget {
                           title: S.of(context).confirm,
                           onTap: () {
                             if (cubit.formKey.currentState!.validate()) {
-                              cubit.sendOffer();
+                              cubit.sendOffer(offerId);
                             }
                           },
                         ),

@@ -132,11 +132,10 @@ class AppRoues {
         );
       case Routes.addOfferScreen:
         final arguments = setting.arguments as Map<String, dynamic>;
-        final cubit = arguments['cubit'] as MainCubit;
         final orderModel = arguments['model'] as FirebaseOrderModel;
         return MaterialPageRoute(
-          builder: (context) => BlocProvider.value(
-            value: cubit,
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<MainCubit>(),
             child: AddOffersScreen(model: orderModel),
           ),
         );

@@ -10,12 +10,13 @@ extension NotificationStatusX on NotificationState
 
 }
 
+@immutable
 class NotificationState extends Equatable {
-  NotificationStatus? notificationStatus;
-  List<DataNotificationModel>? notifications;
-  String ? errorMessage;
+  final NotificationStatus? notificationStatus;
+ final List<DataNotificationModel>? notifications;
+ final String ? errorMessage;
 
-  NotificationState({this.notificationStatus, this.notifications,this.errorMessage});
+  const NotificationState({this.notificationStatus, this.notifications,this.errorMessage});
 
   NotificationState copyWith({
     NotificationStatus? notificationStatus,
