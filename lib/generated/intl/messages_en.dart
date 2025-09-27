@@ -255,6 +255,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Submit the order and slide the button",
         ),
+    "pleaseTryAgain": MessageLookupByLibrary.simpleMessage("Please Try Again"),
     "pleaseWriteYourMessage": MessageLookupByLibrary.simpleMessage(
       "Please write your message",
     ),

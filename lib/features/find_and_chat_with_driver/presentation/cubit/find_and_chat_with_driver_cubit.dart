@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +8,11 @@ import 'package:obourkom_driver/core/api/failure.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/message_model.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/offer_model.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/repositories/find_and_chat_repo.dart';
+import 'package:path_provider/path_provider.dart';
 import '../../../../core/helpers/cache_helper.dart';
 import '../../../../core/utils/constant.dart';
+import 'package:path/path.dart' as path;
+
 part 'find_and_chat_with_driver_state.dart';
 
 class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
@@ -25,13 +29,18 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
 
   StreamSubscription? messageStream;
   void listenForMessages({required String driverId, required String orderId}) {
+    messageStream?.cancel();
     try {
-      messageStream?.cancel();
       messageStream = findAndChatWithDriverRepository
           .getMessages(orderId: orderId, driverId: driverId)
-          .listen((messages) {
-            emit(state.copyWith(messages: messages));
-          });
+          .listen(
+            (messages) {
+              emit(state.copyWith(messages: messages));
+            },
+            onError: (e) {
+              emit(state.copyWith(errorMessage: e.toString()));
+            },
+          );
       logger.d(state.messages);
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString()));
@@ -53,24 +62,34 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
       receiverId: driverId,
     );
     logger.d(messageModel);
-    await findAndChatWithDriverRepository.sendMessage(
-      driverId: driverId,
-      orderId: orderId,
-      message: messageModel,
-    );
-    messageController.clear();
+    try {
+      await findAndChatWithDriverRepository.sendMessage(
+        driverId: driverId,
+        orderId: orderId,
+        message: messageModel,
+      );
+      messageController.clear();
+    } catch (e) {
+      emit(state.copyWith(errorMessage: e.toString()));
+    }
   }
 
   StreamSubscription? orderStatusStream;
   void listenForOrderStatus({required String orderId}) {
+    orderStatusStream?.cancel();
+
     try {
-      orderStatusStream?.cancel();
       orderStatusStream = findAndChatWithDriverRepository
           .getOrderStatus(orderId: orderId)
-          .listen((status) {
-            logger.i(status);
-            emit(state.copyWith(orderStatus: status));
-          });
+          .listen(
+            (status) {
+              logger.i(status);
+              emit(state.copyWith(orderStatus: status));
+            },
+            onError: (e) {
+              emit(state.copyWith(errorMessage: e.toString()));
+            },
+          );
       logger.d(state.orderStatus);
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString()));
@@ -89,14 +108,35 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
     );
   }
 
-  void pickImage() async {
+  void pickImage1() async {
     final ImagePicker picker = ImagePicker();
     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
     if (photo != null) {
-      logger.f(photo.path);
-      emit(state.copyWith(image: photo.path));
+      final tempDir = await getTemporaryDirectory();
+      final savedImage = File('${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.png');
+      await File(photo.path).copy(savedImage.path);
+      logger.f(savedImage.path);
+      emit(state.copyWith(image: savedImage.path));
     }
   }
+
+  Future<void> pickImage() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? photo = await picker.pickImage(source: ImageSource.camera);
+
+    if (photo != null) {
+      final ext = path.extension(photo.path);
+      final tempDir = await getTemporaryDirectory();
+      final savedImage = File(
+        '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}$ext',
+      );
+      await File(photo.path).copy(savedImage.path);
+      logger.f(savedImage.path);
+      emit(state.copyWith(image: savedImage.path));    }
+  }
+
+
+
 
   void uploadPickImage({
     required String orderId,

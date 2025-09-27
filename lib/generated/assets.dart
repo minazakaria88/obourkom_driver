@@ -40,6 +40,7 @@ class Assets {
   static const String imagesLoading = 'assets/images/loading.gif';
   static const String imagesLocation = 'assets/images/location.svg';
   static const String imagesLogo = 'assets/images/logo.png';
+  static const String imagesLogoDriver = 'assets/images/logo_driver.jpg';
   static const String imagesLogout = 'assets/images/logout.svg';
   static const String imagesMarker = 'assets/images/marker.png';
   static const String imagesMicrophoneIcon = 'assets/images/MicrophoneIcon.svg';
@@ -72,6 +73,7 @@ class Assets {
   static const String imagesServicesType = 'assets/images/servicesType.svg';
   static const String imagesShipmentArrive = 'assets/images/shipmentArrive.svg';
   static const String imagesSmallCar = 'assets/images/smallCar.png';
+  static const String imagesSplash = 'assets/images/splash.png';
   static const String imagesStars = 'assets/images/Stars.svg';
   static const String imagesStarsMinimalistic = 'assets/images/StarsMinimalistic.svg';
   static const String imagesStop = 'assets/images/stop.svg';

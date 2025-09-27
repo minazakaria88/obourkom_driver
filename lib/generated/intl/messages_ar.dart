@@ -248,6 +248,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseSubmitTheOrderAndPressTheButton":
         MessageLookupByLibrary.simpleMessage("قم بتسليم الطلب ومرر الزر"),
+    "pleaseTryAgain": MessageLookupByLibrary.simpleMessage(
+      "يرجى المحاولة مرة اخرى",
+    ),
     "pleaseWriteYourMessage": MessageLookupByLibrary.simpleMessage(
       "الرجاء كتابة رسالتك",
     ),

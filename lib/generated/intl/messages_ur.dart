@@ -258,6 +258,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseSubmitTheOrderAndPressTheButton":
         MessageLookupByLibrary.simpleMessage("آرڈر مکمل کریں اور بٹن دبائیں"),
+    "pleaseTryAgain": MessageLookupByLibrary.simpleMessage(
+      "لطفا دوبارہ تلاش کریں",
+    ),
     "pleaseWriteYourMessage": MessageLookupByLibrary.simpleMessage(
       "براہ کرم اپنا پیغام لکھیں",
     ),

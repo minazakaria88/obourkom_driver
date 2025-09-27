@@ -18,7 +18,9 @@ class OrderStatusWidget extends StatelessWidget {
       listenWhen: (previous, current) => previous.orderStatus!=current.orderStatus,
       listener: (context, state) {
         if (state.orderStatus == delivered) {
-          context.pushNamedAndRemoveUntil(Routes.finishOrderScreen, (r) => false);
+          if(context.mounted) {
+            context.pushNamedAndRemoveUntil(Routes.finishOrderScreen, (r) => false);
+          }
         }
       },
       buildWhen: (previous, current) =>
@@ -32,33 +34,25 @@ class OrderStatusWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 OrderStepperWidget(
-                  isActive: state.orderStatus == null
-                      ? false
-                      : statusToNumber[state.orderStatus]! >= 0,
+                  isActive: isStepActive(0, state.orderStatus),
                   title: S.of(context).negotiation,
                   image: Assets.imagesNegoti,
                 ),
                 const DottedWidget(),
                 OrderStepperWidget(
-                  isActive: state.orderStatus == null
-                      ? false
-                      : statusToNumber[state.orderStatus]! >= 1,
+                  isActive: isStepActive(1, state.orderStatus),
                   title: S.of(context).onYourWay,
                   image: Assets.imagesDriverOnWay,
                 ),
                 const DottedWidget(),
                 OrderStepperWidget(
-                  isActive: state.orderStatus == null
-                      ? false
-                      : statusToNumber[state.orderStatus]! >= 2,
+                  isActive: isStepActive(2, state.orderStatus),
                   title: S.of(context).theDriverHasArrived,
                   image: Assets.imagesDriverArrive,
                 ),
                 const DottedWidget(),
                 OrderStepperWidget(
-                  isActive: state.orderStatus == null
-                      ? false
-                      : statusToNumber[state.orderStatus]! >= 3,
+                  isActive: isStepActive(3, state.orderStatus),
                   title: S.of(context).theShipmentHasArrived,
                   image: Assets.imagesShipmentArrive,
                 ),
@@ -68,5 +62,10 @@ class OrderStatusWidget extends StatelessWidget {
         );
       },
     );
+  }
+
+  bool isStepActive(int step,String? orderStatus) {
+    if (orderStatus == null) return false;
+    return statusToNumber[orderStatus]! >= step;
   }
 }

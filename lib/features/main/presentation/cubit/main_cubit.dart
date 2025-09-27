@@ -10,7 +10,8 @@ import '../../../../core/utils/constant.dart';
 part 'main_state.dart';
 
 class MainCubit extends Cubit<MainState> {
-  MainCubit({required this.mainRepository}) : super(const MainState(available: true));
+  MainCubit({required this.mainRepository})
+    : super(const MainState(available: true));
   final MainRepository mainRepository;
 
   TextEditingController priceController = TextEditingController();
@@ -21,14 +22,22 @@ class MainCubit extends Cubit<MainState> {
     try {
       ordersStream?.cancel();
       emit(state.copyWith(getOrdersState: GetOrdersState.loading));
-      ordersStream = mainRepository.listenForOrders().listen((data) {
-        emit(
+      ordersStream = mainRepository.listenForOrders().listen(
+        (data) {
+          emit(
+            state.copyWith(
+              getOrdersState: GetOrdersState.success,
+              ordersIds: data,
+            ),
+          );
+        },
+        onError: (e) {
           state.copyWith(
-            getOrdersState: GetOrdersState.success,
-            ordersIds: data,
-          ),
-        );
-      });
+            errorMessage: e.toString(),
+            getOrdersState: GetOrdersState.failure,
+          );
+        },
+      );
     } catch (e) {
       logger.e(e);
       emit(
@@ -45,20 +54,15 @@ class MainCubit extends Cubit<MainState> {
     ordersStream?.cancel();
   }
 
-
-
   void sendOffer(String orderId) async {
     try {
       emit(state.copyWith(sendOfferState: SendOfferState.loading));
-    final offerId =  await mainRepository.sendOffer(
+      final offerId = await mainRepository.sendOffer(
         price: priceController.text,
         orderId: orderId,
       );
       //listenForOfferAccept(state.order!);
-      listenForMyOffer(
-        orderId: orderId,
-        offerId: offerId.toString(),
-      );
+      listenForMyOffer(orderId: orderId, offerId: offerId.toString());
       emit(state.copyWith(sendOfferState: SendOfferState.success));
     } on ApiException catch (e) {
       logger.e(e);
@@ -79,26 +83,27 @@ class MainCubit extends Cubit<MainState> {
     }
   }
 
-
-
   StreamSubscription? offerStream;
   void listenForMyOffer({required String orderId, required String offerId}) {
     try {
       offerStream?.cancel();
-      offerStream = mainRepository.listenForMyOffer(orderId, offerId).listen((
-        data,
-      ) {
-        if(data.status=='cancelled'||data.isAccepted==true) {
-          offerStream?.cancel();
-        }
-        emit(state.copyWith(offer: data));
-      });
+      offerStream = mainRepository
+          .listenForMyOffer(orderId, offerId)
+          .listen(
+            (data) {
+              if (data.status == 'cancelled' || data.isAccepted == true) {
+                offerStream?.cancel();
+              }
+              emit(state.copyWith(offer: data));
+            },
+            onError: (e) {
+              state.copyWith(errorMessage: e.toString());
+            },
+          );
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString()));
     }
   }
-
-
 
   void toggleSwitch(bool value) {
     if (value) {
@@ -109,8 +114,6 @@ class MainCubit extends Cubit<MainState> {
       emit(state.copyWith(available: false));
     }
   }
-
-
 
   @override
   Future<void> close() {

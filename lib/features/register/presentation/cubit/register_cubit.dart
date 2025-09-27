@@ -3,6 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:obourkom_driver/core/api/failure.dart';
 import 'package:obourkom_driver/features/register/data/repositories/register_repo.dart';
+
+import '../../../../core/utils/constant.dart';
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
@@ -16,12 +18,14 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   void register() async {
     emit(state.copyWith(registerStatus: RegisterStatus.loading));
+
     final data = {
       'name': nameController.text,
       'phone': '+966${phoneController.text}',
       'email': emailController.text,
       'type': 'driver',
     };
+    logger.d(data);
     try {
       await registerRepository.register(data);
       emit(state.copyWith(registerStatus: RegisterStatus.success));

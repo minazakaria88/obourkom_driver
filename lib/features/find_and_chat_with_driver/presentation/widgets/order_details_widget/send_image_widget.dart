@@ -20,7 +20,7 @@ class SendImageWidget extends StatelessWidget {
       listener: (context, state) {
         if (state.uploadPickImageStatus == UploadPickImageStatus.failure) {
           showToastification(
-            message: state.errorMessage ?? '',
+            message: S.of(context).pleaseTryAgain,
             context: context,
             type: ToastificationType.error,
           );

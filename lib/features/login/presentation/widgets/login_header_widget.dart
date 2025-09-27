@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/core/utils/app_styles.dart';
 
@@ -17,7 +16,12 @@ class LoginHeaderWidget extends StatelessWidget {
         50.height,
         const ChooseLanguageWidget(),
         20.height,
-        SvgPicture.asset(Assets.imagesDriver),
+        Image.asset(
+          Assets.imagesLogoDriver,
+          width: 120,
+          height: 100,
+          fit: BoxFit.fill,
+        ),
         30.height,
         Text(
           S.of(context).welcomeBack,

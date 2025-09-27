@@ -41,11 +41,6 @@ class AddOffersScreen extends StatelessWidget {
                   );
                 }
                 if (state.offer?.isAccepted == true) {
-                  showToastification(
-                    message: S.of(context).offerAccepted,
-                    context: context,
-                    type: ToastificationType.success,
-                  );
                   context.pushReplacementNamed(
                     Routes.orderDetails,
                     arguments: {
@@ -54,11 +49,6 @@ class AddOffersScreen extends StatelessWidget {
                   );
                 }
                 if (state.offer?.status == 'cancelled') {
-                  showToastification(
-                    message: S.of(context).offerRejected,
-                    context: context,
-                    type: ToastificationType.warning,
-                  );
                   if(context.mounted)
                   {
                     if(Navigator.of(context).canPop()) {

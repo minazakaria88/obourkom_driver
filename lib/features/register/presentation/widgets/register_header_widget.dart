@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/core/utils/app_styles.dart';
 
@@ -16,7 +15,12 @@ class RegisterHeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SvgPicture.asset(Assets.imagesDriver),
+      Image.asset(
+      Assets.imagesLogoDriver,
+      width: 120,
+      height: 100,
+      fit: BoxFit.fill,
+    ),
         15.height,
         Text(
           S.of(context).createAccount,
