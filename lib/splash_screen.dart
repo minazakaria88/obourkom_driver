@@ -32,9 +32,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void gotoScreen() {
     Future.delayed(const Duration(seconds: 2), () {
-      if (!context.mounted) return;
+      if (!mounted) return;
       if (isLoggedIn) {
-        context.pushNamedAndRemoveUntil(Routes.home, (route) => false);
+          context.pushNamedAndRemoveUntil(Routes.home, (route) => false);
       } else {
         context.pushNamedAndRemoveUntil(Routes.login, (route) => false);
       }
@@ -60,6 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           20.height,
           AnimatedSlide(
+            curve: Curves.easeInOut,
             offset:isChange?const Offset(0, -2): const Offset(0, 0),
             duration: const Duration(milliseconds: 700),
             child: Text(

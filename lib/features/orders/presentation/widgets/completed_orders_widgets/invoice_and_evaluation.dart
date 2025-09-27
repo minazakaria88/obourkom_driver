@@ -15,25 +15,10 @@ class CompleteOrderInvoiceAndEvaluationWidget extends StatelessWidget {
       color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(10),
-        child: Row(
-          children: [
-            Expanded(
-              child: MyButton(
-                title: S.of(context).Invoice,
-                color: AppColors.mainColor,
-                onTap: () {},
-              ),
-            ),
-            Expanded(
-              child: MyButton(
-                title: S.of(context).evaluation,
-                color: AppColors.darkGreyColor,
-                onTap: () {
-
-                },
-              ),
-            ),
-          ],
+        child: MyButton(
+          title: S.of(context).Invoice,
+          color: AppColors.mainColor,
+          onTap: () {},
         ),
       ),
     );

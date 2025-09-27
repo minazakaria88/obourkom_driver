@@ -152,7 +152,7 @@ class AppRoues {
           builder: (context) => BlocProvider.value(
             value: cubit,
             child: ChatScreen(orderId: orderId),
-          ), // ChatScreen()),
+          ),
         );
       case Routes.splashScreen:
         return MaterialPageRoute(builder: (context) => const SplashScreen());
