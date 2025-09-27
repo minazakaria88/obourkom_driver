@@ -59,7 +59,7 @@ class ObourkomDriver extends StatelessWidget {
             supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
             onGenerateRoute: AppRoues.onGenerateRoute,
-            initialRoute: isLoggedIn ? Routes.home : Routes.login,
+            initialRoute: Routes.splashScreen,
           ),
         ),
       ),
@@ -72,7 +72,6 @@ class NavigatorClass {
 }
 
 Future<void> checkIfUserLoggedIn() async {
-  await Future.delayed(const Duration(seconds: 2));
   String? token = await CacheHelper.getSecureString(CacheHelperKeys.token);
   logger.i(token);
   if (!token.isNullOrEmpty()) {

@@ -21,5 +21,6 @@ class Routes {
   static const String addOfferScreen='/addOfferScreen';
   static const String finishOrderScreen='/finishOrderScreen';
   static const String chatScreen='/chatScreen';
+  static const String splashScreen='/splashScreen';
 
 }

@@ -5,6 +5,7 @@ import 'package:obourkom_driver/core/routes/routes.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 import 'package:obourkom_driver/features/main/presentation/cubit/main_cubit.dart';
 import 'package:obourkom_driver/features/main/presentation/pages/add_offers_screen.dart';
+import 'package:obourkom_driver/splash_screen.dart';
 import '../../features/find_and_chat_with_driver/presentation/cubit/find_and_chat_with_driver_cubit.dart';
 import '../../features/find_and_chat_with_driver/presentation/pages/chat_screen.dart';
 import '../../features/find_and_chat_with_driver/presentation/pages/finish_order_screen.dart';
@@ -153,6 +154,8 @@ class AppRoues {
             child: ChatScreen(orderId: orderId),
           ), // ChatScreen()),
         );
+      case Routes.splashScreen:
+        return MaterialPageRoute(builder: (context) => const SplashScreen());
       default:
         return null;
     }
