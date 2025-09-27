@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:obourkom_driver/core/helpers/cache_helper.dart';
 import 'package:obourkom_driver/core/routes/routes.dart';
+import 'package:obourkom_driver/features/driver_data/presentation/cubit/driver_data_cubit.dart';
+import 'package:obourkom_driver/features/driver_data/presentation/pages/choose_services_screen.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 import 'package:obourkom_driver/features/main/presentation/cubit/main_cubit.dart';
 import 'package:obourkom_driver/features/main/presentation/pages/add_offers_screen.dart';
@@ -156,6 +158,13 @@ class AppRoues {
         );
       case Routes.splashScreen:
         return MaterialPageRoute(builder: (context) => const SplashScreen());
+      case Routes.chooseYourServices:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<DriverDataCubit>()..getCategories(),
+              child: const ChooseServicesScreen()),
+        );
+
       default:
         return null;
     }

@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:obourkom_driver/features/driver_data/data/repositories/driver_data_repo.dart';
+import 'package:obourkom_driver/features/driver_data/presentation/cubit/driver_data_cubit.dart';
 import 'core/api/api_helper.dart';
 import 'features/find_and_chat_with_driver/data/repositories/find_and_chat_repo.dart';
 import 'features/find_and_chat_with_driver/presentation/cubit/find_and_chat_with_driver_cubit.dart';
@@ -75,7 +77,10 @@ void setupServicesLocator() {
   getIt.registerLazySingleton(() => FindAndChatWithDriverRepository(apiHelper: getIt()));
 
 
+  //driverData
 
+  getIt.registerFactory(()=>DriverDataCubit(driverDataRepo: getIt()));
+  getIt.registerLazySingleton(()=>DriverDataRepo(apiHelper: getIt()));
 
 
 }

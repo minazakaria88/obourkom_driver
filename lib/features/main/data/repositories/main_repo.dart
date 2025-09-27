@@ -52,12 +52,8 @@ class MainRepository {
     }
   }
 
-  Stream<String> listenForDriverId(String orderId) {
-    return firestore
-        .doc(orderId)
-        .snapshots()
-        .map((e) => e['id_driver'].toString());
-  }
+
+
 
   Stream<FirebaseOfferModel> listenForMyOffer(String orderId, String offerId) {
     return firestore
