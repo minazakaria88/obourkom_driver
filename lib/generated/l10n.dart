@@ -1488,6 +1488,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Select Services`
+  String get selectServices {
+    return Intl.message(
+      'Select Services',
+      name: 'selectServices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Services Type You Will Offer`
+  String get selectServicesTypeYouWillOffer {
+    return Intl.message(
+      'Select Services Type You Will Offer',
+      name: 'selectServicesTypeYouWillOffer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Another Trip`
+  String get anotherTrip {
+    return Intl.message(
+      'Another Trip',
+      name: 'anotherTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message('Next', name: 'next', desc: '', args: []);
+  }
+
+  /// `Add Another Trip`
+  String get addAnotherTrip {
+    return Intl.message(
+      'Add Another Trip',
+      name: 'addAnotherTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write Service Name`
+  String get writeServiceName {
+    return Intl.message(
+      'Write Service Name',
+      name: 'writeServiceName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Name *`
+  String get serviceName {
+    return Intl.message(
+      'Service Name *',
+      name: 'serviceName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message('Add', name: 'add', desc: '', args: []);
+  }
+
+  /// `choose`
+  String get choose {
+    return Intl.message('choose', name: 'choose', desc: '', args: []);
+  }
+
+  /// `Select Brand`
+  String get selectBrand {
+    return Intl.message(
+      'Select Brand',
+      name: 'selectBrand',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Model`
+  String get selectModel {
+    return Intl.message(
+      'Select Model',
+      name: 'selectModel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Type`
+  String get selectType {
+    return Intl.message('Select Type', name: 'selectType', desc: '', args: []);
+  }
+
+  /// `Select Size`
+  String get selectSize {
+    return Intl.message('Select Size', name: 'selectSize', desc: '', args: []);
+  }
+
+  /// `Start`
+  String get start {
+    return Intl.message('Start', name: 'start', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

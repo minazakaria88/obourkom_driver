@@ -89,4 +89,5 @@ class CacheHelperKeys {
   static const phone = 'phone';
   static const image = 'image';
   static const customerId = 'customerId';
+  static const carData = 'carData';
 }

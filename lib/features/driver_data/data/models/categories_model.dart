@@ -11,16 +11,25 @@ class CategoriesModel {
       json['data'].forEach((v) {
         data!.add(CategoryModel.fromJson(v));
       });
+      data!.add(CategoryModel(name: 'نقل آخر',id: -1));
     }
     links = json['links'] != null ? Links.fromJson(json['links']) : null;
     meta = json['meta'] != null ? Meta.fromJson(json['meta']) : null;
   }
+
+  CategoriesModel copyWith({List<CategoryModel>? data}) {
+    return CategoriesModel(
+      data: data ?? this.data,
+    );
+  }
+
 }
 
 class CategoryModel {
   int? id;
   String? name;
   String? image;
+  bool? isSelected = false;
   List<TruckModel>? trucks;
 
   CategoryModel({this.id, this.name, this.image, this.trucks});

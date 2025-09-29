@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:obourkom_driver/core/helpers/cache_helper.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/core/routes/routes.dart';
 import 'package:obourkom_driver/core/utils/app_styles.dart';
@@ -34,7 +35,14 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 2), () {
       if (!mounted) return;
       if (isLoggedIn) {
+        if (CacheHelper.getData(key: CacheHelperKeys.carData) == null) {
+          context.pushNamedAndRemoveUntil(
+            Routes.chooseYourServices,
+            (route) => false,
+          );
+        } else {
           context.pushNamedAndRemoveUntil(Routes.home, (route) => false);
+        }
       } else {
         context.pushNamedAndRemoveUntil(Routes.login, (route) => false);
       }
@@ -48,20 +56,16 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(width: double.infinity),
-          Container(
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            decoration: const BoxDecoration(shape: BoxShape.circle),
-            child: Image.asset(
-              Assets.imagesLogoDriver,
-              width: 200,
-              height: 200,
-              fit: BoxFit.fill,
-            ),
+          Image.asset(
+            Assets.imagesLogoDriver,
+            width: 200,
+            height: 200,
+            fit: BoxFit.fill,
           ),
           20.height,
           AnimatedSlide(
             curve: Curves.easeInOut,
-            offset:isChange?const Offset(0, -2): const Offset(0, 0),
+            offset: isChange ? const Offset(0, -2) : const Offset(0, 0),
             duration: const Duration(milliseconds: 700),
             child: Text(
               'عبور  كوم',

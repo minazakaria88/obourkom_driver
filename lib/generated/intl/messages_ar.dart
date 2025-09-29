@@ -37,11 +37,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "accept": MessageLookupByLibrary.simpleMessage("قبول"),
     "active": MessageLookupByLibrary.simpleMessage("تفعيل"),
     "activeLocation": MessageLookupByLibrary.simpleMessage("تفعيل الموقع"),
+    "add": MessageLookupByLibrary.simpleMessage("اضافة"),
     "addAddress": MessageLookupByLibrary.simpleMessage("اضافة عنوان"),
+    "addAnotherTrip": MessageLookupByLibrary.simpleMessage("اضف خدمة نقل آخرى"),
     "addOffer": MessageLookupByLibrary.simpleMessage("تقديم عرض"),
     "addresses": MessageLookupByLibrary.simpleMessage("العناوين"),
     "all": MessageLookupByLibrary.simpleMessage("الكل"),
     "and": MessageLookupByLibrary.simpleMessage(" و "),
+    "anotherTrip": MessageLookupByLibrary.simpleMessage("نقل آخر"),
     "areYouSureLogout": MessageLookupByLibrary.simpleMessage(
       "هل انت متأكد من تسجيل الخروج؟",
     ),
@@ -59,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkPrivacyPolicy": MessageLookupByLibrary.simpleMessage(
       "قم بمراجعة الشروط والأحكام",
     ),
+    "choose": MessageLookupByLibrary.simpleMessage("اختر"),
     "chooseFromSavedLocations": MessageLookupByLibrary.simpleMessage(
       "اختر من العناويين المحفوظة",
     ),
@@ -146,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "main": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "name": MessageLookupByLibrary.simpleMessage("الاسم *"),
     "negotiation": MessageLookupByLibrary.simpleMessage("قيد التفاوض"),
+    "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "no": MessageLookupByLibrary.simpleMessage("لا"),
     "noAddresses": MessageLookupByLibrary.simpleMessage("لا يوجد عناوين"),
     "noDriversFound": MessageLookupByLibrary.simpleMessage(
@@ -275,6 +280,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "searchInProgress": MessageLookupByLibrary.simpleMessage("جاري البحث..."),
     "searchOnMap": MessageLookupByLibrary.simpleMessage("ابحث في الخريطة"),
+    "selectBrand": MessageLookupByLibrary.simpleMessage("تحديد الماركة"),
+    "selectModel": MessageLookupByLibrary.simpleMessage("تحديد الموديل"),
+    "selectServices": MessageLookupByLibrary.simpleMessage("تحديد الخدمات"),
+    "selectServicesTypeYouWillOffer": MessageLookupByLibrary.simpleMessage(
+      "حدد نوع الخدمات التي ستقدمها",
+    ),
+    "selectSize": MessageLookupByLibrary.simpleMessage("تحديد الحجم"),
+    "selectType": MessageLookupByLibrary.simpleMessage("تحديد النوع"),
+    "serviceName": MessageLookupByLibrary.simpleMessage("اسم الخدمة *"),
     "serviceType": MessageLookupByLibrary.simpleMessage("نوع الخدمة"),
     "setAsPrimary": MessageLookupByLibrary.simpleMessage("تعيين كرئيسي"),
     "shipmentValue": MessageLookupByLibrary.simpleMessage("قيمة التوصيل"),
@@ -282,6 +296,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "showOnMap": MessageLookupByLibrary.simpleMessage("عرض على الخريطة"),
     "smallCars": MessageLookupByLibrary.simpleMessage(" شاحنة صغيرة"),
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
+    "start": MessageLookupByLibrary.simpleMessage("البدء"),
     "stayNotConnected": MessageLookupByLibrary.simpleMessage("البقاء غير متصل"),
     "stoppable": MessageLookupByLibrary.simpleMessage("متوقف"),
     "support": MessageLookupByLibrary.simpleMessage("مركز الدعم"),
@@ -310,6 +325,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبا بعودتك"),
     "whatsapp": MessageLookupByLibrary.simpleMessage("واتساب"),
     "work": MessageLookupByLibrary.simpleMessage("عمل"),
+    "writeServiceName": MessageLookupByLibrary.simpleMessage(
+      "اكتب اسم الخدمة هنا",
+    ),
     "writeYourMessage": MessageLookupByLibrary.simpleMessage("اكتب رسالتك ..."),
     "writeYourNameHere": MessageLookupByLibrary.simpleMessage("اكتب اسمك هنا"),
     "writeYourNotesHere": MessageLookupByLibrary.simpleMessage(

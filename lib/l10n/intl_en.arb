@@ -180,7 +180,21 @@
   "sar": "SAR",
   "offerAccepted": "Offer Accepted",
   "offerRejected": "Offer Rejected",
-  "pleaseTryAgain": "Please Try Again"
+  "pleaseTryAgain": "Please Try Again",
+  "selectServices" : "Select Services",
+  "selectServicesTypeYouWillOffer" : "Select Services Type You Will Offer",
+  "anotherTrip" : "Another Trip",
+  "next": "Next",
+  "addAnotherTrip": "Add Another Trip",
+  "writeServiceName" : "Write Service Name",
+  "serviceName" : "Service Name *",
+  "add" : "Add",
+  "choose": "choose",
+  "selectBrand"  :"Select Brand",
+  "selectModel"  :"Select Model",
+  "selectType": "Select Type",
+  "selectSize": "Select Size",
+  "start": "Start"
 
 
 

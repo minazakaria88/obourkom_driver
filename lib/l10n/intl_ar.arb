@@ -183,7 +183,21 @@
     "sar": "ريال",
     "offerAccepted": "تم قبول العرض",
     "offerRejected": "تم رفض العرض",
-    "pleaseTryAgain": "يرجى المحاولة مرة اخرى"
+    "pleaseTryAgain": "يرجى المحاولة مرة اخرى",
+    "selectServices": "تحديد الخدمات",
+    "selectServicesTypeYouWillOffer": "حدد نوع الخدمات التي ستقدمها",
+    "anotherTrip": "نقل آخر",
+    "next": "التالي",
+    "addAnotherTrip": "اضف خدمة نقل آخرى",
+    "writeServiceName": "اكتب اسم الخدمة هنا",
+    "serviceName": "اسم الخدمة *",
+    "add": "اضافة",
+    "choose": "اختر",
+   "selectBrand"  :"تحديد الماركة",
+   "selectModel"  :"تحديد الموديل",
+    "selectType": "تحديد النوع",
+    "selectSize": "تحديد الحجم",
+    "start": "البدء"
 
 
 

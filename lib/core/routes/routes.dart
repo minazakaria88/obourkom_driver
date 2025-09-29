@@ -23,4 +23,5 @@ class Routes {
   static const String chatScreen='/chatScreen';
   static const String splashScreen='/splashScreen';
   static const String chooseYourServices='/chooseYourServices';
+  static const String addNewServices='/addNewServices';
 }

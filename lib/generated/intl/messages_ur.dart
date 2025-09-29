@@ -37,11 +37,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "accept": MessageLookupByLibrary.simpleMessage("قبول کریں"),
     "active": MessageLookupByLibrary.simpleMessage("فعال کریں"),
     "activeLocation": MessageLookupByLibrary.simpleMessage("مقام فعال کریں"),
+    "add": MessageLookupByLibrary.simpleMessage("اضافہ"),
     "addAddress": MessageLookupByLibrary.simpleMessage("نیا پتہ شامل کریں"),
+    "addAnotherTrip": MessageLookupByLibrary.simpleMessage(
+      "دریافت کرنے کے لیے دوبارہ نقلہ",
+    ),
     "addOffer": MessageLookupByLibrary.simpleMessage("پیشکش دیں"),
     "addresses": MessageLookupByLibrary.simpleMessage("پتے"),
     "all": MessageLookupByLibrary.simpleMessage("سب"),
     "and": MessageLookupByLibrary.simpleMessage(" اور "),
+    "anotherTrip": MessageLookupByLibrary.simpleMessage(
+      "دریافت کرنے کے لیے دوبارہ نقلہ",
+    ),
     "areYouSureLogout": MessageLookupByLibrary.simpleMessage(
       "کیا آپ لاگ آؤٹ کرنا چاہتے ہیں؟",
     ),
@@ -59,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkPrivacyPolicy": MessageLookupByLibrary.simpleMessage(
       "شرائط و ضوابط کا جائزہ لیں",
     ),
+    "choose": MessageLookupByLibrary.simpleMessage("انتخاب کریں"),
     "chooseFromSavedLocations": MessageLookupByLibrary.simpleMessage(
       "محفوظ کردہ پتے منتخب کریں",
     ),
@@ -156,6 +164,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "main": MessageLookupByLibrary.simpleMessage("مرکزی صفحہ"),
     "name": MessageLookupByLibrary.simpleMessage("نام *"),
     "negotiation": MessageLookupByLibrary.simpleMessage("مذاکرات جاری ہیں"),
+    "next": MessageLookupByLibrary.simpleMessage("بعدی"),
     "no": MessageLookupByLibrary.simpleMessage("نہیں"),
     "noAddresses": MessageLookupByLibrary.simpleMessage("کوئی پتہ نہیں"),
     "noDriversFound": MessageLookupByLibrary.simpleMessage(
@@ -285,6 +294,17 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "searchInProgress": MessageLookupByLibrary.simpleMessage("تلاش جاری ہے..."),
     "searchOnMap": MessageLookupByLibrary.simpleMessage("نقشے پر تلاش کریں"),
+    "selectBrand": MessageLookupByLibrary.simpleMessage("برانڈ کو انتخاب کریں"),
+    "selectModel": MessageLookupByLibrary.simpleMessage("مودل کو انتخاب کریں"),
+    "selectServices": MessageLookupByLibrary.simpleMessage(
+      "خدمات کو انتخاب کریں",
+    ),
+    "selectServicesTypeYouWillOffer": MessageLookupByLibrary.simpleMessage(
+      "کہاں پیشکش کریں گے",
+    ),
+    "selectSize": MessageLookupByLibrary.simpleMessage("سائز کو انتخاب کریں"),
+    "selectType": MessageLookupByLibrary.simpleMessage("نوع کو انتخاب کریں"),
+    "serviceName": MessageLookupByLibrary.simpleMessage("خدمت کا نام *"),
     "serviceType": MessageLookupByLibrary.simpleMessage("سروس کی قسم"),
     "setAsPrimary": MessageLookupByLibrary.simpleMessage(
       "بطور مرکزی مقرر کریں",
@@ -296,6 +316,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
       "کچھ غلط ہو گیا",
     ),
+    "start": MessageLookupByLibrary.simpleMessage("شروع"),
     "stayNotConnected": MessageLookupByLibrary.simpleMessage("غیر متصل رہیں"),
     "stoppable": MessageLookupByLibrary.simpleMessage("روکا گیا"),
     "support": MessageLookupByLibrary.simpleMessage("مدد مرکز"),
@@ -330,6 +351,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "whatsapp": MessageLookupByLibrary.simpleMessage("واٹس ایپ"),
     "work": MessageLookupByLibrary.simpleMessage("کام"),
+    "writeServiceName": MessageLookupByLibrary.simpleMessage(
+      "خدمت کا نام درج کریں",
+    ),
     "writeYourMessage": MessageLookupByLibrary.simpleMessage(
       "اپنا پیغام لکھیں...",
     ),

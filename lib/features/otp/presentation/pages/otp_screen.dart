@@ -59,10 +59,20 @@ class _OtpScreenState extends State<OtpScreen> {
                     previous.failureVerifyOtp != current.failureVerifyOtp,
                 listener: (context, state) {
                   if (state.successVerifyOtp) {
-                    context.pushNamedAndRemoveUntil(
-                      Routes.home,
-                      (context) => false,
-                    );
+                    if(widget.otpType== OtpType.register)
+                     {
+                       context.pushNamedAndRemoveUntil(
+                         Routes.chooseYourServices,
+                             (context) => false,
+                       );
+                     }
+                    else
+                      {
+                        context.pushNamedAndRemoveUntil(
+                          Routes.home,
+                              (context) => false,
+                        );
+                      }
                     showToastification(
                       message: S.of(context).loginSuccessfully,
                       context: context,

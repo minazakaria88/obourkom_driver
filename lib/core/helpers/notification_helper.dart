@@ -95,7 +95,7 @@ class NotificationService {
   static void showLocalNotification({
     required String title,
     required String body,
-    required String payload,
+     String ?payload,
   }) {
     NotificationDetails notificationDetails = const NotificationDetails(
       android: AndroidNotificationDetails(
@@ -103,6 +103,8 @@ class NotificationService {
         'channel_name',
         importance: Importance.max,
         priority: Priority.high,
+        playSound: true,
+        enableVibration: true,
       ),
       iOS: DarwinNotificationDetails(
         presentAlert: true,

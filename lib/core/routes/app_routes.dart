@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:obourkom_driver/core/helpers/cache_helper.dart';
 import 'package:obourkom_driver/core/routes/routes.dart';
 import 'package:obourkom_driver/features/driver_data/presentation/cubit/driver_data_cubit.dart';
+import 'package:obourkom_driver/features/driver_data/presentation/pages/add_new_services_screen.dart';
+import 'package:obourkom_driver/features/driver_data/presentation/pages/car_data_screen.dart';
 import 'package:obourkom_driver/features/driver_data/presentation/pages/choose_services_screen.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 import 'package:obourkom_driver/features/main/presentation/cubit/main_cubit.dart';
@@ -162,9 +164,29 @@ class AppRoues {
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => getIt<DriverDataCubit>()..getCategories(),
-              child: const ChooseServicesScreen()),
+            child: const ChooseServicesScreen(),
+          ),
         );
-
+      case Routes.chooseYourCar:
+        final cubit = setting.arguments as DriverDataCubit;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider.value(
+            value: cubit
+              ..getCarBrands()
+              ..getCarModels()
+              ..getCarSizes()
+              ..getCarTypes(),
+            child: const CarDataScreen(),
+          ),
+        );
+      case Routes.addNewServices:
+        final cubit = setting.arguments as DriverDataCubit;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider.value(
+            value: cubit,
+            child: const AddNewServicesScreen(),
+          ),
+        );
       default:
         return null;
     }

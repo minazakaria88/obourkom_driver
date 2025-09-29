@@ -37,11 +37,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "accept": MessageLookupByLibrary.simpleMessage("Accept"),
     "active": MessageLookupByLibrary.simpleMessage("Active"),
     "activeLocation": MessageLookupByLibrary.simpleMessage("Active Location"),
+    "add": MessageLookupByLibrary.simpleMessage("Add"),
     "addAddress": MessageLookupByLibrary.simpleMessage("Add Address"),
+    "addAnotherTrip": MessageLookupByLibrary.simpleMessage("Add Another Trip"),
     "addOffer": MessageLookupByLibrary.simpleMessage("Add Offer"),
     "addresses": MessageLookupByLibrary.simpleMessage("Addresses"),
     "all": MessageLookupByLibrary.simpleMessage("All"),
     "and": MessageLookupByLibrary.simpleMessage(" and "),
+    "anotherTrip": MessageLookupByLibrary.simpleMessage("Another Trip"),
     "areYouSureLogout": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to logout?",
     ),
@@ -59,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkPrivacyPolicy": MessageLookupByLibrary.simpleMessage(
       "Check Privacy Policy",
     ),
+    "choose": MessageLookupByLibrary.simpleMessage("choose"),
     "chooseFromSavedLocations": MessageLookupByLibrary.simpleMessage(
       "choose From Saved Locations",
     ),
@@ -154,6 +158,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "main": MessageLookupByLibrary.simpleMessage("Main"),
     "name": MessageLookupByLibrary.simpleMessage("Name *"),
     "negotiation": MessageLookupByLibrary.simpleMessage("Negotiation"),
+    "next": MessageLookupByLibrary.simpleMessage("Next"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
     "noAddresses": MessageLookupByLibrary.simpleMessage("No Addresses"),
     "noDrivers": MessageLookupByLibrary.simpleMessage("No Drivers"),
@@ -282,6 +287,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Search In Progress",
     ),
     "searchOnMap": MessageLookupByLibrary.simpleMessage("Search on Map"),
+    "selectBrand": MessageLookupByLibrary.simpleMessage("Select Brand"),
+    "selectModel": MessageLookupByLibrary.simpleMessage("Select Model"),
+    "selectServices": MessageLookupByLibrary.simpleMessage("Select Services"),
+    "selectServicesTypeYouWillOffer": MessageLookupByLibrary.simpleMessage(
+      "Select Services Type You Will Offer",
+    ),
+    "selectSize": MessageLookupByLibrary.simpleMessage("Select Size"),
+    "selectType": MessageLookupByLibrary.simpleMessage("Select Type"),
+    "serviceName": MessageLookupByLibrary.simpleMessage("Service Name *"),
     "serviceType": MessageLookupByLibrary.simpleMessage("Service Type"),
     "setAsPrimary": MessageLookupByLibrary.simpleMessage("Set As Primary"),
     "shipmentValue": MessageLookupByLibrary.simpleMessage("Shipment Value"),
@@ -291,6 +305,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
       "Something went wrong",
     ),
+    "start": MessageLookupByLibrary.simpleMessage("Start"),
     "stayNotConnected": MessageLookupByLibrary.simpleMessage(
       "Stay Not Connected",
     ),
@@ -329,6 +344,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back"),
     "whatsapp": MessageLookupByLibrary.simpleMessage("Whatsapp"),
     "work": MessageLookupByLibrary.simpleMessage("Work"),
+    "writeServiceName": MessageLookupByLibrary.simpleMessage(
+      "Write Service Name",
+    ),
     "writeYourMessage": MessageLookupByLibrary.simpleMessage(
       "Write your message ...",
     ),

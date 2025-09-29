@@ -183,5 +183,19 @@
   "sar": "ریال",
   "offerAccepted": "پیشکش پذیرا گیا",
   "offerRejected": "پیشکش رجوع ہو گیا",
-  "pleaseTryAgain": "لطفا دوبارہ تلاش کریں"
+  "pleaseTryAgain": "لطفا دوبارہ تلاش کریں",
+  "selectServices": "خدمات کو انتخاب کریں",
+  "selectServicesTypeYouWillOffer": "کہاں پیشکش کریں گے",
+  "anotherTrip": "دریافت کرنے کے لیے دوبارہ نقلہ",
+  "next": "بعدی",
+  "addAnotherTrip": "دریافت کرنے کے لیے دوبارہ نقلہ",
+  "writeServiceName": "خدمت کا نام درج کریں",
+  "serviceName": "خدمت کا نام *",
+  "add": "اضافہ",
+  "choose": "انتخاب کریں",
+  "selectBrand": "برانڈ کو انتخاب کریں",
+  "selectModel": "مودل کو انتخاب کریں",
+  "selectType": "نوع کو انتخاب کریں",
+  "selectSize": "سائز کو انتخاب کریں",
+  "start": "شروع"
 }
