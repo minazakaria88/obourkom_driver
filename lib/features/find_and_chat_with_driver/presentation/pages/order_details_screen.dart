@@ -74,7 +74,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   OrderLocationWidget(
                     title: S.of(context).deliveryLocation,
                     location: orderModel.addressTo ?? '',
-                    latitude: orderModel.toLng ?? 0.0,
+                    latitude: orderModel.toLat ?? 0.0,
                     longitude: orderModel.fromLng ?? 0.0,
                   ),
                   SliverToBoxAdapter(child: 40.height),
