@@ -13,10 +13,14 @@ class OrdersCubit extends Cubit<OrdersState> {
   OrdersCubit({required this.orderRepository}) : super(const OrdersState());
   final OrderRepository orderRepository;
 
-
-
-  void getOrders(int page) async {
-    emit(state.copyWith(getOrdersStatus: GetOrdersStatus.loading));
+  void getOrders(int page, [bool refresh = false]) async {
+    emit(
+      state.copyWith(
+        getOrdersStatus: GetOrdersStatus.loading,
+        recentOrdersList: refresh ? [] : null,
+        completedOrdersList: refresh ? [] : null,
+      ),
+    );
     try {
       final result = await orderRepository.getOrders(page);
       final recentOrder = List<OrderDataModel>.from([]);
@@ -25,8 +29,7 @@ class OrdersCubit extends Cubit<OrdersState> {
       for (var element in orders) {
         if (element.status == 'delivered') {
           completedOrder.add(element);
-        }
-        else {
+        } else {
           recentOrder.add(element);
         }
       }
@@ -70,15 +73,10 @@ class OrdersCubit extends Cubit<OrdersState> {
     });
   }
 
-
-
   @override
   void emit(OrdersState state) {
-    if(!isClosed) {
+    if (!isClosed) {
       super.emit(state);
     }
   }
-
-
-
 }

@@ -92,7 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "سنقوم بحذف الحساب الخاص بك بشكل نهائي مما سيؤدي الي فقدان سجل الطلبات وكافة البيانات الخاصة بك، هل انت متأكد من القيام بعملية الحذف ؟",
     ),
     "delivered": MessageLookupByLibrary.simpleMessage("تم التسليم"),
-    "deliveryLocation": MessageLookupByLibrary.simpleMessage("مكان الاستلام"),
+    "deliveryLocation": MessageLookupByLibrary.simpleMessage("مكان التسليم"),
     "deliveryPhoto": MessageLookupByLibrary.simpleMessage("تصوير التوصيل"),
     "deliveryTo": MessageLookupByLibrary.simpleMessage("توصيل إلى:"),
     "details": MessageLookupByLibrary.simpleMessage("التفاصيل"),
@@ -217,7 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "ادخل رقم الهاتف للمتابعة",
     ),
     "pickUpFrom": MessageLookupByLibrary.simpleMessage("توصيل من:"),
-    "pickupLocation": MessageLookupByLibrary.simpleMessage("مكان التسليم"),
+    "pickupLocation": MessageLookupByLibrary.simpleMessage("مكان الاستلام "),
     "pickupPhoto": MessageLookupByLibrary.simpleMessage("تصوير الاستلام"),
     "pleaseAcceptTheTermsAndConditions": MessageLookupByLibrary.simpleMessage(
       "الرجاء قبول الشروط والاحكام ",

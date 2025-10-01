@@ -200,8 +200,8 @@
     "start": "البدء",
     "pickupPhoto": "تصوير الاستلام",
     "deliveryPhoto": "تصوير التوصيل",
-    "deliveryLocation": "مكان الاستلام",
-    "pickupLocation": "مكان التسليم",
+    "deliveryLocation": "مكان التسليم",
+    "pickupLocation": "مكان الاستلام ",
     "editOfferSuccessfully": "تم تعديل العرض بنجاح",
     "EnterNewPrice" : "ادخل  السعر الجديد",
     "pleaseEnterNewPrice" : "يرجى ادخال السعر الجديد"
