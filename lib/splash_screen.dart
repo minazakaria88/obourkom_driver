@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   bool isChange = false;
 
   void changeTextStyle() {
-    Future.delayed(const Duration(milliseconds: 700), () {
+    Future.delayed(const Duration(milliseconds: 800), () {
       setState(() {
         isChange = true;
       });
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void gotoScreen() {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       if (!mounted) return;
       if (isLoggedIn) {
         if (CacheHelper.getData(key: CacheHelperKeys.carData) == null) {
@@ -66,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen> {
           AnimatedSlide(
             curve: Curves.easeInOut,
             offset: isChange ? const Offset(0, -2) : const Offset(0, 0),
-            duration: const Duration(milliseconds: 700),
+            duration: const Duration(milliseconds: 900),
             child: Text(
               'عبور  كوم',
               style: AppTextStyles.bold14MainColor.copyWith(fontSize: 24),

@@ -5,6 +5,7 @@ import 'package:obourkom_driver/core/api/failure.dart';
 import 'package:obourkom_driver/core/utils/constant.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/message_model.dart';
 import '../../../../core/api/api_helper.dart';
+import '../../../main/data/models/firebase_offer_model.dart';
 import '../models/image_model.dart';
 
 class FindAndChatWithDriverRepository {
@@ -13,8 +14,6 @@ class FindAndChatWithDriverRepository {
   FindAndChatWithDriverRepository({required this.apiHelper});
 
   final firestore = FirebaseFirestore.instance.collection('orders');
-
-
 
   Stream<List<MessageModel>> getMessages({
     required String orderId,
@@ -61,7 +60,6 @@ class FindAndChatWithDriverRepository {
       data: message.toJson(),
     );
   }
-
 
   Stream<String> getOrderStatus({required String orderId}) {
     return firestore.doc(orderId).snapshots().map((event) => event['status']);
@@ -112,4 +110,31 @@ class FindAndChatWithDriverRepository {
     }
   }
 
+  Stream<FirebaseOfferModel> listenForMyOffer(String orderId, String offerId) {
+    return firestore
+        .doc(orderId)
+        .collection('offers')
+        .doc(offerId)
+        .snapshots()
+        .map((e) => FirebaseOfferModel.fromJson(e.data()!));
+  }
+
+  Future<void> updateOffer({
+    required String orderId,
+    required String offerId,
+    required dynamic data,
+  }) async {
+    try {
+      await apiHelper.putData(
+        url: '${EndPoints.orders}/$orderId/offers/$offerId',
+        data: data,
+      );
+    } catch (e) {
+      logger.e(e);
+      if (e is DioException) {
+        throw ApiException(failure: ServerFailure.serverError(e));
+      }
+      throw ApiException(failure: Failure(message: e.toString()));
+    }
+  }
 }

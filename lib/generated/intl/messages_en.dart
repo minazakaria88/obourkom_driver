@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "DeterminePickupLocation": MessageLookupByLibrary.simpleMessage(
       "Determine Pickup Location",
     ),
+    "EnterNewPrice": MessageLookupByLibrary.simpleMessage("Enter New Price"),
     "Invoice": MessageLookupByLibrary.simpleMessage("Invoice"),
     "PrivacyPolicy": MessageLookupByLibrary.simpleMessage(" Privacy Policy "),
     "TermsAndConditions": MessageLookupByLibrary.simpleMessage(
@@ -91,6 +92,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "We will permanently delete your account, which will result in the loss of your order history and all your data. Are you sure you want to delete it?",
     ),
     "delivered": MessageLookupByLibrary.simpleMessage("Delivered"),
+    "deliveryLocation": MessageLookupByLibrary.simpleMessage(
+      "Delivery Location",
+    ),
+    "deliveryPhoto": MessageLookupByLibrary.simpleMessage("Delivery Photo"),
     "deliveryTo": MessageLookupByLibrary.simpleMessage("Delivery To"),
     "details": MessageLookupByLibrary.simpleMessage("Details"),
     "determineLocationManually": MessageLookupByLibrary.simpleMessage(
@@ -117,6 +122,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "editOffer": MessageLookupByLibrary.simpleMessage("Edit Offer"),
+    "editOfferSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "Edit Offer Successfully",
+    ),
     "editProfileSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Edit Profile Successfully",
     ),
@@ -216,6 +224,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter your phone number to continue",
     ),
     "pickUpFrom": MessageLookupByLibrary.simpleMessage("Pickup From"),
+    "pickupLocation": MessageLookupByLibrary.simpleMessage("Pickup Location"),
+    "pickupPhoto": MessageLookupByLibrary.simpleMessage("Pickup Photo"),
     "pleaseAcceptTheTermsAndConditions": MessageLookupByLibrary.simpleMessage(
       "Please accept the terms and conditions",
     ),
@@ -239,6 +249,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseEnterLabel": MessageLookupByLibrary.simpleMessage(
       "Please enter label",
+    ),
+    "pleaseEnterNewPrice": MessageLookupByLibrary.simpleMessage(
+      "Please Enter New Price",
     ),
     "pleaseEnterPickupLocation": MessageLookupByLibrary.simpleMessage(
       "Please enter pickup location",

@@ -48,7 +48,8 @@ class OrderListviewItemWidget extends StatelessWidget {
               Routes.orderDetails,
               arguments: {
                 'order':OrderAdapterModel.fromOrderModel(model),
-                'driver': OfferModel(
+                'offer': OfferModel(
+                  id: offer.id,
                   driverId: offer.driverId,
                   name: model.driver?.name ??'',
                   price: offer.price,
@@ -94,8 +95,9 @@ class OrderListviewItemWidget extends StatelessWidget {
                       value: model.truckSize!.name  ?? '',
                       title: S.of(context).carType,
                     ),
+                    if(model.status!=available)
                     OrderDetailsItemWidget(
-                      value: model.price ?? '',
+                      value: '${model.price ?? ''} ${S.of(context).sar} ',
                       title: S.of(context).total,
                     ),
                   ],

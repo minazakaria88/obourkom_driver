@@ -53,6 +53,33 @@ class SelectedOrderDetails extends StatelessWidget {
             10.height,
             const Divider(color: Colors.grey, height: 1.2),
             10.height,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    S.of(context).expectedTransportationCost,
+                    style: AppTextStyles.bold14Grey.copyWith(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                10.width,
+                Expanded(
+                  child: Text(
+                    '${S.of(context).from} ${model.priceFrom}  ${S.of(context).to} ${model.priceTo} ${S.of(context).sar}',
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.bold14MainColor.copyWith(
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            10.height,
+            const Divider(color: Colors.grey, height: 1.2),
+            10.height,
             OrderLocationDetails(model: model,),
             10.height,
             const Divider(color: Colors.grey, height: 1.2),

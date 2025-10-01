@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/core/utils/constant.dart';
+import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/offer_model.dart';
+import 'package:obourkom_driver/features/find_and_chat_with_driver/presentation/widgets/order_details_widget/edit_offer_widget.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/presentation/widgets/order_details_widget/send_image_widget.dart';
 import '../../../../core/helpers/cache_helper.dart';
 import '../../../../core/widgets/my_app_bar.dart';
@@ -18,8 +20,9 @@ import '../widgets/order_details_widget/order_status_widget.dart';
 import '../widgets/order_details_widget/send_message_widget.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
-  const OrderDetailsScreen({super.key, required this.orderModel});
+  const OrderDetailsScreen({super.key, required this.orderModel, required this.offerModel});
   final SubmitOrderModel orderModel;
+  final OfferModel offerModel;
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<FindAndChatWithDriverCubit>();
@@ -46,10 +49,14 @@ class OrderDetailsScreen extends StatelessWidget {
                   const OrderStatusWidget(),
                   SliverToBoxAdapter(child: 20.height),
                   SliverToBoxAdapter(
-                    child: OrderDetailsWidget(model: orderModel),
+                    child: OrderDetailsWidget(model: orderModel,offerModel: offerModel,),
                   ),
-                  SliverToBoxAdapter(child: 20.height),
-                  // const EditOfferWidget(),
+                  SliverToBoxAdapter(child: 10.height),
+                   EditOfferWidget(
+                     orderId: orderModel.id.toString(),
+                     offerId: offerModel.id.toString(),
+                   ),
+                  SliverToBoxAdapter(child: 10.height),
                   CallAndChatWithUser(
                     cubit: cubit,
                     userPhone: orderModel.userPhone ?? '',
@@ -57,8 +64,20 @@ class OrderDetailsScreen extends StatelessWidget {
                     userName: orderModel.userName ?? '',
                   ),
                   SliverToBoxAdapter(child: 20.height),
-                  OrderLocationWidget(orderModel: orderModel),
+                  OrderLocationWidget(
+                    title: S.of(context).pickupLocation,
+                    location: orderModel.addressFrom ?? '',
+                    latitude: orderModel.fromLat ?? 0.0,
+                    longitude: orderModel.fromLng ?? 0.0,
+                  ),
                   SliverToBoxAdapter(child: 20.height),
+                  OrderLocationWidget(
+                    title: S.of(context).deliveryLocation,
+                    location: orderModel.addressTo ?? '',
+                    latitude: orderModel.toLng ?? 0.0,
+                    longitude: orderModel.fromLng ?? 0.0,
+                  ),
+                  SliverToBoxAdapter(child: 40.height),
                   BlocBuilder<
                     FindAndChatWithDriverCubit,
                     FindAndChatWithDriverState
@@ -70,7 +89,7 @@ class OrderDetailsScreen extends StatelessWidget {
                               statusToNumber[state.orderStatus] == 0
                           ? const ChatListview()
                           : const SliverToBoxAdapter(
-                              child: SizedBox(height: 250),
+                              child: SizedBox(height: 280),
                             );
                     },
                   ),
@@ -101,4 +120,3 @@ class OrderDetailsScreen extends StatelessWidget {
     );
   }
 }
-

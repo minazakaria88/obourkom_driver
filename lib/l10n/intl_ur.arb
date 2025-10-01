@@ -197,5 +197,12 @@
   "selectModel": "مودل کو انتخاب کریں",
   "selectType": "نوع کو انتخاب کریں",
   "selectSize": "سائز کو انتخاب کریں",
-  "start": "شروع"
+  "start": "شروع",
+  "pickupPhoto": "استلام کے تصویر",
+  "deliveryPhoto": "توصیل کے تصویر",
+  "deliveryLocation": "توصیل کے موقع",
+  "pickupLocation": "استلام کے موقع",
+  "editOfferSuccessfully": "پیشکش کو میں ترمیم کر دیا گیا ہے",
+  "EnterNewPrice" : "نیا سعر درج کریں",
+  "pleaseEnterNewPrice" : "لطفا نیا سعر درج کریں"
 }

@@ -50,7 +50,7 @@ class MainCubit extends Cubit<MainState> {
   }
 
   void cancelOrderStream() {
-    logger.e(' ordersStream?.cancel();');
+    logger.d(' ordersStream?.cancel();');
     ordersStream?.cancel();
   }
 
@@ -61,7 +61,6 @@ class MainCubit extends Cubit<MainState> {
         price: priceController.text,
         orderId: orderId,
       );
-      //listenForOfferAccept(state.order!);
       listenForMyOffer(orderId: orderId, offerId: offerId.toString());
       emit(state.copyWith(sendOfferState: SendOfferState.success));
     } on ApiException catch (e) {

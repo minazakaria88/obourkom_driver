@@ -4,10 +4,11 @@ import '../../../../../core/utils/app_styles.dart';
 
 class OrderDetailsItemWidget extends StatelessWidget {
   const OrderDetailsItemWidget({
-    super.key, required this.title, required this.value,
+    super.key, required this.title, required this.value, this.color,
   });
   final String title;
   final String value;
+  final Color ? color;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class OrderDetailsItemWidget extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: AppTextStyles.bold14Grey.copyWith(
-                color: AppColors.darkMainColor,
+                color:color?? AppColors.darkMainColor,
               ),
             ),
           ),

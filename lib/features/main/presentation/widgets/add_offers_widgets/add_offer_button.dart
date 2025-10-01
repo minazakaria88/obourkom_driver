@@ -7,8 +7,8 @@ import '../../../../../generated/l10n.dart';
 import 'add_offer_widget.dart';
 
 class AddOfferButton extends StatelessWidget {
-  const AddOfferButton({super.key, required this.offerId});
-  final String offerId;
+  const AddOfferButton({super.key, required this.orderId});
+  final String orderId;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,7 +39,7 @@ class AddOfferButton extends StatelessWidget {
                   context: context,
                   builder: (_) => BlocProvider.value(
                     value: context.read<MainCubit>(),
-                    child:  AddOfferWidget(offerId: offerId,),
+                    child:  AddOfferWidget(orderId: orderId,),
                   ),
                 );
               },

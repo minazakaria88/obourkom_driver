@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:obourkom_driver/core/functions/show_snack_bar.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
+import 'package:obourkom_driver/core/helpers/notification_helper.dart';
+import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/offer_model.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 import 'package:obourkom_driver/features/main/presentation/cubit/main_cubit.dart';
 import 'package:obourkom_driver/features/main/presentation/widgets/main_widget.dart';
@@ -41,17 +43,30 @@ class AddOffersScreen extends StatelessWidget {
                   );
                 }
                 if (state.offer?.isAccepted == true) {
+                  NotificationService.showLocalNotification(
+                    title: S.of(context).offerAccepted,
+                    body: S.of(context).offerAccepted,
+                  );
                   context.pushReplacementNamed(
                     Routes.orderDetails,
                     arguments: {
                       'order': OrderAdapterModel.fromFirebaseOrderModel(model),
+                      'offer':OfferModel(
+                        id: state.offer!.id,
+                        price: state.offer!.price.toString(),
+                        driverId: state.offer!.driverId,
+                      ),
                     },
                   );
                 }
                 if (state.offer?.status == 'cancelled') {
-                  if(context.mounted)
-                  {
-                    if(Navigator.of(context).canPop()) {
+                  if (context.mounted) {
+                    NotificationService.showLocalNotification(
+                      title: S.of(context).offerRejected,
+                      body: S.of(context).offerRejected,
+                    );
+
+                    if (Navigator.of(context).canPop()) {
                       context.pop();
                     }
                   }
@@ -76,7 +91,7 @@ class AddOffersScreen extends StatelessWidget {
         builder: (context, state) {
           return state.sendOfferState == SendOfferState.success
               ? const AddOfferDisableWidget()
-              :  AddOfferButton(offerId: model.id.toString(),);
+              : AddOfferButton(orderId: model.id.toString());
         },
       ),
     );

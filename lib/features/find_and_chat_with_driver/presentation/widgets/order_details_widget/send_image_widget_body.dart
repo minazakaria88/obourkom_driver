@@ -72,7 +72,7 @@ class SendImageWidgetBody extends StatelessWidget {
                   SvgPicture.asset(Assets.imagesUploadImage),
                   10.width,
                   Text(
-                    S.of(context).uploadPhotos,
+                    S.of(context).pickupPhoto,
                     style: AppTextStyles.bold14MainColor,
                   ),
                 ],

@@ -6,6 +6,7 @@ import 'package:obourkom_driver/features/driver_data/presentation/cubit/driver_d
 import 'package:obourkom_driver/features/driver_data/presentation/pages/add_new_services_screen.dart';
 import 'package:obourkom_driver/features/driver_data/presentation/pages/car_data_screen.dart';
 import 'package:obourkom_driver/features/driver_data/presentation/pages/choose_services_screen.dart';
+import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/offer_model.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 import 'package:obourkom_driver/features/main/presentation/cubit/main_cubit.dart';
 import 'package:obourkom_driver/features/main/presentation/pages/add_offers_screen.dart';
@@ -109,6 +110,7 @@ class AppRoues {
       case Routes.orderDetails:
         final arguments = setting.arguments as Map<String, dynamic>;
         final order = arguments['order'] as SubmitOrderModel;
+        final offer=arguments['offer'] as OfferModel;
         final driverId = CacheHelper.getData(key: CacheHelperKeys.customerId);
         logger.i(order.id);
         logger.i(driverId);
@@ -119,8 +121,9 @@ class AppRoues {
                 driverId: driverId.toString(),
                 orderId: order.id.toString(),
               )
-              ..listenForOrderStatus(orderId: order.id.toString()),
-            child: OrderDetailsScreen(orderModel: order),
+              ..listenForOrderStatus(orderId: order.id.toString())
+            ..listenForMyOffer(orderId:order.id.toString() , offerId: offer.id.toString()),
+            child: OrderDetailsScreen(orderModel: order,offerModel: offer),
           ),
         );
       case Routes.completedOrderDetails:

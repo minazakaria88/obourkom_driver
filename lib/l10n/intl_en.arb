@@ -194,7 +194,14 @@
   "selectModel"  :"Select Model",
   "selectType": "Select Type",
   "selectSize": "Select Size",
-  "start": "Start"
+  "start": "Start",
+  "pickupPhoto": "Pickup Photo",
+  "deliveryPhoto": "Delivery Photo",
+  "deliveryLocation": "Delivery Location",
+  "pickupLocation": "Pickup Location",
+  "EnterNewPrice" : "Enter New Price",
+  "pleaseEnterNewPrice" : "Please Enter New Price",
+  "editOfferSuccessfully" : "Edit Offer Successfully"
 
 
 

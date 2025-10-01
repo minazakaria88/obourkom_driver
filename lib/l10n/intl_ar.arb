@@ -197,7 +197,14 @@
    "selectModel"  :"تحديد الموديل",
     "selectType": "تحديد النوع",
     "selectSize": "تحديد الحجم",
-    "start": "البدء"
+    "start": "البدء",
+    "pickupPhoto": "تصوير الاستلام",
+    "deliveryPhoto": "تصوير التوصيل",
+    "deliveryLocation": "مكان الاستلام",
+    "pickupLocation": "مكان التسليم",
+    "editOfferSuccessfully": "تم تعديل العرض بنجاح",
+    "EnterNewPrice" : "ادخل  السعر الجديد",
+    "pleaseEnterNewPrice" : "يرجى ادخال السعر الجديد"
 
 
 

@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
-
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../generated/l10n.dart';
+import 'add_offers_widgets/got_to_map_widget.dart';
 
 class FromToLocationWidget extends StatelessWidget {
-  const FromToLocationWidget({
-    super.key, required this.model,
-  });
+  const FromToLocationWidget({super.key, required this.model});
   final FirebaseOrderModel model;
 
   @override
@@ -23,21 +21,19 @@ class FromToLocationWidget extends StatelessWidget {
             children: [
               Text(
                 S.of(context).from,
-                style: AppTextStyles.regular16Black
-                    .copyWith(fontSize: 14),
+                style: AppTextStyles.regular16Black.copyWith(fontSize: 14),
               ),
               const Spacer(),
-               Text(
+              GoToMapWidget(lat: model.fromLat!, lng: model.fromLng!,),
+              Text(
                 'علي بعد ${model.distanceBetweenDriverAndPickup} كم',
-                style: const TextStyle(
-                  color: AppColors.greenColor,
-                ),
+                style: const TextStyle(color: AppColors.greenColor),
               ),
             ],
           ),
           10.height,
-           Text(
-            model.fromAddress ??'',
+          Text(
+            model.fromAddress ?? '',
             maxLines: 1,
             style: const TextStyle(color: Color(0xff616A6B)),
             overflow: TextOverflow.ellipsis,
@@ -48,21 +44,19 @@ class FromToLocationWidget extends StatelessWidget {
             children: [
               Text(
                 S.of(context).to,
-                style: AppTextStyles.regular16Black
-                    .copyWith(fontSize: 14),
+                style: AppTextStyles.regular16Black.copyWith(fontSize: 14),
               ),
               const Spacer(),
-               Text(
+              GoToMapWidget(lat: model.toLat!, lng: model.toLng!,),
+              Text(
                 'علي بعد ${model.distanceBetweenDriverAndDropOff} كم',
-                style: const TextStyle(
-                  color: AppColors.greenColor,
-                ),
+                style: const TextStyle(color: AppColors.greenColor),
               ),
             ],
           ),
           10.height,
-           Text(
-            model.toAddress ??'',
+          Text(
+            model.toAddress ?? '',
             maxLines: 1,
             style: const TextStyle(color: Color(0xff616A6B)),
             overflow: TextOverflow.ellipsis,
@@ -72,3 +66,4 @@ class FromToLocationWidget extends StatelessWidget {
     );
   }
 }
+

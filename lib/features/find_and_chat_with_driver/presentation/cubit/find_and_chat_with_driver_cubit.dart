@@ -6,26 +6,27 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:obourkom_driver/core/api/failure.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/message_model.dart';
-import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/offer_model.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/repositories/find_and_chat_repo.dart';
 import 'package:path_provider/path_provider.dart';
 import '../../../../core/helpers/cache_helper.dart';
 import '../../../../core/utils/constant.dart';
 import 'package:path/path.dart' as path;
 
+import '../../../main/data/models/firebase_offer_model.dart';
+
 part 'find_and_chat_with_driver_state.dart';
 
 class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
   FindAndChatWithDriverCubit({required this.findAndChatWithDriverRepository})
-    : super(
-        const FindAndChatWithDriverState(
-          orderTimerDuration: Duration(minutes: 5),
-        ),
-      );
+    : super(const FindAndChatWithDriverState());
 
   final FindAndChatWithDriverRepository findAndChatWithDriverRepository;
 
-  TextEditingController messageController = TextEditingController();
+ final TextEditingController messageController = TextEditingController();
+
+   final TextEditingController priceController = TextEditingController();
+
+   final formKey=GlobalKey<FormState>();
 
   StreamSubscription? messageStream;
   void listenForMessages({required String driverId, required String orderId}) {
@@ -77,7 +78,6 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
   StreamSubscription? orderStatusStream;
   void listenForOrderStatus({required String orderId}) {
     orderStatusStream?.cancel();
-
     try {
       orderStatusStream = findAndChatWithDriverRepository
           .getOrderStatus(orderId: orderId)
@@ -113,7 +113,9 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
     if (photo != null) {
       final tempDir = await getTemporaryDirectory();
-      final savedImage = File('${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.png');
+      final savedImage = File(
+        '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.png',
+      );
       await File(photo.path).copy(savedImage.path);
       logger.f(savedImage.path);
       emit(state.copyWith(image: savedImage.path));
@@ -122,8 +124,10 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
 
   Future<void> pickImage() async {
     final ImagePicker picker = ImagePicker();
-    final XFile? photo = await picker.pickImage(source: ImageSource.camera);
-
+    final XFile? photo = await picker.pickImage(
+      source: ImageSource.camera,
+      imageQuality: 50,
+    );
     if (photo != null) {
       final ext = path.extension(photo.path);
       final tempDir = await getTemporaryDirectory();
@@ -132,11 +136,9 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
       );
       await File(photo.path).copy(savedImage.path);
       logger.f(savedImage.path);
-      emit(state.copyWith(image: savedImage.path));    }
+      emit(state.copyWith(image: savedImage.path));
+    }
   }
-
-
-
 
   void uploadPickImage({
     required String orderId,
@@ -180,11 +182,64 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
     }
   }
 
+  StreamSubscription? acceptOfferStream;
+  void listenForMyOffer({required String orderId, required String offerId}) {
+    try {
+      logger.i('listenForMyOffer');
+      acceptOfferStream?.cancel();
+      acceptOfferStream = findAndChatWithDriverRepository
+          .listenForMyOffer(orderId, offerId)
+          .listen(
+            (data) {
+          emit(state.copyWith(offer: data));
+        },
+        onError: (e) {
+          state.copyWith(errorMessage: e.toString());
+        },
+      );
+    } catch (e) {
+      emit(state.copyWith(errorMessage: e.toString()));
+    }
+  }
+
+  void editOffer({
+    required String orderId,
+    required String offerId,
+  }) async {
+    try {
+      emit(state.copyWith(editOfferStatus: EditOfferStatus.loading));
+      await findAndChatWithDriverRepository.updateOffer(
+        orderId: orderId,
+        offerId: offerId,
+        data: {
+          'price': priceController.text
+        },
+      );
+      emit(state.copyWith(editOfferStatus: EditOfferStatus.success));
+    } on ApiException catch (e) {
+      emit(
+        state.copyWith(
+          errorMessage: e.failure.message,
+          editOfferStatus: EditOfferStatus.failure,
+        ),
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(
+          errorMessage: e.toString(),
+          editOfferStatus: EditOfferStatus.failure,
+        ),
+      );
+    }
+  }
+
   @override
   Future<void> close() {
     messageStream?.cancel();
     orderStatusStream?.cancel();
     messageController.dispose();
+    acceptOfferStream?.cancel();
+    priceController.dispose();
     return super.close();
   }
 }

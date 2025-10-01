@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "DeterminePickupLocation": MessageLookupByLibrary.simpleMessage(
       "پک اپ مقام منتخب کریں",
     ),
+    "EnterNewPrice": MessageLookupByLibrary.simpleMessage("نیا سعر درج کریں"),
     "Invoice": MessageLookupByLibrary.simpleMessage("انوائس"),
     "PrivacyPolicy": MessageLookupByLibrary.simpleMessage("پرائیویسی پالیسی "),
     "TermsAndConditions": MessageLookupByLibrary.simpleMessage(
@@ -97,6 +98,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "آپ کا اکاؤنٹ ہمیشہ کے لیے حذف ہو جائے گا اور تمام ڈیٹا ختم ہو جائے گا۔ کیا آپ واقعی جاری رکھنا چاہتے ہیں؟",
     ),
     "delivered": MessageLookupByLibrary.simpleMessage("پہنچا دیا گیا"),
+    "deliveryLocation": MessageLookupByLibrary.simpleMessage("توصیل کے موقع"),
+    "deliveryPhoto": MessageLookupByLibrary.simpleMessage("توصیل کے تصویر"),
     "deliveryTo": MessageLookupByLibrary.simpleMessage("ڈیلیوری: "),
     "details": MessageLookupByLibrary.simpleMessage("تفصیلات"),
     "determineLocationManually": MessageLookupByLibrary.simpleMessage(
@@ -123,6 +126,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "edit": MessageLookupByLibrary.simpleMessage("ترمیم"),
     "editOffer": MessageLookupByLibrary.simpleMessage("پیشکش میں ترمیم کریں"),
+    "editOfferSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "پیشکش کو میں ترمیم کر دیا گیا ہے",
+    ),
     "editProfileSuccessfully": MessageLookupByLibrary.simpleMessage(
       "پروفائل کو میں ترمیم کر دیا گیا ہے",
     ),
@@ -225,6 +231,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "جاری رکھنے کے لئے فون نمبر درج کریں",
     ),
     "pickUpFrom": MessageLookupByLibrary.simpleMessage("پک اپ: "),
+    "pickupLocation": MessageLookupByLibrary.simpleMessage("استلام کے موقع"),
+    "pickupPhoto": MessageLookupByLibrary.simpleMessage("استلام کے تصویر"),
     "pleaseAcceptTheTermsAndConditions": MessageLookupByLibrary.simpleMessage(
       "براہ کرم شرائط و ضوابط قبول کریں",
     ),
@@ -248,6 +256,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseEnterLabel": MessageLookupByLibrary.simpleMessage(
       "براہ کرم لیبل درج کریں",
+    ),
+    "pleaseEnterNewPrice": MessageLookupByLibrary.simpleMessage(
+      "لطفا نیا سعر درج کریں",
     ),
     "pleaseEnterPickupLocation": MessageLookupByLibrary.simpleMessage(
       "براہ کرم پک اپ مقام درج کریں",

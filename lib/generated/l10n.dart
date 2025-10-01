@@ -1598,6 +1598,76 @@ class S {
   String get start {
     return Intl.message('Start', name: 'start', desc: '', args: []);
   }
+
+  /// `Pickup Photo`
+  String get pickupPhoto {
+    return Intl.message(
+      'Pickup Photo',
+      name: 'pickupPhoto',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery Photo`
+  String get deliveryPhoto {
+    return Intl.message(
+      'Delivery Photo',
+      name: 'deliveryPhoto',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery Location`
+  String get deliveryLocation {
+    return Intl.message(
+      'Delivery Location',
+      name: 'deliveryLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pickup Location`
+  String get pickupLocation {
+    return Intl.message(
+      'Pickup Location',
+      name: 'pickupLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter New Price`
+  String get EnterNewPrice {
+    return Intl.message(
+      'Enter New Price',
+      name: 'EnterNewPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please Enter New Price`
+  String get pleaseEnterNewPrice {
+    return Intl.message(
+      'Please Enter New Price',
+      name: 'pleaseEnterNewPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Offer Successfully`
+  String get editOfferSuccessfully {
+    return Intl.message(
+      'Edit Offer Successfully',
+      name: 'editOfferSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

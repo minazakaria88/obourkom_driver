@@ -48,7 +48,7 @@ class ObourkomDriver extends StatelessWidget {
             title: '3bourkomDriver',
             theme: appTheme(),
             locale: Locale(
-              CacheHelper.getData(key: CacheHelperKeys.lang) ?? 'en',
+              CacheHelper.getData(key: CacheHelperKeys.lang) ?? 'ar',
             ),
             localizationsDelegates: [
               S.delegate,

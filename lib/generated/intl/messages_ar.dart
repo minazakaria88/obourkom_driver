@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "DeterminePickupLocation": MessageLookupByLibrary.simpleMessage(
       "تحديد موقع الاستلام",
     ),
+    "EnterNewPrice": MessageLookupByLibrary.simpleMessage("ادخل  السعر الجديد"),
     "Invoice": MessageLookupByLibrary.simpleMessage("فاتورة"),
     "PrivacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية "),
     "TermsAndConditions": MessageLookupByLibrary.simpleMessage(
@@ -91,6 +92,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "سنقوم بحذف الحساب الخاص بك بشكل نهائي مما سيؤدي الي فقدان سجل الطلبات وكافة البيانات الخاصة بك، هل انت متأكد من القيام بعملية الحذف ؟",
     ),
     "delivered": MessageLookupByLibrary.simpleMessage("تم التسليم"),
+    "deliveryLocation": MessageLookupByLibrary.simpleMessage("مكان الاستلام"),
+    "deliveryPhoto": MessageLookupByLibrary.simpleMessage("تصوير التوصيل"),
     "deliveryTo": MessageLookupByLibrary.simpleMessage("توصيل إلى:"),
     "details": MessageLookupByLibrary.simpleMessage("التفاصيل"),
     "determineLocationManually": MessageLookupByLibrary.simpleMessage(
@@ -113,6 +116,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "editOffer": MessageLookupByLibrary.simpleMessage("تعديل العرض"),
+    "editOfferSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم تعديل العرض بنجاح",
+    ),
     "editProfileSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم تعديل الملف الشخصي بنجاح",
     ),
@@ -211,6 +217,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "ادخل رقم الهاتف للمتابعة",
     ),
     "pickUpFrom": MessageLookupByLibrary.simpleMessage("توصيل من:"),
+    "pickupLocation": MessageLookupByLibrary.simpleMessage("مكان التسليم"),
+    "pickupPhoto": MessageLookupByLibrary.simpleMessage("تصوير الاستلام"),
     "pleaseAcceptTheTermsAndConditions": MessageLookupByLibrary.simpleMessage(
       "الرجاء قبول الشروط والاحكام ",
     ),
@@ -234,6 +242,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "pleaseEnterLabel": MessageLookupByLibrary.simpleMessage(
       "الرجاء ادخال التسمية",
+    ),
+    "pleaseEnterNewPrice": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال السعر الجديد",
     ),
     "pleaseEnterPickupLocation": MessageLookupByLibrary.simpleMessage(
       "الرجاء ادخال موقع الاستلام",
