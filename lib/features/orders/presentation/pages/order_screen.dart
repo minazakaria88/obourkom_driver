@@ -91,17 +91,27 @@ class _OrderScreenState extends State<OrderScreen> {
                   state.completedOrdersList == null) {
                 return const Expanded(child: ShimmerListview());
               }
-              if (recentOrders.isEmpty && selectedIndex == 0) {
+              if (recentOrders.isEmpty &&
+                  selectedIndex == 0 &&
+                  state.getOrdersStatus == GetOrdersStatus.success) {
                 return Expanded(
                   child: Center(
-                    child: Text(S.of(context).noOrders,style: AppTextStyles.bold18Black,),
+                    child: Text(
+                      S.of(context).noOrders,
+                      style: AppTextStyles.bold18Black,
+                    ),
                   ),
                 );
               }
-              if (completedOrders.isEmpty && selectedIndex == 1) {
+              if (completedOrders.isEmpty &&
+                  selectedIndex == 1 &&
+                  state.getOrdersStatus == GetOrdersStatus.success) {
                 return Expanded(
                   child: Center(
-                    child: Text(S.of(context).noOrders,style: AppTextStyles.bold18Black,),
+                    child: Text(
+                      S.of(context).noOrders,
+                      style: AppTextStyles.bold18Black,
+                    ),
                   ),
                 );
               }

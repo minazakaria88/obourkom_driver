@@ -64,7 +64,7 @@ class MainCubit extends Cubit<MainState> {
       listenForMyOffer(orderId: orderId, offerId: offerId.toString());
       emit(state.copyWith(sendOfferState: SendOfferState.success));
     } on ApiException catch (e) {
-      logger.e(e);
+      logger.e(e.failure.message);
       emit(
         state.copyWith(
           errorMessage: e.failure.message,

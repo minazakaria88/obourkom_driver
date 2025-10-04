@@ -3,6 +3,7 @@ import 'package:obourkom_driver/core/helpers/extension.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_styles.dart';
+import '../../../../../core/widgets/cached_image_widget.dart';
 import '../../../../profile/presentation/widgets/profile_screen_widgets/background_profile_widget.dart';
 
 class PhotoWidget extends StatelessWidget {
@@ -18,7 +19,6 @@ class PhotoWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //CachedImageWidget(imageUrl: image)
             Text(
               title,
               style: AppTextStyles.bold18Black.copyWith(
@@ -26,12 +26,11 @@ class PhotoWidget extends StatelessWidget {
               ),
             ),
             10.height,
-            Image.asset(
-              image,
-              height: 160,
-              width: double.infinity,
-              fit: BoxFit.fill,
-            ),
+            SizedBox(
+              height: 200,
+                width: double.infinity,
+                child: CachedImageWidget(imageUrl: image))
+
           ],
         ),
       ),

@@ -15,12 +15,18 @@ import '../cubit/find_and_chat_with_driver_cubit.dart';
 import '../widgets/finding_driver_widgets/order_details_widget.dart';
 import '../widgets/order_details_widget/call_and_chat_with_user.dart';
 import '../widgets/order_details_widget/chat_listview.dart';
+import '../widgets/order_details_widget/delivery_image.dart';
 import '../widgets/order_details_widget/order_location_widget.dart';
 import '../widgets/order_details_widget/order_status_widget.dart';
+import '../widgets/order_details_widget/pickup_image.dart';
 import '../widgets/order_details_widget/send_message_widget.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
-  const OrderDetailsScreen({super.key, required this.orderModel, required this.offerModel});
+  const OrderDetailsScreen({
+    super.key,
+    required this.orderModel,
+    required this.offerModel,
+  });
   final SubmitOrderModel orderModel;
   final OfferModel offerModel;
   @override
@@ -49,13 +55,16 @@ class OrderDetailsScreen extends StatelessWidget {
                   const OrderStatusWidget(),
                   SliverToBoxAdapter(child: 20.height),
                   SliverToBoxAdapter(
-                    child: OrderDetailsWidget(model: orderModel,offerModel: offerModel,),
+                    child: OrderDetailsWidget(
+                      model: orderModel,
+                      offerModel: offerModel,
+                    ),
                   ),
                   SliverToBoxAdapter(child: 10.height),
-                   EditOfferWidget(
-                     orderId: orderModel.id.toString(),
-                     offerId: offerModel.id.toString(),
-                   ),
+                  EditOfferWidget(
+                    orderId: orderModel.id.toString(),
+                    offerId: offerModel.id.toString(),
+                  ),
                   SliverToBoxAdapter(child: 10.height),
                   CallAndChatWithUser(
                     cubit: cubit,
@@ -78,6 +87,10 @@ class OrderDetailsScreen extends StatelessWidget {
                     longitude: orderModel.toLng ?? 0.0,
                   ),
                   SliverToBoxAdapter(child: 40.height),
+                  const PickUpImageWidget(),
+                  SliverToBoxAdapter(child: 20.height),
+                  const DeliveryImageWidget(),
+                  SliverToBoxAdapter(child: 20.height),
                   BlocBuilder<
                     FindAndChatWithDriverCubit,
                     FindAndChatWithDriverState
@@ -120,3 +133,5 @@ class OrderDetailsScreen extends StatelessWidget {
     );
   }
 }
+
+
