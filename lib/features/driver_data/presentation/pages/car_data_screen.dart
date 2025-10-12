@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:obourkom_driver/core/functions/show_snack_bar.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/core/routes/routes.dart';
 import 'package:obourkom_driver/core/widgets/loader_widget.dart';
 import 'package:obourkom_driver/core/widgets/my_app_bar.dart';
+import 'package:toastification/toastification.dart';
 import '../../../../core/widgets/my_button.dart';
 import '../../../../generated/l10n.dart';
 import '../cubit/driver_data_cubit.dart';
@@ -50,6 +52,10 @@ class _CarDataScreenState extends State<CarDataScreen> {
             if (state.sendDriverDataStatus == SendDriverDataStatus.success) {
               context.pushNamedAndRemoveUntil(Routes.home, (r) => false);
             }
+            if(state.sendDriverDataStatus == SendDriverDataStatus.error)
+              {
+                showToastification(message: state.errorMessage??'', context: context, type: ToastificationType.error);
+              }
           },
           buildWhen: (previous, current) =>
               previous.sendDriverDataStatus != current.sendDriverDataStatus,

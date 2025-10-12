@@ -8,7 +8,10 @@ enum ImageStatus { initial, loading, success, failure }
 
 
 
+
 enum GetFaqStatus { initial, loading, success, failure }
+
+enum GetAboutUs  { initial, loading, success, failure }
 
 extension ProfileStatusX on ProfileState {
   bool get isLoading => profileStatus == ProfileStatus.loading;
@@ -33,6 +36,8 @@ class ProfileState extends Equatable {
   final FaqModel ? faqs ;
   final GetFaqStatus? getFaqStatus;
   final String ? image;
+  final GetAboutUs ?getAboutUs;
+  final AboutUsModel? aboutUsModel;
 
   const ProfileState({
     this.userModel,
@@ -42,6 +47,8 @@ class ProfileState extends Equatable {
     this.imageStatus,
     this.faqs ,
     this.getFaqStatus=GetFaqStatus.initial,
+    this.getAboutUs=GetAboutUs.initial,
+    this.aboutUsModel,
     this.image
   });
 
@@ -54,6 +61,9 @@ class ProfileState extends Equatable {
     FaqModel? faqs,
     GetFaqStatus? getFaqStatus,
     String ? image,
+     GetAboutUs ?getAboutUs,
+    AboutUsModel ?aboutUsModel,
+
   }) {
     return ProfileState(
       userModel: userModel ?? this.userModel,
@@ -63,7 +73,9 @@ class ProfileState extends Equatable {
       imageStatus: imageStatus ?? this.imageStatus,
       faqs: faqs ?? this.faqs,
       getFaqStatus: getFaqStatus ?? this.getFaqStatus,
-      image: image ?? this.image
+      image: image ?? this.image,
+      getAboutUs:  getAboutUs ?? this.getAboutUs,
+      aboutUsModel: aboutUsModel ?? this.aboutUsModel
     );
   }
 
@@ -76,6 +88,8 @@ class ProfileState extends Equatable {
     imageStatus,
     faqs,
     getFaqStatus,
+    getAboutUs,
+    aboutUsModel,
     image
   ];
 }

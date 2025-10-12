@@ -51,6 +51,7 @@ class ProfileSettingSecondSection extends StatelessWidget {
               onTap: () {
                 context.pushNamed(
                   Routes.aboutUs,
+                  arguments: context.read<ProfileCubit>()..getAboutUs()
                 );
               },
             ),

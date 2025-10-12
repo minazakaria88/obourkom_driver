@@ -43,5 +43,7 @@ class EndPoints
 
   static const slider='api/sliders';
 
+  static const aboutUs='api/pages';
+
 
 }

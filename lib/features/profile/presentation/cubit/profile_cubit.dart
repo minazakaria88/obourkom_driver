@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:obourkom_driver/features/profile/data/models/about_us_model.dart';
 import 'package:obourkom_driver/features/profile/data/models/faq_model.dart';
 import 'package:obourkom_driver/features/profile/data/repositories/profile_repo.dart';
 import '../../../../core/api/failure.dart';
@@ -117,6 +118,29 @@ class ProfileCubit extends Cubit<ProfileState> {
       emit(
         state.copyWith(
           getFaqStatus: GetFaqStatus.failure,
+          errorMessage: e.toString(),
+        ),
+      );
+    }
+  }
+
+
+  void getAboutUs() async {
+    try {
+      emit(state.copyWith(getAboutUs: GetAboutUs.loading));
+      final result = await profileRepository.getAboutUs(3);
+      emit(state.copyWith(aboutUsModel: result, getAboutUs: GetAboutUs.success));
+    } on ApiException catch (e) {
+      emit(
+        state.copyWith(
+          getAboutUs: GetAboutUs.failure,
+          errorMessage: e.failure.message,
+        ),
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(
+          getAboutUs: GetAboutUs.failure,
           errorMessage: e.toString(),
         ),
       );

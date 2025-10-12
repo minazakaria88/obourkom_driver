@@ -52,6 +52,10 @@ class CompleteOrderDetailsWidget extends StatelessWidget {
               title: S.of(context).orderStatus,
               color: AppColors.greenColor,
             ),
+            OrderDetailsItemWidget(
+              value: model.driverRate ??'',
+              title: S.of(context).evaluation,
+            ),
           ],
         ),
       ),
