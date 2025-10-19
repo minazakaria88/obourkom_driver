@@ -179,29 +179,27 @@ class DriverDataCubit extends Cubit<DriverDataState> {
   }
 
   dynamic getCarData() {
-    final mainServices = [];
-    final otherServices = [];
-    for (var e in state.selectedCategories!) {
-      if (e.id == null) {
-        otherServices.add(e.name);
-      } else {
-        mainServices.add(e.id);
-      }
-    }
-    logger.d(mainServices.toString());
-    logger.d(otherServices.length);
-
-    final data = {
-      if (mainServices.isNotEmpty) 'category_id': mainServices.toString(),
-      if (otherServices.isNotEmpty) 'other_services': otherServices.toString(),
+    final Map<String, dynamic> data={
       'type_id': state.selectedCarTypeId.toString(),
       'brand_id': state.selectedCarBrandId.toString(),
       'size_id': state.selectedCarSizeId.toString(),
       'model_id': state.selectedCarModelId.toString(),
     };
+    int mainIndex=0;
+    int otherIndex=0;
+    for (var e in state.selectedCategories!) {
+      if (e.id == null) {
+        data['other_service[$otherIndex]']=e.name ??'';
+
+        otherIndex++;
+      } else {
+        data['category_id[$mainIndex]']=e.id;
+
+        mainIndex++;
+      }
+    }
 
     logger.d(data);
-
     return data;
   }
 

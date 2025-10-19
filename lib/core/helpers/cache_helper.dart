@@ -54,6 +54,7 @@ class CacheHelper {
 
   static clearData() async {
     await storage.deleteAll();
+    await removeData(key: CacheHelperKeys.carData);
   }
 
 

@@ -44,8 +44,9 @@ class ApiHelper {
   Future<Response> postData({
     required String url,
      dynamic  data,
+    dynamic options,
   }) async {
-    return await dio!.post(url, data: data);
+    return await dio!.post(url, data: data,options: options);
   }
 
   Future<Response> putData({

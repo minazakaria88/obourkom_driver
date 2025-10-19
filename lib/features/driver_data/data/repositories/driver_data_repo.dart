@@ -86,7 +86,9 @@ class DriverDataRepo {
 
   Future<void> sendDriverData(data) async {
     try {
-      final response = await apiHelper.postData(url: EndPoints.cars, data: data);
+      final response = await apiHelper.postData(url: EndPoints.cars, data: data,options: Options(
+        contentType: Headers.formUrlEncodedContentType
+      ));
       logger.i(response);
     } catch (e) {
       logger.e(e);
