@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:obourkom_driver/core/utils/constant.dart';
+
 import '../helpers/cache_helper.dart';
 import 'end_point.dart';
 
@@ -17,13 +19,15 @@ class ApiHelper {
     addHeaders();
   }
 
-  static void addHeaders()async {
+  static void addHeaders() async {
+    logger.d(
+      'token ${await CacheHelper.getSecureString(CacheHelperKeys.token)}',
+    );
     dio?.options.headers = {
       'Accept': 'application/json',
       'Authorization':
           'Bearer ${await CacheHelper.getSecureString(CacheHelperKeys.token)}',
     };
-
   }
 
   void setTokenIntoHeadersAfterLogin(String token) {
@@ -43,10 +47,10 @@ class ApiHelper {
 
   Future<Response> postData({
     required String url,
-     dynamic  data,
+    dynamic data,
     dynamic options,
   }) async {
-    return await dio!.post(url, data: data,options: options);
+    return await dio!.post(url, data: data, options: options);
   }
 
   Future<Response> putData({

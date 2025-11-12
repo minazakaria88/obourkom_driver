@@ -204,5 +204,10 @@
   "pickupLocation": "استلام کے موقع",
   "editOfferSuccessfully": "پیشکش کو میں ترمیم کر دیا گیا ہے",
   "EnterNewPrice" : "نیا سعر درج کریں",
-  "pleaseEnterNewPrice" : "لطفا نیا سعر درج کریں"
+  "pleaseEnterNewPrice" : "لطفا نیا سعر درج کریں",
+  "uploadPhoto" : "تصویر رفع کریں",
+  "driverLicense" : "سائق کا رخصت",
+  "pleaseUploadDriverLicense" : "لطفا سائق کا رخصت رفع کریں",
+  "driverNationalId" : "سائق کا رقم",
+  "carLicense" : "سيارہ کا رخصت"
 }

@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "callUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
     "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
     "cancelOrder": MessageLookupByLibrary.simpleMessage("إلغاء الطلب"),
+    "carLicense": MessageLookupByLibrary.simpleMessage("رخصة السيارة"),
     "carType": MessageLookupByLibrary.simpleMessage("نوع الشاحنة"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "changeStatus": MessageLookupByLibrary.simpleMessage("تغيير الحالة"),
@@ -114,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "dontReceiveTheCode": MessageLookupByLibrary.simpleMessage(
       "لم تستلم رمز التحقق؟",
     ),
+    "driverLicense": MessageLookupByLibrary.simpleMessage("رخصة السائق"),
+    "driverNationalId": MessageLookupByLibrary.simpleMessage("رقم الهوية  "),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "editOffer": MessageLookupByLibrary.simpleMessage("تعديل العرض"),
     "editOfferSuccessfully": MessageLookupByLibrary.simpleMessage(
@@ -267,6 +270,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseTryAgain": MessageLookupByLibrary.simpleMessage(
       "يرجى المحاولة مرة اخرى",
     ),
+    "pleaseUploadDriverLicense": MessageLookupByLibrary.simpleMessage(
+      "يرجى رفع رخصة السائق",
+    ),
     "pleaseWriteYourMessage": MessageLookupByLibrary.simpleMessage(
       "الرجاء كتابة رسالتك",
     ),
@@ -324,6 +330,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "transportOfGoods": MessageLookupByLibrary.simpleMessage("نقل بضائع"),
     "tripDistance": MessageLookupByLibrary.simpleMessage("مسافة الرحلة:"),
     "type": MessageLookupByLibrary.simpleMessage("النوع"),
+    "uploadPhoto": MessageLookupByLibrary.simpleMessage("رفع صورة"),
     "uploadPhotos": MessageLookupByLibrary.simpleMessage("رفع الصور"),
     "userApp": MessageLookupByLibrary.simpleMessage(
       "اذا كنت عميل وتحتاج خدمة يرجي تحميل تطبيق المستخدم",

@@ -201,7 +201,12 @@
   "pickupLocation": "Pickup Location",
   "EnterNewPrice" : "Enter New Price",
   "pleaseEnterNewPrice" : "Please Enter New Price",
-  "editOfferSuccessfully" : "Edit Offer Successfully"
+  "editOfferSuccessfully" : "Edit Offer Successfully",
+  "uploadPhoto" : "Upload Photo",
+  "driverLicense" : "Driver License",
+  "pleaseUploadDriverLicense" : "Please Upload Driver License",
+  "driverNationalId" : "Driver National Id",
+  "carLicense" : "Car License"
 
 
 

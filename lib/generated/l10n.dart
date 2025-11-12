@@ -1668,6 +1668,51 @@ class S {
       args: [],
     );
   }
+
+  /// `Upload Photo`
+  String get uploadPhoto {
+    return Intl.message(
+      'Upload Photo',
+      name: 'uploadPhoto',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Driver License`
+  String get driverLicense {
+    return Intl.message(
+      'Driver License',
+      name: 'driverLicense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please Upload Driver License`
+  String get pleaseUploadDriverLicense {
+    return Intl.message(
+      'Please Upload Driver License',
+      name: 'pleaseUploadDriverLicense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Driver National Id`
+  String get driverNationalId {
+    return Intl.message(
+      'Driver National Id',
+      name: 'driverNationalId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Car License`
+  String get carLicense {
+    return Intl.message('Car License', name: 'carLicense', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

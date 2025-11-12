@@ -59,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "callUs": MessageLookupByLibrary.simpleMessage("ہمیں کال کریں"),
     "cancel": MessageLookupByLibrary.simpleMessage("منسوخ کریں"),
     "cancelOrder": MessageLookupByLibrary.simpleMessage("آرڈر منسوخ کریں"),
+    "carLicense": MessageLookupByLibrary.simpleMessage("سيارہ کا رخصت"),
     "carType": MessageLookupByLibrary.simpleMessage("ٹرک کی قسم"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("زبان تبدیل کریں"),
     "changeStatus": MessageLookupByLibrary.simpleMessage("حالت تبدیل کریں"),
@@ -124,6 +125,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "dontReceiveTheCode": MessageLookupByLibrary.simpleMessage(
       "کیا آپ کو کوڈ نہیں ملا؟",
     ),
+    "driverLicense": MessageLookupByLibrary.simpleMessage("سائق کا رخصت"),
+    "driverNationalId": MessageLookupByLibrary.simpleMessage("سائق کا رقم"),
     "edit": MessageLookupByLibrary.simpleMessage("ترمیم"),
     "editOffer": MessageLookupByLibrary.simpleMessage("پیشکش میں ترمیم کریں"),
     "editOfferSuccessfully": MessageLookupByLibrary.simpleMessage(
@@ -281,6 +284,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseTryAgain": MessageLookupByLibrary.simpleMessage(
       "لطفا دوبارہ تلاش کریں",
     ),
+    "pleaseUploadDriverLicense": MessageLookupByLibrary.simpleMessage(
+      "لطفا سائق کا رخصت رفع کریں",
+    ),
     "pleaseWriteYourMessage": MessageLookupByLibrary.simpleMessage(
       "براہ کرم اپنا پیغام لکھیں",
     ),
@@ -346,6 +352,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "transportOfGoods": MessageLookupByLibrary.simpleMessage("سامان کی ترسیل"),
     "tripDistance": MessageLookupByLibrary.simpleMessage("فاصلہ: "),
     "type": MessageLookupByLibrary.simpleMessage("قسم"),
+    "uploadPhoto": MessageLookupByLibrary.simpleMessage("تصویر رفع کریں"),
     "uploadPhotos": MessageLookupByLibrary.simpleMessage("تصاویر اپ لوڈ کریں"),
     "userApp": MessageLookupByLibrary.simpleMessage(
       "اگر آپ صارف ہیں اور خدمت چاہتے ہیں تو براہ کرم صارف ایپ ڈاؤن لوڈ کریں",

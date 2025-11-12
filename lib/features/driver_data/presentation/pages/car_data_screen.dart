@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:obourkom_driver/core/functions/show_snack_bar.dart';
@@ -10,6 +11,7 @@ import '../../../../core/widgets/my_button.dart';
 import '../../../../generated/l10n.dart';
 import '../cubit/driver_data_cubit.dart';
 import '../widgets/car_data_widgets/brand_widget.dart';
+import '../widgets/car_data_widgets/image_widget.dart';
 import '../widgets/car_data_widgets/model_widget.dart';
 import '../widgets/car_data_widgets/size_widget.dart';
 import '../widgets/car_data_widgets/type_widget.dart';
@@ -40,6 +42,12 @@ class _CarDataScreenState extends State<CarDataScreen> {
               const TypeWidget(),
               20.height,
               const SizeWidget(),
+              20.height,
+              const DriverLicenseWidget(),
+              20.height,
+              const CarLicenseWidget(),
+              20.height,
+              const NationalIdWidget(),
             ],
           ),
         ),
@@ -52,10 +60,13 @@ class _CarDataScreenState extends State<CarDataScreen> {
             if (state.sendDriverDataStatus == SendDriverDataStatus.success) {
               context.pushNamedAndRemoveUntil(Routes.home, (r) => false);
             }
-            if(state.sendDriverDataStatus == SendDriverDataStatus.error)
-              {
-                showToastification(message: state.errorMessage??'', context: context, type: ToastificationType.error);
-              }
+            if (state.sendDriverDataStatus == SendDriverDataStatus.error) {
+              showToastification(
+                message: state.errorMessage ?? '',
+                context: context,
+                type: ToastificationType.error,
+              );
+            }
           },
           buildWhen: (previous, current) =>
               previous.sendDriverDataStatus != current.sendDriverDataStatus,
@@ -76,3 +87,115 @@ class _CarDataScreenState extends State<CarDataScreen> {
     );
   }
 }
+
+class DriverLicenseWidget extends StatelessWidget {
+  const DriverLicenseWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<DriverDataCubit, DriverDataState>(
+      buildWhen: (previous, current) =>
+          previous.driverLicenseImage != current.driverLicenseImage,
+      builder: (context, state) {
+        final cubit = context.read<DriverDataCubit>();
+        return Column(
+          children: [
+            if (state.driverLicenseImage != null)
+              SizedBox(
+                height: 100,
+                width: double.infinity,
+                child: Image.file(
+                  File(state.driverLicenseImage!),
+                  height: 100,
+                  width: 100,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            15.height,
+            ImageWidget(
+              text: S.of(context).driverLicense,
+              onTap: () => cubit.pickDriverLicense(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class CarLicenseWidget extends StatelessWidget {
+  const CarLicenseWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<DriverDataCubit, DriverDataState>(
+      buildWhen: (previous, current) =>
+          previous.carLicenseImage != current.carLicenseImage,
+      builder: (context, state) {
+        final cubit = context.read<DriverDataCubit>();
+        return Column(
+          children: [
+            if (state.carLicenseImage != null)
+              SizedBox(
+                height: 100,
+                width: double.infinity,
+                child: Image.file(
+                  File(state.carLicenseImage!),
+                  height: 100,
+                  width: 100,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            15.height,
+            ImageWidget(
+              text: S.of(context).carLicense,
+              onTap: () => cubit.pickCarLicenseImage(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class NationalIdWidget extends StatelessWidget {
+  const NationalIdWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<DriverDataCubit, DriverDataState>(
+      buildWhen: (previous, current) =>
+          previous.driverNationalIdImage != current.driverNationalIdImage,
+      builder: (context, state) {
+        final cubit = context.read<DriverDataCubit>();
+        return Column(
+          children: [
+            if (state.driverNationalIdImage != null)
+              SizedBox(
+                height: 100,
+                width: double.infinity,
+                child: Image.file(
+                  File(state.driverNationalIdImage!),
+                  height: 100,
+                  width: 100,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            15.height,
+            ImageWidget(
+              text: S.of(context).driverNationalId,
+              onTap: () => cubit.pickNationalIdImage(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+

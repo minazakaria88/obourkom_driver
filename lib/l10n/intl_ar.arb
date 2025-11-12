@@ -204,7 +204,12 @@
     "pickupLocation": "مكان الاستلام ",
     "editOfferSuccessfully": "تم تعديل العرض بنجاح",
     "EnterNewPrice" : "ادخل  السعر الجديد",
-    "pleaseEnterNewPrice" : "يرجى ادخال السعر الجديد"
+    "pleaseEnterNewPrice" : "يرجى ادخال السعر الجديد",
+    "uploadPhoto" : "رفع صورة",
+    "driverLicense" : "رخصة السائق",
+    "pleaseUploadDriverLicense" : "يرجى رفع رخصة السائق",
+    "driverNationalId" : "رقم الهوية  ",
+    "carLicense" : "رخصة السيارة"
 
 
 
