@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "callUs": MessageLookupByLibrary.simpleMessage("Call US"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "cancelOrder": MessageLookupByLibrary.simpleMessage("Cancel Order"),
+    "carLicense": MessageLookupByLibrary.simpleMessage("Car License"),
     "carType": MessageLookupByLibrary.simpleMessage("Car Type"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "changeStatus": MessageLookupByLibrary.simpleMessage("Change Status"),
@@ -119,6 +120,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "dontReceiveTheCode": MessageLookupByLibrary.simpleMessage(
       "Don\'t receive the code?",
+    ),
+    "driverLicense": MessageLookupByLibrary.simpleMessage("Driver License"),
+    "driverNationalId": MessageLookupByLibrary.simpleMessage(
+      "Driver National Id",
     ),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "editOffer": MessageLookupByLibrary.simpleMessage("Edit Offer"),
@@ -274,6 +279,9 @@ class MessageLookup extends MessageLookupByLibrary {
           "Submit the order and slide the button",
         ),
     "pleaseTryAgain": MessageLookupByLibrary.simpleMessage("Please Try Again"),
+    "pleaseUploadDriverLicense": MessageLookupByLibrary.simpleMessage(
+      "Please Upload Driver License",
+    ),
     "pleaseWriteYourMessage": MessageLookupByLibrary.simpleMessage(
       "Please write your message",
     ),
@@ -343,6 +351,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "tripDistance": MessageLookupByLibrary.simpleMessage("Trip Distance:"),
     "type": MessageLookupByLibrary.simpleMessage("Type"),
+    "uploadPhoto": MessageLookupByLibrary.simpleMessage("Upload Photo"),
     "uploadPhotos": MessageLookupByLibrary.simpleMessage("Upload Photos"),
     "userApp": MessageLookupByLibrary.simpleMessage(
       "if you are a user and need our services download now user App",

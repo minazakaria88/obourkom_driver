@@ -20,9 +20,12 @@ class DriverDataState extends Equatable {
   final int ? selectedCarTypeId;
   final int ? selectedCarModelId;
   final SendDriverDataStatus ? sendDriverDataStatus;
+  final String ? driverLicenseImage;
+  final String ? carLicenseImage;
+  final String ? driverNationalIdImage;
 
 
-  const DriverDataState({
+  const DriverDataState( {
     this.categoriesModel,
     this.errorMessage,
     this.selectedCategories,
@@ -35,7 +38,8 @@ class DriverDataState extends Equatable {
     this.selectedCarSizeId,
     this.selectedCarTypeId,
     this.selectedCarModelId,
-    this.sendDriverDataStatus
+    this.sendDriverDataStatus,
+    this.driverLicenseImage, this.carLicenseImage, this.driverNationalIdImage,
   });
 
   DriverDataState copyWith({
@@ -51,7 +55,10 @@ class DriverDataState extends Equatable {
     int ? selectedCarSizeId,
     int ? selectedCarTypeId,
     int ? selectedCarModelId,
-    SendDriverDataStatus ? sendDriverDataStatus
+    SendDriverDataStatus ? sendDriverDataStatus,
+    String ? driverLicenseImage,
+    String ? carLicenseImage,
+    String ? driverNationalIdImage
 
   }) {
     return DriverDataState(
@@ -67,7 +74,10 @@ class DriverDataState extends Equatable {
       selectedCarSizeId: selectedCarSizeId ?? this.selectedCarSizeId,
       selectedCarTypeId: selectedCarTypeId ?? this.selectedCarTypeId,
       selectedCarModelId: selectedCarModelId ?? this.selectedCarModelId,
-      sendDriverDataStatus: sendDriverDataStatus ?? this.sendDriverDataStatus
+      sendDriverDataStatus: sendDriverDataStatus ?? this.sendDriverDataStatus,
+      driverLicenseImage: driverLicenseImage ?? this.driverLicenseImage,
+      carLicenseImage: carLicenseImage ?? this.carLicenseImage,
+      driverNationalIdImage: driverNationalIdImage ?? this.driverNationalIdImage
 
     );
   }
@@ -86,6 +96,9 @@ class DriverDataState extends Equatable {
     selectedCarSizeId,
     selectedCarTypeId,
     selectedCarModelId,
-    sendDriverDataStatus
+    sendDriverDataStatus,
+    driverLicenseImage,
+    carLicenseImage,
+    driverNationalIdImage
   ];
 }

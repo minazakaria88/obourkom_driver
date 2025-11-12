@@ -79,7 +79,7 @@ void setupServicesLocator() {
 
   //driverData
 
-  getIt.registerFactory(()=>DriverDataCubit(driverDataRepo: getIt()));
+  getIt.registerFactory(()=>DriverDataCubit(driverDataRepo: getIt(),findAndChatWithDriverRepository: getIt()));
   getIt.registerLazySingleton(()=>DriverDataRepo(apiHelper: getIt()));
 
 

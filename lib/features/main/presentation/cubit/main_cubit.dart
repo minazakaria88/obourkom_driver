@@ -20,10 +20,12 @@ class MainCubit extends Cubit<MainState> {
   StreamSubscription? ordersStream;
   void listenForOrders() async {
     try {
+      logger.d(' ordersStream?.cancel();');
       ordersStream?.cancel();
       emit(state.copyWith(getOrdersState: GetOrdersState.loading));
       ordersStream = mainRepository.listenForOrders().listen(
         (data) {
+          logger.d(data);
           emit(
             state.copyWith(
               getOrdersState: GetOrdersState.success,
@@ -32,6 +34,7 @@ class MainCubit extends Cubit<MainState> {
           );
         },
         onError: (e) {
+          logger.e(e);
           state.copyWith(
             errorMessage: e.toString(),
             getOrdersState: GetOrdersState.failure,

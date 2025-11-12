@@ -1,4 +1,5 @@
 import 'package:geolocator/geolocator.dart';
+import 'package:obourkom_driver/core/utils/constant.dart';
 
 Future<Position> determinePosition() async {
   bool serviceEnabled;
@@ -22,6 +23,9 @@ Future<Position> determinePosition() async {
       'Location permissions are permanently denied, we cannot request permissions.',
     );
   }
+  logger.i('get location');
+
+
   return await Geolocator.getCurrentPosition(
     locationSettings: const LocationSettings(accuracy: LocationAccuracy.medium),
   );
