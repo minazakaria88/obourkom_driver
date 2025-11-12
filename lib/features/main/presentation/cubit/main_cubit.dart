@@ -28,7 +28,7 @@ class MainCubit extends Cubit<MainState> {
       emit(state.copyWith(getOrdersState: GetOrdersState.loading));
       ordersStream = mainRepository.listenForOrders().listen(
         (data) {
-          logger.d('stream data $data');
+          logger.d(data);
           emit(
             state.copyWith(
               getOrdersState: GetOrdersState.success,
