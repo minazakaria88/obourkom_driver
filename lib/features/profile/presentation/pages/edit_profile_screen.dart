@@ -8,7 +8,7 @@ import 'package:obourkom_driver/features/profile/presentation/cubit/profile_cubi
 import 'package:obourkom_driver/features/profile/presentation/widgets/profile_screen_widgets/profile_image.dart';
 import 'package:obourkom_driver/generated/assets.dart';
 import 'package:toastification/toastification.dart';
-import '../../../../core/functions/show_snack_bar.dart';
+import '../../../../core/helpers/show_snack_bar.dart';
 import '../../../../core/helpers/validation_inputs_class.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';

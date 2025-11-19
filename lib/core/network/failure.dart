@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 import '../../main.dart';
-import '../helpers/cache_helper.dart';
+import '../storage/cache_helper.dart';
 import '../routes/routes.dart';
 import '../utils/constant.dart';
 
@@ -92,3 +92,4 @@ String getError(dynamic response) {
 
   return error;
 }
+

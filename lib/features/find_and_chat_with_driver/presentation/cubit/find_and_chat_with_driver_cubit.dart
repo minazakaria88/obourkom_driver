@@ -4,11 +4,11 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:obourkom_driver/core/api/failure.dart';
+import 'package:obourkom_driver/core/network/failure.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/message_model.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/repositories/find_and_chat_repo.dart';
 import 'package:path_provider/path_provider.dart';
-import '../../../../core/helpers/cache_helper.dart';
+import '../../../../core/storage/cache_helper.dart';
 import '../../../../core/utils/constant.dart';
 import 'package:path/path.dart' as path;
 

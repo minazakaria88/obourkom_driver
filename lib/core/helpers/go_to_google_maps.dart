@@ -15,3 +15,4 @@ Future<void> goToMaps(double latitude, double longitude) async {
     throw 'Could not launch $uri';
   }
 }
+

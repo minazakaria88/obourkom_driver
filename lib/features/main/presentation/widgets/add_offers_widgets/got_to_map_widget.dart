@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/functions/go_to_google_maps.dart';
+import '../../../../../core/helpers/go_to_google_maps.dart';
 
 class GoToMapWidget extends StatelessWidget {
   const GoToMapWidget({

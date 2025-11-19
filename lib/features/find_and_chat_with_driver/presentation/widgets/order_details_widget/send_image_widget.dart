@@ -6,7 +6,7 @@ import 'package:obourkom_driver/core/widgets/loading_widget.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/presentation/widgets/order_details_widget/send_image_widget_body.dart';
 import 'package:obourkom_driver/generated/l10n.dart';
 import 'package:toastification/toastification.dart';
-import '../../../../../core/functions/show_snack_bar.dart';
+import '../../../../../core/helpers/show_snack_bar.dart';
 import '../../cubit/find_and_chat_with_driver_cubit.dart';
 
 class SendImageWidget extends StatelessWidget {

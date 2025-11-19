@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:obourkom_driver/core/functions/show_snack_bar.dart';
+import 'package:obourkom_driver/core/helpers/show_snack_bar.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:obourkom_driver/core/helpers/notification_helper.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/offer_model.dart';

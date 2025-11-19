@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:obourkom_driver/core/api/api_helper.dart';
-import 'package:obourkom_driver/core/functions/determine_position.dart';
+import 'package:obourkom_driver/core/network/api_helper.dart';
+import 'package:obourkom_driver/core/helpers/determine_position.dart';
 import 'package:obourkom_driver/features/main/data/models/driver_services_model.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_offer_model.dart';
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 
-import '../../../../core/api/end_point.dart';
-import '../../../../core/api/failure.dart';
+import '../../../../core/network/end_point.dart';
+import '../../../../core/network/failure.dart';
 import '../../../../core/utils/constant.dart';
 
 class MainRepository {

@@ -6,8 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:obourkom_driver/features/profile/data/models/about_us_model.dart';
 import 'package:obourkom_driver/features/profile/data/models/faq_model.dart';
 import 'package:obourkom_driver/features/profile/data/repositories/profile_repo.dart';
-import '../../../../core/api/failure.dart';
-import '../../../../core/helpers/cache_helper.dart';
+import '../../../../core/network/failure.dart';
+import '../../../../core/storage/cache_helper.dart';
 import '../../../../core/utils/constant.dart';
 import '../../data/models/user_model.dart';
 

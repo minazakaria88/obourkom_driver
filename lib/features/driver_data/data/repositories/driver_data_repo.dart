@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:obourkom_driver/core/api/api_helper.dart';
+import 'package:obourkom_driver/core/network/api_helper.dart';
 import 'package:obourkom_driver/features/driver_data/data/models/car_brand_model.dart';
 import 'package:obourkom_driver/features/driver_data/data/models/car_model.dart';
 import 'package:obourkom_driver/features/driver_data/data/models/car_size_model.dart';
 import 'package:obourkom_driver/features/driver_data/data/models/car_type_model.dart';
-import '../../../../core/api/end_point.dart';
-import '../../../../core/api/failure.dart';
+import '../../../../core/network/end_point.dart';
+import '../../../../core/network/failure.dart';
 import '../../../../core/utils/constant.dart';
 import '../models/categories_model.dart';
 

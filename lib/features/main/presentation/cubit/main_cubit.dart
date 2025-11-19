@@ -7,7 +7,7 @@ import 'package:obourkom_driver/features/main/data/models/firebase_offer_model.d
 import 'package:obourkom_driver/features/main/data/models/firebase_order_model.dart';
 import 'package:obourkom_driver/features/main/data/repositories/main_repo.dart';
 
-import '../../../../core/api/failure.dart';
+import '../../../../core/network/failure.dart';
 import '../../../../core/utils/constant.dart';
 
 part 'main_state.dart';
