@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:obourkom_driver/core/api/failure.dart';
+import 'package:obourkom_driver/core/network/failure.dart';
 import 'package:obourkom_driver/features/login/data/repositories/login_repo.dart';
 
 import '../../../../core/utils/constant.dart';

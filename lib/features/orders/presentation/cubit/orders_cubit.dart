@@ -5,7 +5,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:obourkom_driver/features/orders/data/models/order_model.dart';
 import 'package:obourkom_driver/features/orders/data/models/submit_order_model.dart';
-import '../../../../core/api/failure.dart';
+import '../../../../core/network/failure.dart';
 import '../../data/repositories/order_repo.dart';
 part 'orders_state.dart';
 

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:obourkom_driver/core/api/api_helper.dart';
-import 'package:obourkom_driver/core/api/end_point.dart';
-import 'package:obourkom_driver/core/api/failure.dart';
+import 'package:obourkom_driver/core/network/api_helper.dart';
+import 'package:obourkom_driver/core/network/end_point.dart';
+import 'package:obourkom_driver/core/network/failure.dart';
 import 'package:obourkom_driver/features/notification/data/models/notification_model.dart';
 
 import '../../../../core/utils/constant.dart';

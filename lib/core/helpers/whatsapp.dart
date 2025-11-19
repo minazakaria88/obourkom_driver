@@ -17,3 +17,4 @@ Future<void> whatsapp({required String phoneNumber}) async {
     await launchUrl(Uri.parse(webUrl), mode: LaunchMode.externalApplication);
   }
 }
+

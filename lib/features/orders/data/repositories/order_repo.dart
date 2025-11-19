@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:obourkom_driver/core/api/api_helper.dart';
+import 'package:obourkom_driver/core/network/api_helper.dart';
 import 'package:obourkom_driver/core/utils/constant.dart';
 import 'package:obourkom_driver/features/orders/data/models/order_model.dart';
 import 'package:obourkom_driver/features/orders/data/models/submit_order_model.dart';
 
-import '../../../../core/api/end_point.dart';
-import '../../../../core/api/failure.dart';
+import '../../../../core/network/end_point.dart';
+import '../../../../core/network/failure.dart';
 
 class OrderRepository {
   final ApiHelper apiHelper;

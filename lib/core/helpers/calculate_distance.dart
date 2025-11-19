@@ -10,3 +10,4 @@ double calculateDistance({
     return Geolocator.distanceBetween(lat1, lon1, lat2, lon2);
   }
 }
+

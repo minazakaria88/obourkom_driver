@@ -7,8 +7,8 @@ import 'package:obourkom_driver/core/widgets/my_app_bar.dart';
 import 'package:obourkom_driver/generated/assets.dart';
 import 'package:obourkom_driver/generated/l10n.dart';
 
-import '../../../../../core/functions/make_phone_call.dart';
-import '../../../../../core/functions/whatsapp.dart';
+import '../../../../../core/helpers/make_phone_call.dart';
+import '../../../../../core/helpers/whatsapp.dart';
 
 class SupportScreen extends StatelessWidget {
   const SupportScreen({super.key});

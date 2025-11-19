@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:obourkom_driver/core/functions/make_phone_call.dart';
+import 'package:obourkom_driver/core/helpers/make_phone_call.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_styles.dart';

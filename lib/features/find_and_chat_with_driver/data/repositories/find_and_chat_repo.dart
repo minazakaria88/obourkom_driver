@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
-import 'package:obourkom_driver/core/api/end_point.dart';
-import 'package:obourkom_driver/core/api/failure.dart';
+import 'package:obourkom_driver/core/network/end_point.dart';
+import 'package:obourkom_driver/core/network/failure.dart';
 import 'package:obourkom_driver/core/utils/constant.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/message_model.dart';
-import '../../../../core/api/api_helper.dart';
+import '../../../../core/network/api_helper.dart';
 import '../../../main/data/models/firebase_offer_model.dart';
 import '../models/image_model.dart';
 
