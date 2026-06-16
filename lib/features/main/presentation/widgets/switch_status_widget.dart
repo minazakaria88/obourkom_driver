@@ -19,7 +19,7 @@ class SwitchStatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Switch(
-      activeColor: AppColors.mainColor,
+      activeThumbColor: AppColors.mainColor,
       value: flag,
       onChanged: (value) {
         showBottomSheet(

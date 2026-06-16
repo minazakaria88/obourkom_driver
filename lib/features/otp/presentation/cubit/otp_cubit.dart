@@ -1,16 +1,12 @@
 import 'dart:async';
 import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:obourkom_driver/core/network/api_helper.dart';
 import 'package:obourkom_driver/core/network/failure.dart';
 import 'package:obourkom_driver/core/storage/cache_helper.dart';
 import 'package:obourkom_driver/features/otp/data/models/user_model.dart';
 import 'package:obourkom_driver/features/otp/data/repositories/otp_repo.dart';
-import 'package:obourkom_driver/injection.dart';
-
 import '../../../../core/utils/constant.dart';
 
 part 'otp_state.dart';
