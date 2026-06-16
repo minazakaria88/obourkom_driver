@@ -209,7 +209,8 @@
     "driverLicense" : "رخصة السائق",
     "pleaseUploadDriverLicense" : "يرجى رفع رخصة السائق",
     "driverNationalId" : "رقم الهوية  ",
-    "carLicense" : "رخصة السيارة"
+    "carLicense" : "رخصة السيارة",
+    "retry" : "محاولة مرة اخرى"
 
 
 

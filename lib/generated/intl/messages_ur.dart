@@ -304,6 +304,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "request": MessageLookupByLibrary.simpleMessage("درخواست"),
     "resend": MessageLookupByLibrary.simpleMessage("دوبارہ بھیجیں"),
+    "retry": MessageLookupByLibrary.simpleMessage("دوبارہ کریں"),
     "sar": MessageLookupByLibrary.simpleMessage("ریال"),
     "save": MessageLookupByLibrary.simpleMessage("محفوظ کریں"),
     "searchForOrdersNearYourLocation": MessageLookupByLibrary.simpleMessage(

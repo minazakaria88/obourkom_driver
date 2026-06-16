@@ -209,5 +209,6 @@
   "driverLicense" : "سائق کا رخصت",
   "pleaseUploadDriverLicense" : "لطفا سائق کا رخصت رفع کریں",
   "driverNationalId" : "سائق کا رقم",
-  "carLicense" : "سيارہ کا رخصت"
+  "carLicense" : "سيارہ کا رخصت",
+  "retry" : "دوبارہ کریں"
 }

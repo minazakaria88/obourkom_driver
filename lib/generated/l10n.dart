@@ -1713,6 +1713,11 @@ class S {
   String get carLicense {
     return Intl.message('Car License', name: 'carLicense', desc: '', args: []);
   }
+
+  /// `Retry`
+  String get retry {
+    return Intl.message('Retry', name: 'retry', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

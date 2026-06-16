@@ -290,6 +290,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "request": MessageLookupByLibrary.simpleMessage("طلب"),
     "resend": MessageLookupByLibrary.simpleMessage("اعادة الارسال"),
+    "retry": MessageLookupByLibrary.simpleMessage("محاولة مرة اخرى"),
     "sar": MessageLookupByLibrary.simpleMessage("ريال"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "searchForOrdersNearYourLocation": MessageLookupByLibrary.simpleMessage(

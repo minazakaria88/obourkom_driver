@@ -206,7 +206,8 @@
   "driverLicense" : "Driver License",
   "pleaseUploadDriverLicense" : "Please Upload Driver License",
   "driverNationalId" : "Driver National Id",
-  "carLicense" : "Car License"
+  "carLicense" : "Car License",
+  "retry" : "Retry"
 
 
 

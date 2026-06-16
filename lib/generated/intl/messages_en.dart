@@ -299,6 +299,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "request": MessageLookupByLibrary.simpleMessage("Request"),
     "resend": MessageLookupByLibrary.simpleMessage("Resend"),
+    "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "sar": MessageLookupByLibrary.simpleMessage("SAR"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "searchForOrdersNearYourLocation": MessageLookupByLibrary.simpleMessage(
