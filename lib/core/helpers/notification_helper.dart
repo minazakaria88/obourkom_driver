@@ -7,7 +7,6 @@ class NotificationService {
   static final FirebaseMessaging messaging = FirebaseMessaging.instance;
   static final localNotification = FlutterLocalNotificationsPlugin();
   static Future<void> init() async {
-
     NotificationSettings settings = await messaging.requestPermission(
       alert: true,
       announcement: false,
@@ -19,14 +18,14 @@ class NotificationService {
     );
 
     InitializationSettings initializationSettings =
-    const InitializationSettings(
-      android: AndroidInitializationSettings('@mipmap/ic_launcher'),
-      iOS: DarwinInitializationSettings(
-        requestAlertPermission: true,
-        requestBadgePermission: true,
-        requestSoundPermission: true,
-      ),
-    );
+        const InitializationSettings(
+          android: AndroidInitializationSettings('@mipmap/ic_launcher'),
+          iOS: DarwinInitializationSettings(
+            requestAlertPermission: true,
+            requestBadgePermission: true,
+            requestSoundPermission: true,
+          ),
+        );
 
     await localNotification.initialize(
       initializationSettings,
@@ -35,25 +34,27 @@ class NotificationService {
       },
     );
 
-
     //request ios location permission
     await localNotification
         .resolvePlatformSpecificImplementation<
-        IOSFlutterLocalNotificationsPlugin
-    >()
+          IOSFlutterLocalNotificationsPlugin
+        >()
         ?.requestPermissions(alert: true, badge: true, sound: true);
 
     // request android location permission
     await localNotification
         .resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>()
+          AndroidFlutterLocalNotificationsPlugin
+        >()
         ?.requestNotificationsPermission();
 
     getToken();
 
-    handleBackgroundMessage();
+    handleOnMessageOpenApp();
 
     handleForegroundMessage();
+
+    handleBackgroundMessage();
 
     logger.i('Authorization status: ${settings.authorizationStatus}');
   }
@@ -73,21 +74,24 @@ class NotificationService {
     });
   }
 
-  static Future<void> handleMessage(RemoteMessage message) async {
+  static Future<void> _handleMessage(RemoteMessage message) async {
     logger.i('🔔 Title: ${message.notification?.title}');
     logger.i('📩 Body: ${message.notification?.body}');
     logger.i('📦 Data: ${message.data}');
 
-
     //handle when the user press on the notification
   }
 
-  static Future<void> handleBackgroundMessage() async {
-    FirebaseMessaging.onMessageOpenedApp.listen(handleMessage);
+  static Future<void> handleOnMessageOpenApp() async {
+    FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
     final message = await messaging.getInitialMessage();
     if (message != null) {
-      await handleMessage(message);
+      await _handleMessage(message);
     }
+  }
+
+  static Future<void> handleBackgroundMessage() async {
+    FirebaseMessaging.onBackgroundMessage(_handleMessage);
   }
 
   static int id = 0;
@@ -95,7 +99,7 @@ class NotificationService {
   static void showLocalNotification({
     required String title,
     required String body,
-     String ?payload,
+    String? payload,
   }) {
     NotificationDetails notificationDetails = const NotificationDetails(
       android: AndroidNotificationDetails(

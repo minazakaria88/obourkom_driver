@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:obourkom_driver/core/helpers/error_handler.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
 import 'package:toastification/toastification.dart';
 import 'bloc_observer.dart';
@@ -21,7 +22,6 @@ import 'injection.dart';
 bool isLoggedIn = false;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
- // FlutterError.onError = ErrorHandler.handleFlutterError;
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -29,6 +29,7 @@ void main() async {
   ApiHelper.init();
   NotificationService.init();
   await checkIfUserLoggedIn();
+  registerErrorHandler();
   setupServicesLocator();
   Bloc.observer = MyBlocObserver();
   runApp(DevicePreview(enabled: false, builder: (context) => const ObourkomDriver()));

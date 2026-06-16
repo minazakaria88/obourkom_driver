@@ -136,11 +136,6 @@ class AppRoues {
         );
       case Routes.noInternet:
         return MaterialPageRoute(builder: (context) => const NoInternet());
-      case Routes.error:
-        final arguments = setting.arguments as String;
-        return MaterialPageRoute(
-          builder: (context) => CustomErrorWidget(error: arguments),
-        );
       case Routes.addOfferScreen:
         final arguments = setting.arguments as Map<String, dynamic>;
         final orderModel = arguments['model'] as FirebaseOrderModel;
