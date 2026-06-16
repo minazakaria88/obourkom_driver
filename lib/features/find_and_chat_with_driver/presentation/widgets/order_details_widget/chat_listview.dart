@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/message_model.dart';
 
 import '../../../../../core/storage/cache_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../otp/data/models/user_model.dart';
 import '../../cubit/find_and_chat_with_driver_cubit.dart';
 
 class ChatListview extends StatelessWidget {
@@ -11,13 +14,13 @@ class ChatListview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final  useDataJson = jsonDecode(CacheHelper.getData(key: CacheHelperKeys.user));
+    final userData = User.fromJson(useDataJson);
     return BlocBuilder<FindAndChatWithDriverCubit, FindAndChatWithDriverState>(
       buildWhen: (previous, current) => previous.messages != current.messages,
       builder: (context, state) {
         final messages = state.messages ?? [];
-        final id = CacheHelper.getData(
-          key: CacheHelperKeys.customerId,
-        ).toString();
+        final id = userData.id.toString();
         return SliverList(
           delegate: SliverChildBuilderDelegate(
                 (context, index) => id != messages[index].senderId

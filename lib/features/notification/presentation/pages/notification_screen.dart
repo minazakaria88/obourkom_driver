@@ -36,7 +36,6 @@ class NotificationScreen extends StatelessWidget {
                         logger.i(list[index].id);
                        cubit.readNotification(
                           list[index].id ?? '',
-                          index,
                         );
                       },
                       notificationModel: list[index],

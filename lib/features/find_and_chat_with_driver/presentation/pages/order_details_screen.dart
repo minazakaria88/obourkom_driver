@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,6 +13,7 @@ import '../../../../core/widgets/my_app_bar.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../orders/data/models/submit_order_model.dart';
+import '../../../otp/data/models/user_model.dart';
 import '../cubit/find_and_chat_with_driver_cubit.dart';
 import '../widgets/finding_driver_widgets/order_details_widget.dart';
 import '../widgets/order_details_widget/call_and_chat_with_user.dart';
@@ -31,6 +34,8 @@ class OrderDetailsScreen extends StatelessWidget {
   final OfferModel offerModel;
   @override
   Widget build(BuildContext context) {
+    final  useDataJson = jsonDecode(CacheHelper.getData(key: CacheHelperKeys.user));
+    final userData = User.fromJson(useDataJson);
     final cubit = context.read<FindAndChatWithDriverCubit>();
     return Scaffold(
       appBar: MyAppBar(
@@ -119,9 +124,7 @@ class OrderDetailsScreen extends StatelessWidget {
                         child: SendMessageWidget(
                           cubit: cubit,
                           orderId: orderModel.id.toString(),
-                          driverId: CacheHelper.getData(
-                            key: CacheHelperKeys.customerId,
-                          ).toString(),
+                          driverId: userData.id.toString(),
                         ),
                       )
                     : SendImageWidget(orderId: orderModel.id.toString());

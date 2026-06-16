@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -7,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:obourkom_driver/core/network/failure.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/models/message_model.dart';
 import 'package:obourkom_driver/features/find_and_chat_with_driver/data/repositories/find_and_chat_repo.dart';
+import 'package:obourkom_driver/features/otp/data/models/user_model.dart';
 import 'package:path_provider/path_provider.dart';
 import '../../../../core/storage/cache_helper.dart';
 import '../../../../core/utils/constant.dart';
@@ -53,9 +55,9 @@ class FindAndChatWithDriverCubit extends Cubit<FindAndChatWithDriverState> {
     required String orderId,
     required String message,
   }) async {
-    final String customerId = CacheHelper.getData(
-      key: CacheHelperKeys.customerId,
-    ).toString();
+    final  useDataJson = jsonDecode(CacheHelper.getData(key: CacheHelperKeys.user));
+    final userData = User.fromJson(useDataJson);
+    final customerId = userData.id.toString();
     MessageModel messageModel = MessageModel(
       message: message,
       dateTime: DateTime.now(),

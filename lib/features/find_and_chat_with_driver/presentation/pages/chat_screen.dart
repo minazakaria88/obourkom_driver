@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:obourkom_driver/core/helpers/extension.dart';
@@ -6,6 +8,7 @@ import 'package:obourkom_driver/features/find_and_chat_with_driver/presentation/
 
 import '../../../../core/storage/cache_helper.dart';
 import '../../../../generated/l10n.dart';
+import '../../../otp/data/models/user_model.dart';
 import '../cubit/find_and_chat_with_driver_cubit.dart';
 import '../widgets/order_details_widget/send_message_widget.dart';
 
@@ -14,6 +17,8 @@ class ChatScreen extends StatelessWidget {
    final String orderId;
   @override
   Widget build(BuildContext context) {
+    final  useDataJson = jsonDecode(CacheHelper.getData(key: CacheHelperKeys.user));
+    final userData = User.fromJson(useDataJson);
     return Scaffold(
       appBar: MyAppBar(title: S.of(context).chat),
       body:  Stack(
@@ -30,9 +35,7 @@ class ChatScreen extends StatelessWidget {
           SendMessageWidget(
             cubit: context.read<FindAndChatWithDriverCubit>(),
             orderId: orderId,
-            driverId: CacheHelper.getData(
-              key: CacheHelperKeys.customerId,
-            ).toString(),
+            driverId: userData.id.toString(),
           ),
         ],
       ),

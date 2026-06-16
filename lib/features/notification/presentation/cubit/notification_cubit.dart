@@ -40,23 +40,39 @@ class NotificationCubit extends Cubit<NotificationState> {
     }
   }
 
-  void readNotification(String id, int index) async {
+  void readNotification(String id) async {
+    final previousNotification = state.notifications!;
     try {
+      markNotificationOptimisticallyAsRead(id);
       await notificationRepository.markNotificationAsRead(id);
-      getNotification();
     } on ApiException catch (e) {
-      emit(state.copyWith(errorMessage: e.failure.message));
+      emit(
+        state.copyWith(
+          errorMessage: e.failure.message,
+          notifications: previousNotification,
+        ),
+      );
     } catch (e) {
-      emit(state.copyWith(errorMessage: e.toString()));
+      emit(
+        state.copyWith(
+          errorMessage: e.toString(),
+          notifications: previousNotification,
+        ),
+      );
     }
   }
 
+  void markNotificationOptimisticallyAsRead(String id) {
+    final updatedNotifications = state.notifications!
+        .map((n) => n.id == id ? n.copyWith(isRead: true) : n)
+        .toList();
+    emit(state.copyWith(notifications: updatedNotifications));
+  }
 
   @override
   void emit(NotificationState state) {
-    if(!isClosed) {
+    if (!isClosed) {
       super.emit(state);
     }
   }
-
 }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:obourkom_driver/core/storage/cache_helper.dart';
@@ -23,6 +25,7 @@ import '../../features/orders/data/models/order_model.dart';
 import '../../features/orders/data/models/submit_order_model.dart';
 import '../../features/orders/presentation/pages/completed_order_details_screen.dart';
 import '../../features/find_and_chat_with_driver/presentation/pages/order_details_screen.dart';
+import '../../features/otp/data/models/user_model.dart';
 import '../../features/otp/presentation/cubit/otp_cubit.dart';
 import '../../features/otp/presentation/pages/otp_screen.dart';
 import '../../features/profile/presentation/cubit/profile_cubit.dart';
@@ -35,7 +38,6 @@ import '../../features/profile/presentation/pages/profile_features_screens/terms
 import '../../features/register/presentation/cubit/register_cubit.dart';
 import '../../features/register/presentation/pages/register_screen.dart';
 import '../../injection.dart';
-import '../helpers/error_handler.dart';
 import '../utils/constant.dart';
 import '../widgets/no_internet_screen.dart';
 
@@ -114,7 +116,9 @@ class AppRoues {
         final arguments = setting.arguments as Map<String, dynamic>;
         final order = arguments['order'] as SubmitOrderModel;
         final offer=arguments['offer'] as OfferModel;
-        final driverId = CacheHelper.getData(key: CacheHelperKeys.customerId);
+        final driverDataSJson = jsonDecode(CacheHelper.getData(key: CacheHelperKeys.user));
+        final driverData = User.fromJson(driverDataSJson);
+        final driverId = driverData.id;
         logger.i(order.id);
         logger.i(driverId);
         return MaterialPageRoute(

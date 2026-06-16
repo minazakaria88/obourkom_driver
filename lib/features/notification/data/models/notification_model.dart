@@ -35,6 +35,37 @@ class DataNotificationModel {
   String? readAt;
   String? readAtFormated;
 
+
+  DataNotificationModel copyWith({
+    String? id,
+    String? image,
+    String? name,
+    String? body,
+    NotificationData? data,
+    bool? isRead,
+    String? tab,
+    String? createdAt,
+    String? createdAtFormated,
+    Links? links,
+    String? readAt,
+    String? readAtFormated,
+  }) {
+    return DataNotificationModel(
+      id: id ?? this.id,
+      image: image ?? this.image,
+      name: name ?? this.name,
+      body: body ?? this.body,
+      data: data ?? this.data,
+      isRead: isRead ?? this.isRead,
+      tab: tab ?? this.tab,
+      createdAt: createdAt ?? this.createdAt,
+      createdAtFormated: createdAtFormated ?? this.createdAtFormated,
+      links: links ?? this.links,
+      readAt: readAt ?? this.readAt,
+      readAtFormated: readAtFormated ?? this.readAtFormated,
+    );
+  }
+
   DataNotificationModel(
       {this.id,
         this.image,
@@ -84,6 +115,9 @@ class DataNotificationModel {
     data['read_at_formated'] = readAtFormated;
     return data;
   }
+
+
+
 }
 
 class NotificationData {

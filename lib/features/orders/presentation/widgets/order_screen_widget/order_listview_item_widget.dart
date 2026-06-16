@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:obourkom_driver/core/storage/cache_helper.dart';
@@ -11,6 +13,7 @@ import '../../../../../core/utils/app_styles.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../find_and_chat_with_driver/presentation/widgets/finding_driver_widgets/order_details_item_widget.dart';
+import '../../../../otp/data/models/user_model.dart';
 import '../../../../profile/presentation/widgets/profile_screen_widgets/background_profile_widget.dart';
 
 class OrderListviewItemWidget extends StatelessWidget {
@@ -21,6 +24,8 @@ class OrderListviewItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        final  useDataJson = jsonDecode(CacheHelper.getData(key: CacheHelperKeys.user));
+        final userData = User.fromJson(useDataJson);
         if(model.status=='delivered'){
           context.pushNamed(
             Routes.completedOrderDetails,
@@ -41,7 +46,7 @@ class OrderListviewItemWidget extends StatelessWidget {
             }
             Offer offer= model.offers!.where((e)=>e.id==model.acceptedOfferId).first;
             logger.i(offer.driverId);
-            if(offer.driverId!=CacheHelper.getData(key: CacheHelperKeys.customerId)) {
+            if(offer.driverId!=userData.id){
               return;
             }
             context.pushNamed(
