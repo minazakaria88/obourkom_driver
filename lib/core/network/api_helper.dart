@@ -1,7 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:obourkom_driver/core/utils/constant.dart';
-
-import '../storage/cache_helper.dart';
+import 'auth_interceptor.dart';
 import 'end_point.dart';
 
 class ApiHelper {
@@ -16,27 +14,29 @@ class ApiHelper {
       ..options.receiveTimeout = timeoutDuration
       ..options.sendTimeout = timeoutDuration
       ..options.receiveDataWhenStatusError = true;
-    addHeaders();
+    dio?.interceptors.addAll([
+      AuthInterceptor(),
+      LogInterceptor(
+        responseBody: true,
+        requestBody: true,
+        requestHeader: true,
+        responseHeader: true,
+      ),
+    ]);
+    //addHeaders();
   }
 
   static void addHeaders() async {
-    logger.d(
-      'token ${await CacheHelper.getSecureString(CacheHelperKeys.token)}',
-    );
-    dio?.options.headers = {
-      'Accept': 'application/json',
-      'Authorization':
-          'Bearer ${await CacheHelper.getSecureString(CacheHelperKeys.token)}',
-    };
+    dio?.options.headers = {'Accept': 'application/json'};
   }
 
-  void setTokenIntoHeadersAfterLogin(String token) {
-    dio?.options.headers['Authorization'] = 'Bearer $token';
-  }
-
-  void setLanguageIntoHeaders(String lang) {
-    dio?.options.headers['lang'] = lang;
-  }
+  // void setTokenIntoHeadersAfterLogin(String token) {
+  //   dio?.options.headers['Authorization'] = 'Bearer $token';
+  // }
+  //
+  // void setLanguageIntoHeaders(String lang) {
+  //   dio?.options.headers['lang'] = lang;
+  // }
 
   Future<Response> getData({
     required String url,
@@ -64,4 +64,3 @@ class ApiHelper {
     return await dio!.delete(url);
   }
 }
-

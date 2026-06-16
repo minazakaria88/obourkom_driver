@@ -56,7 +56,6 @@ class OtpCubit extends Cubit<OtpState> {
      if(otpType==OtpType.login) {
        await CacheHelper.saveData(key: CacheHelperKeys.carData, value: 'car');
      }
-      getIt<ApiHelper>().setTokenIntoHeadersAfterLogin(result.token ?? '');
       emit(state.copyWith(otpStatus: VerifyOtpStatus.success));
     } on ApiException catch (e) {
       emit(
